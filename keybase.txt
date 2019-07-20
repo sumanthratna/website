@@ -1,0 +1,124 @@
+==================================================================
+https://keybase.io/sumanthratna
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://sumanthratna.gq
+  * I am sumanthratna (https://keybase.io/sumanthratna) on keybase.
+  * I have a public key with fingerprint A930 4ABC E8CB DC50 9185  CB95 FC40 F670 A4F6 54CA
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0101c3e908b91d7e338445b69f9f72436f9f99fa4f65552ebefc76717a75d69b40a60a",
+      "fingerprint": "a9304abce8cbdc509185cb95fc40f670a4f654ca",
+      "host": "keybase.io",
+      "key_id": "fc40f670a4f654ca",
+      "kid": "0101c3e908b91d7e338445b69f9f72436f9f99fa4f65552ebefc76717a75d69b40a60a",
+      "uid": "444c3b7c4801c50c2282d6b12dc26d19",
+      "username": "sumanthratna"
+    },
+    "service": {
+      "hostname": "sumanthratna.gq",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1558563429,
+  "expire_in": 157680000,
+  "prev": "e724163e4112f86fe609b4c63c062b7dee82559a3ef9ce614005eb35ff168176",
+  "seqno": 5,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.1.0
+Comment: https://keybase.io/crypto
+
+yMIlAnicrVJdSBVBGL239JqSIRj0kIgsST6I7N/M7l6kLCQI6UFMS5Jus7Ozul3d
+vd7d6w9pCOFTYRqKSuZDWRGG2EOFGZVpVhbYjxgpRARlZqglKGZZs1JvPjYvHzPf
+OWfO+fiG4jd64rw/sxZDXYsHR7zPBjojnqKPI+QEo1paNeM/wQTJWiGlGrGdQNDQ
+GD/DciyHBaKwsqpwmkQEQRZFoEJFV3SJFwVIq6LoSNQhAIAnKtGxBCVOQhLQoKKK
+LIIsYtIZ3TCLSTgUNkyHyiJFYEWkYiJjVcOAVTgZYFUBOhZZHUrsmp6IXWKJZbsM
+ak5FNskwLPpGL4E1e+vg/7PvyJqcKIpYUCUsylQWsJjnZV6DKsdrmIcap7hAm4RN
+VEYo2o6UIdMpCSPHRExtOkM7FQYm7nDdNOugMorLqUQobDkWtkpps8RxQrbfJTvV
+IRddSdTAX52AapgaHSdlVJCwbVgm4+coEjuGK8wBIAMoiLySzpCqkBEmAcNFAAnK
+LD3uP6SCShI6CA4KROQ4XpehTiBLg2MoYBbyqqQRIvMAKEgguoIJ5ESWBUQVgK5z
+UOYkyLjJyk2L8QNqExW7mYxiEzmRMGFqHz4oivJ44zy+6A3umnniYhP+Ld/Mi5jf
+Wc3xXwdaq+pSr15P6FRqRqejBzatJqSlPZ9vfXxrsiXz0FzlbOH5xJcpR7/17ffl
+fzqy+DYp+WzqldFfE72fcXXs8FK7szKcXXpppevH1gkmWLF3Psu+kFu1kHdxV/LY
+dFXj3NPdqGlmOR/NnPM1Dt8+M7XQcPhSQVOm0SJHg+3NmRuj+PlgV//pd20dSTfn
+oP/VybqCXu++zblWzfL+tp0djWmzDePZkY/DPW8S729JaRxfXJqYy7rwfipabu/L
+7/nA3qg/lbPvUFLPxOWYOzvuTh6LPBrLeP0980DvJNq98G211HcPDdZvSx7qzhvs
+33NrpOl44Zdpo2HDwJPlnGvdwT+p3lM5
+=fDOt
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/sumanthratna
+
+==================================================================
+==================================================================
+https://keybase.io/sumanthratna
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://2022sratna.sites.tjhsst.edu
+  * I am sumanthratna (https://keybase.io/sumanthratna) on keybase.
+  * I have a public key ASBBnp9OA_dYpbOKe7-HNofYetZWNsZ0UjPkhnM2bNR3BAo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0101c3e908b91d7e338445b69f9f72436f9f99fa4f65552ebefc76717a75d69b40a60a",
+      "host": "keybase.io",
+      "kid": "0120419e9f4e03f758a5b38a7bbf873687d87ad65636c6745233e48673366cd477040a",
+      "uid": "444c3b7c4801c50c2282d6b12dc26d19",
+      "username": "sumanthratna"
+    },
+    "merkle_root": {
+      "ctime": 1558563633,
+      "hash": "b42282d02d229dbf4a658bf72d164dfe971b3d847c1b2596ad327122afa9a00a5b4191d5ef0231425df440d15748b99cc5ebc494b76e4620eb1c9cf0cfa9b3dd",
+      "hash_meta": "84eeb0e58d96f800dc5cfe05917cc29bdfb6867e5b2101dbdb91dacace136111",
+      "seqno": 5429463
+    },
+    "service": {
+      "entropy": "vMm5nzyrsaOFwF6vFc+zmYMe",
+      "hostname": "2022sratna.sites.tjhsst.edu",
+      "protocol": "http:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "4.0.0"
+  },
+  "ctime": 1558563686,
+  "expire_in": 504576000,
+  "prev": "13ad148670956422c9e5adecd1bef2f3ba3c0408eec21607af321fb55a82d4f4",
+  "seqno": 9,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgQZ6fTgP3WKWzinu/hzaH2HrWVjbGdFIz5IZzNmzUdwQKp3BheWxvYWTESpcCCcQgE60UhnCVZCLJ5a3s0b7y87o8BAjuwhYHrzIftVqC1PTEIBYHpUW4Wb+Mf0W5+kgi3/pQCVOJxSZWUmvQ12cnlEZSAgHCo3NpZ8RAF9RUOhVtFchZoEGJjc93jntXd/9/6c6hJEwqM7wcxOhIvtd8FGiUgHCn0DcySUG1XL3ya02AnkLAAR+ZLY30C6hzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIAbnUH+DixO3UmcOrnR66Uu4LenqPkWR7sOvCzi4hq8to3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/sumanthratna
+
+==================================================================
