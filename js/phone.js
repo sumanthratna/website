@@ -17,25 +17,25 @@
  * limitations under the License.
  * ========================================================== */
 
-+function ($) {
++ function($) {
 
-  'use strict';
+  "use strict";
 
 
   /* PHONE CLASS DEFINITION
    * ====================== */
 
-  var BFHPhone = function (element, options) {
+  var BFHPhone = function(element, options) {
     this.options = $.extend({}, $.fn.bfhphone.defaults, options);
     this.$element = $(element);
 
-    if (this.$element.is('input[type="text"]') || this.$element.is('input[type="tel"]')) {
+    if (this.$element.is("input[type="text"]") || this.$element.is("input[type="tel"]")) {
       var country = this.options.country;
 
-      var formObject = this.$element.closest('form');
+      var formObject = this.$element.closest("form");
 
       if (country !== "") {
-        var countryObject = formObject.find('#' + country);
+        var countryObject = formObject.find("#" + country);
 
         if (countryObject.length !== 0) {
           this.options.format = BFHPhoneFormatList[countryObject.val()];
@@ -47,7 +47,7 @@
       this.addFormatter();
     }
 
-    if (this.$element.is('span')) {
+    if (this.$element.is("span")) {
       this.displayFormatter();
     }
   };
@@ -56,7 +56,7 @@
 
     constructor: BFHPhone,
 
-    getFormattedNumber: function () {
+    getFormattedNumber: function() {
       var format = this.options.format;
       var phoneNumber = this.options.number;
       var formattedNumber = "";
@@ -78,8 +78,8 @@
           } else {
             formattedNumber += format.charAt(i);
           }
-        } else if (format.charAt(i) !== 'd') {
-          if (phoneNumber.charAt(j) !== '' || format.charAt(i) === '+') {
+        } else if (format.charAt(i) !== "d") {
+          if (phoneNumber.charAt(j) !== "" || format.charAt(i) === "+") {
             formattedNumber += format.charAt(i);
           }
         } else {
@@ -93,25 +93,25 @@
       }
 
       return formattedNumber;
-    }, 
+    },
 
     addFormatter: function() {
       var formattedNumber = this.getFormattedNumber();
 
-      this.$element.addClass('disabled');
+      this.$element.addClass("disabled");
       this.$element.val(formattedNumber);
-      this.$element.removeClass('disabled');
+      this.$element.removeClass("disabled");
     },
 
-    displayFormatter: function () {
+    displayFormatter: function() {
       var formattedNumber = this.getFormattedNumber();
 
       this.$element.html(formattedNumber);
-    }, 
+    },
 
-    changeCountry: function (e) {
+    changeCountry: function(e) {
       var $this = $(this);
-      var phoneObject = $(this).data('bfhphone');
+      var phoneObject = $(this).data("bfhphone");
 
       phoneObject.options.format = BFHPhoneFormatList[$this.val()];
 
@@ -121,9 +121,9 @@
     change: function(e) {
       var $this;
 
-      $this = $(this).data('bfhphone');
+      $this = $(this).data("bfhphone");
 
-      if ($this.$element.is('.disabled, :disabled')) return false;
+      if ($this.$element.is(".disabled, :disabled")) return false;
 
       var number = $this.$element.val();
       var newNumber = "";
@@ -137,7 +137,7 @@
 
       $this.addFormatter();
 
-      $this.$element.data('number', $this.options.number);
+      $this.$element.data("number", $this.options.number);
 
       return false;
     }
@@ -146,19 +146,19 @@
   /* PHONE PLUGIN DEFINITION
    * ======================= */
 
-  $.fn.bfhphone = function (option) {
-    return this.each(function () {
+  $.fn.bfhphone = function(option) {
+    return this.each(function() {
       var $this,
-          data,
-          options;
+        data,
+        options;
 
       $this = $(this);
-      data = $this.data('bfhphone');
-      options = typeof option === 'object' && option;
+      data = $this.data("bfhphone");
+      options = typeof option === "object" && option;
       if (!data) {
-        $this.data('bfhphone', (data = new BFHPhone(this, options)));
+        $this.data("bfhphone", (data = new BFHPhone(this, options)));
       }
-      if (typeof option === 'string') {
+      if (typeof option === "string") {
         data[option]();
       }
     });
@@ -167,17 +167,17 @@
   $.fn.bfhphone.Constructor = BFHPhone;
 
   $.fn.bfhphone.defaults = {
-    format: '',
-    number: '',
-    country: ''
+    format: "",
+    number: "",
+    country: ""
   }
 
 
   /* PHONE DATA-API
    * ============== */
 
-  $(window).on('load', function () {
-    $('form input[type="text"].bfh-phone, form input[type="tel"].bfh-phone, span.bfh-phone').each(function () {
+  $(window).on("load", function() {
+    $("form input[type="text"].bfh-phone, form input[type="tel"].bfh-phone, span.bfh-phone").each(function() {
       var $phone;
 
       $phone = $(this);
@@ -186,10 +186,10 @@
     });
   });
 
-  $(function () {
-    $('body')
-      .on('propertychange.bfhphone.data-api change.bfhphone.data-api input.bfhphone.data-api keyup.bfhphone.data-api paste.bfhphone.data-api', '.bfh-phone', BFHPhone.prototype.change)
-      .on('change.bfhphone.data-api', '.bfh-country', BFHPhone.prototype.changeCountry)
+  $(function() {
+    $("body")
+      .on("propertychange.bfhphone.data-api change.bfhphone.data-api input.bfhphone.data-api keyup.bfhphone.data-api paste.bfhphone.data-api", ".bfh-phone", BFHPhone.prototype.change)
+      .on("change.bfhphone.data-api", ".bfh-country", BFHPhone.prototype.changeCountry)
   })
 
 }(window.jQuery);
