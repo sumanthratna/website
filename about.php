@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once 'templates.php';
 get_header('about');
 ?>
@@ -126,6 +126,6 @@ get_header('about');
 		</div>
 	</div>
 </div>
-<?php 
+<?php
 get_footer();
 ?>

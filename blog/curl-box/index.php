@@ -11,7 +11,7 @@
                         <span><small>June 20, 2019</small> | <small><i class="icon-bubble3"></i> 0</small></span>
                         <p>
                             <code>curl -L https://api.box.com/2.0/files/[FILE ID]/content -H "Authorization: Bearer [DEVELOPER TOKEN]" -o [FILE NAME]</code>
-                            Get file ID from URL in browser. Get developer token by creating new Box app. Choose file name. 
+                            Get file ID from URL in browser. Get developer token by creating new Box app. Choose file name.
                         </p>
                     </div>
                 </div>

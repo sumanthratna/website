@@ -1208,7 +1208,7 @@ header .sratna-navbar-brand .sratna-logo:active, header .sratna-navbar-brand .sr
 }
 
 .article .desc .meta {
-  z-index:1000;
+  z-index: 1000;
   position: relative;
   top: -80px;
   left: 20px;

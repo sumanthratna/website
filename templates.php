@@ -1,6 +1,7 @@
-<?php 
+<?php
 require_once dirname(__FILE__).'/../private/keys.php';
-function socials() {
+function socials()
+{
     // make size 48x48px
     $out = <<<HTML
 <p class='sratna-social-icons'>
@@ -12,19 +13,21 @@ function socials() {
 HTML;
     echo $out;
 }
-function posts() {
+function posts()
+{
     $data = file_get_contents("https://sumanthratna.gq/index.json");
-    return json_decode($data, TRUE);
+    return json_decode($data, true);
 }
-function get_header($page) {
+function get_header($page)
+{
     $navpages = '';
     $navpages .= '<li'.($page==='home' ? ' class="active"':'').'><a href="https://sumanthratna.gq">Home</a></li>';
     $navpages .= '<li'.($page==='blog' ? ' class="active"':'').'><a href="https://sumanthratna.gq/blog">Blog</a></li>';
     $navpages .= '<li'.($page==='about' ? ' class="active"':'').'><a href="https://sumanthratna.gq/about.php">About</a></li>';
     $navpages .= '<li'.($page==='contact' ? ' class="active"':'').'><a href="https://sumanthratna.gq/contact.php">Contact</a></li>';
-    
+
     $title = ucfirst($page).' - Sumanth Ratna';
-    
+
     $out = <<<EOT
 <!DOCTYPE HTML>
 <html lang="en">
@@ -36,12 +39,12 @@ function get_header($page) {
         <meta name="description" content="Sumanth Ratna" />
         <meta name="keywords" content="Sumanth Ratna" />
         <meta name="author" content="Sumanth Ratna" />
-        
+
         <meta property="og:title" content="Sumanth Ratna" />
         <meta property="og:image" content="images/me.jpg" />
         <meta property="og:url" content="https://sumanthratna.gq" />
         <link rel="canonical" href="https://sumanthratna.gq/"/>
-        
+
         <style>
             html, body {
                 width: 100%;
@@ -50,31 +53,31 @@ function get_header($page) {
                 padding: 0;
             }
         </style>
-        
+
         <link rel="shortcut icon" href="favicon.ico">
         <link href="https://fonts.googleapis.com/css?family=Karla:400,700" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700" rel="stylesheet">
 
         <link rel="stylesheet" href="https://sumanthratna.gq/css/animate.css">
-        
+
         <link rel="stylesheet" href="https://sumanthratna.gq/css/icomoon.css">
-        
+
         <link rel="stylesheet" href="https://sumanthratna.gq/css/bootstrap.css">
-        
+
         <link rel="stylesheet" href="https://sumanthratna.gq/css/owl.carousel.min.css">
         <link rel="stylesheet" href="https://sumanthratna.gq/css/owl.theme.default.min.css">
-        
+
         <link rel="stylesheet" href="https://sumanthratna.gq/css/magnific-popup.css">
         <link rel="stylesheet" href="https://sumanthratna.gq/style.css">
-        
+
         <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
-        
+
         <style>
             ::-webkit-scrollbar {
               width: 10px;
             }
             ::-webkit-scrollbar-track {
-              background: #f0f0f0; 
+              background: #f0f0f0;
             }
             ::-webkit-scrollbar-thumb {
               background: #808080;
@@ -83,7 +86,7 @@ function get_header($page) {
               background: #555;
             }
         </style>
-        
+
         <script src="https://sumanthratna.gq/js/jquery.min.js"></script>
         <script src="https://sumanthratna.gq/js/jquery.easing.1.3.js"></script>
         <script src="https://sumanthratna.gq/js/jquery.waypoints.min.js"></script>
@@ -153,16 +156,17 @@ function get_header($page) {
 EOT;
     echo $out;
 }
-function get_footer() {
+function get_footer()
+{
     $posts = '';
-    foreach(posts() as $key=>$value) {
-	    $posts .= '<div class="f-entry">';
-	        $posts .= '<a href="'.('https://sumanthratna.gq/blog/'.$key).'" class="featured-img" style="background-image: url(\''.$value['image'].'\');"></a>';
-	        $posts .= '<div class="desc">';
-	            $posts .= '<span>'.$value['date'].'</span>';
-	            $posts .= '<h3><a href="'.('https://sumanthratna.gq/blog/'.$key).'">'.$value['title'].'</a></h3>';
-	        $posts .= '</div>';
-	    $posts .= '</div>';
+    foreach (posts() as $key=>$value) {
+        $posts .= '<div class="f-entry">';
+        $posts .= '<a href="'.('https://sumanthratna.gq/blog/'.$key).'" class="featured-img" style="background-image: url(\''.$value['image'].'\');"></a>';
+        $posts .= '<div class="desc">';
+        $posts .= '<span>'.$value['date'].'</span>';
+        $posts .= '<h3><a href="'.('https://sumanthratna.gq/blog/'.$key).'">'.$value['title'].'</a></h3>';
+        $posts .= '</div>';
+        $posts .= '</div>';
     }
     $year = date('Y');
     $out = <<<HTML
@@ -213,4 +217,3 @@ function get_footer() {
 HTML;
     echo $out;
 }
-?>

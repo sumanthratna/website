@@ -210,25 +210,25 @@ require_once 'templates.php';
         </div>
         <div class="row animate-box">
             <div class="owl-carousel1">
-                <?php 
-                    foreach(posts() as $key=>$value) {
+                <?php
+                    foreach (posts() as $key=>$value) {
                         echo '<div class="item">';
-                            echo '<div class="col-md-12">';
-                                echo '<div class="article">';
-                                    echo '<a href="'.('//'.$_SERVER['HTTP_HOST'].'/blog/'.$key).'" class="blog-img">';
-                                        echo '<img class="img-responsive" src="'.$value['image'].'" alt="">';
-                                        echo '<div class="overlay"></div>';
-                                        echo '<div class="link">';
-                                            echo '<span class="read">Read More</h2>';
-                                        echo '</div>';
-                                    echo '</a>';
-                                    echo '<div class="desc">';
-                                        echo '<span class="meta">'.$value['date'].'</span>';
-                                        echo '<h2><a href="'.('//'.$_SERVER['HTTP_HOST'].'/blog/'.$key).'">'.$value['title'].'</a></h2>';
-                                        echo '<p>'.$value['excerpt'].'</p>';
-                                    echo '</div>';
-                                echo '</div>';
-                            echo '</div>';
+                        echo '<div class="col-md-12">';
+                        echo '<div class="article">';
+                        echo '<a href="'.('//'.$_SERVER['HTTP_HOST'].'/blog/'.$key).'" class="blog-img">';
+                        echo '<img class="img-responsive" src="'.$value['image'].'" alt="">';
+                        echo '<div class="overlay"></div>';
+                        echo '<div class="link">';
+                        echo '<span class="read">Read More</h2>';
+                        echo '</div>';
+                        echo '</a>';
+                        echo '<div class="desc">';
+                        echo '<span class="meta">'.$value['date'].'</span>';
+                        echo '<h2><a href="'.('//'.$_SERVER['HTTP_HOST'].'/blog/'.$key).'">'.$value['title'].'</a></h2>';
+                        echo '<p>'.$value['excerpt'].'</p>';
+                        echo '</div>';
+                        echo '</div>';
+                        echo '</div>';
                         echo '</div>';
                     }
                 ?>

@@ -1,8 +1,8 @@
-<?php 
+<?php
 require_once 'templates.php';
 ?>
-<?php 
-if($_SERVER['REQUEST_METHOD']=="POST" and isset($_POST['contact'])) {
+<?php
+if ($_SERVER['REQUEST_METHOD']=="POST" and isset($_POST['contact'])) {
     require_once 'vendor/autoload.php';
     $data = $_POST['contact'];
     $message = '';
@@ -21,8 +21,7 @@ if($_SERVER['REQUEST_METHOD']=="POST" and isset($_POST['contact'])) {
         } catch (Exception $e) {
             $message = 'error sending message (but a valid email was detected):\n\n'.$e->getMessage().'\n\nHere\'s what you wrote:\n'.nl2br($data[2]);
         }
-    }
-    else {
+    } else {
         $message = 'invalid email address\n\nHere\'s what you wrote:\n'.nl2br($data[2]);
     }
 }
