@@ -117,7 +117,7 @@ function get_header($page)
                             </ul>
                         </div>
                     </div>
-                    <div class="row">
+                    <!--<div class="row">
                         <div class="col-md-12">
                             <h2 class="head-title">Works</h2>
                                 <a href="images/work-1.jpg" class="gallery image-popup-link text-center" style="background-image: url('images/work-1.jpg');">
@@ -133,7 +133,7 @@ function get_header($page)
                                     <span><i class="icon-search3"></i></span>
                                 </a>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </nav>
