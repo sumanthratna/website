@@ -1,0 +1,47 @@
+;;
+;; Domain:     sumanthratna.gq.
+;; Exported:   2019-10-26 16:37:24
+;;
+;; This file is intended for use for informational and archival
+;; purposes ONLY and MUST be edited before use on a production
+;; DNS server.  In particular, you must:
+;;   -- update the SOA record with the correct authoritative name server
+;;   -- update the SOA record with the contact e-mail address information
+;;   -- update the NS record(s) with the authoritative name servers for this domain.
+;;
+;; For further information, please consult the BIND documentation
+;; located on the following website:
+;;
+;; http://www.isc.org/
+;;
+;; And RFC 1035:
+;;
+;; http://www.ietf.org/rfc/rfc1035.txt
+;;
+;; Please note that we do NOT offer technical support for any use
+;; of this zone data, the BIND name server, or any other third-party
+;; DNS software.
+;;
+;; Use at your own risk.
+
+;; SOA Record
+sumanthratna.gq.	3600	IN	SOA	sumanthratna.gq. root.sumanthratna.gq. 2032377444 7200 3600 86400 3600
+
+;; CNAME Records
+9384528.sumanthratna.gq.	1	IN	CNAME	sendgrid.net.
+em6904.sumanthratna.gq.	1	IN	CNAME	u9384528.wl029.sendgrid.net.
+knowledge.sumanthratna.gq.	1	IN	CNAME	hosting.gitbook.com.
+s1._domainkey.sumanthratna.gq.	1	IN	CNAME	s1.domainkey.u9384528.wl029.sendgrid.net.
+s2._domainkey.sumanthratna.gq.	1	IN	CNAME	s2.domainkey.u9384528.wl029.sendgrid.net.
+sumanthratna.gq.	1	IN	CNAME	2022sratna.sites.tjhsst.edu.
+url2231.sumanthratna.gq.	1	IN	CNAME	sendgrid.net.
+url9231.sumanthratna.gq.	1	IN	CNAME	sendgrid.net.
+www.sumanthratna.gq.	1	IN	CNAME	sumanthratna.gq.
+
+;; MX Records
+sumanthratna.gq.	1	IN	MX	20 mx2.improvmx.com.
+sumanthratna.gq.	1	IN	MX	10 mx1.improvmx.com.
+
+;; TXT Records
+_dmarc.sumanthratna.gq.	1	IN	TXT	"v=DMARC1; p=quarantine; pct=100; rua=mailto:re+avmtiylnlrq@dmarc.postmarkapp.com; sp=none; aspf=r;"
+sumanthratna.gq.	1	IN	TXT	"google-site-verification=6E2e8WcHTBHhyI6M9EezgNmCxKFwGl44NfjBrteOxas"
