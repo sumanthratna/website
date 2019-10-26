@@ -1,6 +1,7 @@
 <?php 
 require_once '../templates.php';
 require_once 'session.php';
+$domain = "https://".$_SERVER['HTTP_HOST'];
 if ($_SERVER['REQUEST_METHOD']=="POST") {
     $message = '';
     if (isset($_POST['create'])) {
@@ -39,14 +40,14 @@ HTML;
             "$data[1]"=>array(
                 "title"=>"$data[0]",
                 "excerpt"=>"$data[3]",
-                "image"=>"https://sumanthratna.gq/blog/$data[1]/img.jpg",
+                "image"=>$domain."/blog/$data[1]/img.jpg",
                 "date"=>"$data[2]",
                 "comments"=>array()
             )
         );
         $index = $post+$index;
         file_put_contents(realpath(dirname(__FILE__).'/../index.json'), json_encode($index,JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
-        $message = "Successfully created post <a href=\"https://sumanthratna.gq/blog/$data[1]\" target=\"_blank\">\"$data[0]\"</a>";
+        $message = "Successfully created post <a href=\"".$domain."/blog/$data[1]\" target=\"_blank\">\"$data[0]\"</a>";
     }
     if (isset($_POST['organize'])) {
         $newArray = array();
@@ -168,8 +169,8 @@ HTML;
                 </div>
                 <div id="organize" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <script src="//sumanthratna.gq/js/jquery-ui.min.js"></script>
-                        <link rel="stylesheet" href="//sumanthratna.gq/css/jquery-ui.min.css">
+                        <script src="<?php echo $domain ?>/js/jquery-ui.min.js"></script>
+                        <link rel="stylesheet" href="<?php echo $domain ?>/css/jquery-ui.min.css">
                         <ul id="sortable" class="list-group">
                             <?php 
                                 foreach(posts() as $key=>$value) {

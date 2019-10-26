@@ -15,16 +15,17 @@ HTML;
 }
 function posts()
 {
-    $data = file_get_contents("https://sumanthratna.gq/index.json");
+    $data = file_get_contents("https://".$_SERVER['HTTP_HOST']."/index.json");
     return json_decode($data, true);
 }
 function get_header($page)
 {
+    $domain = "https://".$_SERVER['HTTP_HOST'];
     $navpages = '';
-    $navpages .= '<li'.($page==='home' ? ' class="active"':'').'><a href="https://sumanthratna.gq">Home</a></li>';
-    $navpages .= '<li'.($page==='blog' ? ' class="active"':'').'><a href="https://sumanthratna.gq/blog">Blog</a></li>';
-    $navpages .= '<li'.($page==='about' ? ' class="active"':'').'><a href="https://sumanthratna.gq/about.php">About</a></li>';
-    $navpages .= '<li'.($page==='contact' ? ' class="active"':'').'><a href="https://sumanthratna.gq/contact.php">Contact</a></li>';
+    $navpages .= '<li'.($page==='home' ? ' class="active"':'').'><a href="'.$domain.'">Home</a></li>';
+    $navpages .= '<li'.($page==='blog' ? ' class="active"':'').'><a href="'.$domain.'/blog">Blog</a></li>';
+    $navpages .= '<li'.($page==='about' ? ' class="active"':'').'><a href="'.$domain.'/about.php">About</a></li>';
+    $navpages .= '<li'.($page==='contact' ? ' class="active"':'').'><a href="'.$domain.'/contact.php">Contact</a></li>';
 
     $title = ucfirst($page).' - Sumanth Ratna';
 
@@ -42,8 +43,8 @@ function get_header($page)
 
         <meta property="og:title" content="Sumanth Ratna" />
         <meta property="og:image" content="images/me.jpg" />
-        <meta property="og:url" content="https://sumanthratna.gq" />
-        <link rel="canonical" href="https://sumanthratna.gq/"/>
+        <meta property="og:url" content="$domain" />
+        <link rel="canonical" href="$domain/"/>
 
         <style>
             html, body {
@@ -58,17 +59,17 @@ function get_header($page)
         <link href="https://fonts.googleapis.com/css?family=Karla:400,700" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700" rel="stylesheet">
 
-        <link rel="stylesheet" href="https://sumanthratna.gq/css/animate.css">
+        <link rel="stylesheet" href="$domain/css/animate.css">
 
-        <link rel="stylesheet" href="https://sumanthratna.gq/css/icomoon.css">
+        <link rel="stylesheet" href="$domain/css/icomoon.css">
 
-        <link rel="stylesheet" href="https://sumanthratna.gq/css/bootstrap.css">
+        <link rel="stylesheet" href="$domain/css/bootstrap.css">
 
-        <link rel="stylesheet" href="https://sumanthratna.gq/css/owl.carousel.min.css">
-        <link rel="stylesheet" href="https://sumanthratna.gq/css/owl.theme.default.min.css">
+        <link rel="stylesheet" href="$domain/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="$domain/css/owl.theme.default.min.css">
 
-        <link rel="stylesheet" href="https://sumanthratna.gq/css/magnific-popup.css">
-        <link rel="stylesheet" href="https://sumanthratna.gq/style.css">
+        <link rel="stylesheet" href="$domain/css/magnific-popup.css">
+        <link rel="stylesheet" href="$domain/style.css">
 
         <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
 
@@ -87,13 +88,13 @@ function get_header($page)
             }
         </style>
 
-        <script src="https://sumanthratna.gq/js/jquery.min.js"></script>
-        <script src="https://sumanthratna.gq/js/jquery.easing.1.3.js"></script>
-        <script src="https://sumanthratna.gq/js/jquery.waypoints.min.js"></script>
-        <script src="https://sumanthratna.gq/js/jquery.magnific-popup.min.js"></script>
-        <script src="https://sumanthratna.gq/js/bootstrap.min.js"></script>
-        <script src="https://sumanthratna.gq/js/owl.carousel.min.js"></script>
-        <script src="https://sumanthratna.gq/js/modernizr-2.6.2.min.js"></script>
+        <script src="$domain/js/jquery.min.js"></script>
+        <script src="$domain/js/jquery.easing.1.3.js"></script>
+        <script src="$domain/js/jquery.waypoints.min.js"></script>
+        <script src="$domain/js/jquery.magnific-popup.min.js"></script>
+        <script src="$domain/js/bootstrap.min.js"></script>
+        <script src="$domain/js/owl.carousel.min.js"></script>
+        <script src="$domain/js/modernizr-2.6.2.min.js"></script>
 
         <!--[if lt IE 9]>
         <script src="js/respond.min.js"></script>
@@ -143,8 +144,8 @@ function get_header($page)
                     <div class="row">
                         <div class="col-md-12">
                             <div class="sratna-navbar-brand">
-                                <a class="img-responsive sratna-logo" href="https://sumanthratna.gq">
-                                    <img src="//sumanthratna.gq/favicon.ico" alt="logo"></img>
+                                <a class="img-responsive sratna-logo" href="$domain">
+                                    <img src="$domain/favicon.ico" alt="logo"></img>
                                     <!--<span>S_</span><span>_R</span>-->
                                 </a>
                             </div>
@@ -158,13 +159,14 @@ EOT;
 }
 function get_footer()
 {
+    $domain = "https://".$_SERVER['HTTP_HOST'];
     $posts = '';
     foreach (posts() as $key=>$value) {
         $posts .= '<div class="f-entry">';
-        $posts .= '<a href="'.('https://sumanthratna.gq/blog/'.$key).'" class="featured-img" style="background-image: url(\''.$value['image'].'\');"></a>';
+        $posts .= '<a href="'.($domain.'/blog/'.$key).'" class="featured-img" style="background-image: url(\''.$value['image'].'\');"></a>';
         $posts .= '<div class="desc">';
         $posts .= '<span>'.$value['date'].'</span>';
-        $posts .= '<h3><a href="'.('https://sumanthratna.gq/blog/'.$key).'">'.$value['title'].'</a></h3>';
+        $posts .= '<h3><a href="'.($domain.'/blog/'.$key).'">'.$value['title'].'</a></h3>';
         $posts .= '</div>';
         $posts .= '</div>';
     }
@@ -212,7 +214,7 @@ function get_footer()
     </div>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
 </body>
-        <script src="https://sumanthratna.gq/js/main.js"></script>
+        <script src="$domain/js/main.js"></script>
 </html>
 HTML;
     echo $out;
