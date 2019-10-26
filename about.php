@@ -18,7 +18,7 @@ get_header('about');
 						<div class="rotate">
 							<h2 class="heading">About</h2>
 						</div>
-						<p>I'm a rising sophomore at the Thomas Jefferson High School for Science and Technology. <a href="#sratna-services">I like to code</a>, especially with machine learning, mobile apps, and web development.</p>
+						<p>I'm a sophomore at the Thomas Jefferson High School for Science and Technology. <a href="#sratna-services">I like to code</a>, especially with machine learning, mobile apps, and web development.</p>
 						<?php socials(); ?>
 						<!--<p><a href="work.html" class="btn btn-primary btn-outline">View My Works</a></p>-->
 					</div>

@@ -9,16 +9,16 @@
     "packages": [
         {
             "name": "neverbounce/neverbounce-php",
-            "version": "v4.1.5",
+            "version": "v4.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/NeverBounce/NeverBounceAPI-PHP.git",
-                "reference": "333ffb71505d69e8802b1cbb5cf42e3f3dccb16d"
+                "reference": "49d0cc0d5ea5b2ae4000d6b60fe6ad55c2003069"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NeverBounce/NeverBounceAPI-PHP/zipball/333ffb71505d69e8802b1cbb5cf42e3f3dccb16d",
-                "reference": "333ffb71505d69e8802b1cbb5cf42e3f3dccb16d",
+                "url": "https://api.github.com/repos/NeverBounce/NeverBounceAPI-PHP/zipball/49d0cc0d5ea5b2ae4000d6b60fe6ad55c2003069",
+                "reference": "49d0cc0d5ea5b2ae4000d6b60fe6ad55c2003069",
                 "shasum": ""
             },
             "require": {
@@ -57,7 +57,7 @@
                 "validation",
                 "verification"
             ],
-            "time": "2018-12-12 20:19:36"
+            "time": "2019-06-03 17:44:49"
         },
         {
             "name": "sendgrid/php-http-client",
@@ -113,22 +113,23 @@
         },
         {
             "name": "sendgrid/sendgrid",
-            "version": "7.2.1",
+            "version": "7.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sendgrid/sendgrid-php.git",
-                "reference": "c249a46ef1b5eca525202772045fedfffa7e0732"
+                "reference": "37fa19d3ae019842f07a2a43e92ed0f566ad927d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sendgrid/sendgrid-php/zipball/c249a46ef1b5eca525202772045fedfffa7e0732",
-                "reference": "c249a46ef1b5eca525202772045fedfffa7e0732",
+                "url": "https://api.github.com/repos/sendgrid/sendgrid-php/zipball/37fa19d3ae019842f07a2a43e92ed0f566ad927d",
+                "reference": "37fa19d3ae019842f07a2a43e92ed0f566ad927d",
                 "shasum": ""
             },
             "require": {
                 "ext-curl": "*",
                 "ext-json": "*",
                 "ext-mbstring": "*",
+                "ext-openssl": "*",
                 "php": ">=5.6",
                 "sendgrid/php-http-client": "~3.9"
             },
@@ -156,15 +157,16 @@
             "license": [
                 "MIT"
             ],
-            "description": "This library allows you to quickly and easily send emails through SendGrid using PHP.",
+            "description": "This library allows you to quickly and easily send emails through Twilio SendGrid using PHP.",
             "homepage": "http://github.com/sendgrid/sendgrid-php",
             "keywords": [
                 "email",
                 "grid",
                 "send",
-                "sendgrid"
+                "sendgrid",
+                "twilio sendgrid"
             ],
-            "time": "2018-09-18 21:45:55"
+            "time": "2019-04-15 17:27:21"
         }
     ],
     "packages-dev": [],
