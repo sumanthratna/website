@@ -1,0 +1,47 @@
+;;
+;; Domain:     sumanthratna.ml.
+;; Exported:   2019-10-27 21:42:38
+;;
+;; This file is intended for use for informational and archival
+;; purposes ONLY and MUST be edited before use on a production
+;; DNS server.  In particular, you must:
+;;   -- update the SOA record with the correct authoritative name server
+;;   -- update the SOA record with the contact e-mail address information
+;;   -- update the NS record(s) with the authoritative name servers for this domain.
+;;
+;; For further information, please consult the BIND documentation
+;; located on the following website:
+;;
+;; http://www.isc.org/
+;;
+;; And RFC 1035:
+;;
+;; http://www.ietf.org/rfc/rfc1035.txt
+;;
+;; Please note that we do NOT offer technical support for any use
+;; of this zone data, the BIND name server, or any other third-party
+;; DNS software.
+;;
+;; Use at your own risk.
+
+;; SOA Record
+sumanthratna.ml.	3600	IN	SOA	sumanthratna.ml. root.sumanthratna.ml. 2032387915 7200 3600 86400 3600
+
+;; CNAME Records
+9384528.sumanthratna.ml.	1	IN	CNAME	sendgrid.net.
+em3613.sumanthratna.ml.	1	IN	CNAME	u9384528.wl029.sendgrid.net.
+em5586.sumanthratna.ml.	1	IN	CNAME	u9384528.wl029.sendgrid.net.
+s1._domainkey.sumanthratna.ml.	1	IN	CNAME	s1.domainkey.u9384528.wl029.sendgrid.net.
+s2._domainkey.sumanthratna.ml.	1	IN	CNAME	s2.domainkey.u9384528.wl029.sendgrid.net.
+sumanthratna.ml.	1	IN	CNAME	2022sratna.sites.tjhsst.edu.
+url2289.sumanthratna.ml.	1	IN	CNAME	sendgrid.net.
+url314.sumanthratna.ml.	1	IN	CNAME	sendgrid.net.
+www.sumanthratna.ml.	1	IN	CNAME	sumanthratna.ml.
+
+;; MX Records
+sumanthratna.ml.	1	IN	MX	20 mx2.improvmx.com.
+sumanthratna.ml.	1	IN	MX	10 mx1.improvmx.com.
+
+;; TXT Records
+_dmarc.sumanthratna.ml.	1	IN	TXT	"v=DMARC1; p=none; pct=100; rua=mailto:re+zeay80ddwu9@dmarc.postmarkapp.com; sp=none; aspf=r;"
+sumanthratna.ml.	1	IN	TXT	"google-site-verification=mo_NksBw0QtARx_jF7QHSL63XrJz0sbbLt9nT2xHRV0"
