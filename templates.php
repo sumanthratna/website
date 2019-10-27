@@ -5,10 +5,10 @@ function socials()
     // make size 48x48px
     $out = <<<HTML
 <p class='sratna-social-icons'>
-	<a href='https://www.facebook.com/sumanthratna29'><i class='icon-facebook4'></i></a>
-	<a href='https://twitter.com/sumanthratna'><i class='icon-twitter3'></i></a>
 	<a href='https://github.com/sumanthratna/'><i class='icon-github'></i></a>
 	<a href='https://stackoverflow.com/users/7127932/sumanth-ratna'><i class='icon-stackoverflow'></i></a>
+	<a href='https://www.facebook.com/sumanthratna29'><i class='icon-facebook4'></i></a>
+	<a href='https://twitter.com/sumanthratna'><i class='icon-twitter3'></i></a>
 </p>
 HTML;
     echo $out;
@@ -160,6 +160,7 @@ EOT;
 function get_footer()
 {
     $domain = "https://".$_SERVER['HTTP_HOST'];
+    $email = "sratna@".$_SERVER['HTTP_HOST'];
     $posts = '';
     foreach (posts() as $key=>$value) {
         $posts .= '<div class="f-entry">';
@@ -181,7 +182,7 @@ function get_footer()
                                 <div class="col-md-10">
                                     <h2>Let's Talk</h2>
                                     <p>Email me.</p>
-                                    <p><a href="mailto:sratna@sumanthratna.gq">sratna@sumanthratna.gq</a></p>
+                                    <p><a href="mailto:$email">$email</a></p>
                                     <?php get_socials(); ?>
                                 </div>
                             </div>

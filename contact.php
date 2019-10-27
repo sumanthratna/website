@@ -57,8 +57,8 @@ if ($_SERVER['REQUEST_METHOD']=="POST" and isset($_POST['contact'])) {
 								<ul class="contact-info">
 									<!--<li><span><i class="icon-map5"></i></span>7214 Bull Run Post Office Rd, Centreville, VA 20121</li>-->
 									<li><span><i class="icon-phone4"></i></span>+1(571)241-0094</li>
-									<li><span><i class="icon-envelope2"></i></span><a href="mailto:sratna@sumanthratna.gq">sratna@sumanthratna.gq</a></li>
-									<li><span><i class="icon-globe3"></i></span><a href="<?php echo _SERVER['HTTP_HOST'] ?>"><?php echo _SERVER['HTTP_HOST'] ?></a></li>
+									<li><span><i class="icon-envelope2"></i></span><a href="mailto:sratna@<?php echo $_SERVER['HTTP_HOST']?>">sratna@<?php echo $_SERVER['HTTP_HOST']?></a></li>
+									<li><span><i class="icon-globe3"></i></span><a href="<?php echo $_SERVER['HTTP_HOST'] ?>"><?php echo $_SERVER['HTTP_HOST'] ?></a></li>
 								</ul>
 							</div>
                             <div class="col-md-7 col-md-push-1 animate-box">
