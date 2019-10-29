@@ -10,7 +10,7 @@
                         <h3><a href="#">GradeView</a></h3>
                         <span><small>April 17, 2019</small> | <small><i class="icon-bubble3"></i> 0</small></span>
                         <p>
-                            If you have questions about the app, please <a href="https://sumanthratna.gq/contact.php">contact me</a>. If you'd like, you can open an issue or pull request on the <a href="https://github.com/sumanthratna/grade-view.git">GitHub repository</a>. <a href="https://testflight.apple.com/join/lYtIfMNU">iOS beta</a>, <a href="https://gradeview.en.aptoide.com/">Android</a>
+                            If you have questions about the app, please <a href="https://sumanthratna.gq/contact.php">contact me</a>. If you'd like, you can open an issue or pull request on the <a href="https://github.com/sumanthratna/grade-view.git">GitHub repository</a>. <a href="https://apps.apple.com/us/app/gradeview/id1459817290">iOS</a>, <a href="https://gradeview.en.aptoide.com/">Android</a>
                         </p>
                     </div>
                 </div>
