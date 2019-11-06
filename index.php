@@ -14,7 +14,7 @@ require_once 'templates.php';
                         <img class="img-responsive about-img" src="images/me.jpg" alt="a picture of me">
                     </div>
                     <div class="item">
-                        <!--<img class="img-responsive about-img" src="images/about-2.jpg">-->
+                        <img class="img-responsive about-img" src="images/laptop.jpeg" alt="a picture of me">
                     </div>
                 </div>
             </div>

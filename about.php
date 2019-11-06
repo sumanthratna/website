@@ -9,7 +9,14 @@ get_header('about');
 		</div>
 		<div class="row row-padded-bottom">
 			<div class="col-md-5 animate-box">
-				<img class="img-responsive about-img" src="images/me.jpg" alt="a picture of me">
+				<div class="owl-carousel3">
+                    <div class="item">
+                        <img class="img-responsive about-img" src="images/me.jpg" alt="a picture of me">
+                    </div>
+                    <div class="item">
+                        <img class="img-responsive about-img" src="images/laptop.jpeg" alt="a picture of me">
+                    </div>
+                </div>
 			</div>
 			<div class="col-md-6 col-md-push-1 animate-box">
 				<div class="about-desc">
@@ -108,7 +115,17 @@ get_header('about');
 					<div class="col-md-12 text-center">
 						<div class="testimony">
 							<blockquote>
-								<p>"A Fairfax County Public School 8th grader, Sumanth Ratna was named the state Discovery Education 3M Young Scientist Challenge winner. Sumanth was recognized for his “Allergen Tracker to Prevent Life-Threatening Allergic Reactions” project."</p>
+								<p>"<b>Sumanth Ratna</b> and Raunak Daga, both students at Thomas Jefferson High School for Science and Technology, created a website to make absentee voting easier. They got 750 voters ready to cast ballots."</p>
+								<span>&mdash; <a href=https://www.washingtonpost.com/local/one-vote-can-change-everything-virginia/2019/11/04/86deb89e-ff26-11e9-9518-1e76abc088b6_story.html>Petula Dvorak, Columnist for The Washington Post</a></span>
+							</blockquote>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="col-md-12 text-center">
+						<div class="testimony">
+							<blockquote>
+								<p>"A Fairfax County Public School 8th grader, <b>Sumanth Ratna</b> was named the state Discovery Education 3M Young Scientist Challenge winner. Sumanth was recognized for his “Allergen Tracker to Prevent Life-Threatening Allergic Reactions” project."</p>
 								<span>&mdash; <a href=https://twitter.com/Walterw06/status/1011597107843780609>Dr. Willis W. Walter, Dean of the College of Education for Virginia State University</a></span>
 							</blockquote>
 						</div>
@@ -118,6 +135,8 @@ get_header('about');
 					<div class="col-md-12 text-center">
 						<div class="testimony">
 							<blockquote>
+								<p>"Robert Greene, a recent graduate of Thomas Jefferson High School, and his former classmates, junior Raunak Daga, and sophomore <b>Sumanth Ratna</b>, along with the non-profit Vote Absentee Virginia, helped create and promote the new website eAbsentee.org to reach more eligible voters who might not cast a ballot due to hardship."</p>
+								<span>&mdash; <a href=https://medium.com/organizer-sandbox/how-three-high-schoolers-and-a-senator-are-making-it-easier-for-virginians-to-vote-f028c7dab378>Adriel Hampton, Editor of the Organizer Sandbox</a></span>
 							</blockquote>
 						</div>
 					</div>
