@@ -125,6 +125,16 @@ get_header('about');
 					<div class="col-md-12 text-center">
 						<div class="testimony">
 							<blockquote>
+								<p>"Congratulations to the talented young people who competed in the Congressional App Challenge this year! VA-8's winners were <b>Sumanth Ratna</b>, Autin Mitra, Sagar Gupta, and Sahil Gupta of TJHSST, with "Politirate," which will be displayed in the US Capitol!"</p>
+								<span>&mdash; <a href=https://twitter.com/RepDonBeyer/status/1201626222524076032>Donald Beyer Jr., United States Representative (D-VA 8th District)</a></span>
+							</blockquote>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="col-md-12 text-center">
+						<div class="testimony">
+							<blockquote>
 								<p>"A Fairfax County Public School 8th grader, <b>Sumanth Ratna</b> was named the state Discovery Education 3M Young Scientist Challenge winner. Sumanth was recognized for his “Allergen Tracker to Prevent Life-Threatening Allergic Reactions” project."</p>
 								<span>&mdash; <a href=https://twitter.com/Walterw06/status/1011597107843780609>Dr. Willis W. Walter, Dean of the College of Education for Virginia State University</a></span>
 							</blockquote>
@@ -135,7 +145,7 @@ get_header('about');
 					<div class="col-md-12 text-center">
 						<div class="testimony">
 							<blockquote>
-								<p>"Robert Greene, a recent graduate of Thomas Jefferson High School, and his former classmates, junior Raunak Daga, and sophomore <b>Sumanth Ratna</b>, along with the non-profit Vote Absentee Virginia, helped create and promote the new website eAbsentee.org to reach more eligible voters who might not cast a ballot due to hardship."</p>
+								<p>"Robert Greene, a recent graduate of Thomas Jefferson High School, and his former classmates, junior Raunak Daga, and sophomore <b>Sumanth Ratna</b>, along with the non-profit Vote Absentee Virginia, helped create and promote the new website <a href="https://www.eabsentee.org/">eAbsentee.org</a> to reach more eligible voters who might not cast a ballot due to hardship."</p>
 								<span>&mdash; <a href=https://medium.com/organizer-sandbox/how-three-high-schoolers-and-a-senator-are-making-it-easier-for-virginians-to-vote-f028c7dab378>Adriel Hampton, Editor of the Organizer Sandbox</a></span>
 							</blockquote>
 						</div>

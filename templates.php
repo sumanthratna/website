@@ -7,8 +7,8 @@ function socials()
 <p class='sratna-social-icons'>
 	<a href='https://github.com/sumanthratna/'><i class='icon-github'></i></a>
 	<a href='https://stackoverflow.com/users/7127932/sumanth-ratna'><i class='icon-stackoverflow'></i></a>
-	<a href='https://www.facebook.com/sumanthratna29'><i class='icon-facebook4'></i></a>
-	<a href='https://twitter.com/sumanthratna'><i class='icon-twitter3'></i></a>
+	<!--<a href='https://www.facebook.com/sumanthratna29'><i class='icon-facebook4'></i></a>
+	<a href='https://twitter.com/sumanthratna'><i class='icon-twitter3'></i></a>-->
 </p>
 HTML;
     echo $out;
