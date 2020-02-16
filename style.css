@@ -1,7 +1,10 @@
 @font-face {
-  font-family: 'icomoon';
+  font-family: "icomoon";
   src: url("css/icomoon.eot?srf3rx");
-  src: url("css/icomoon.eot?srf3rx#iefix") format("embedded-opentype"), url("css/icomoon.ttf?srf3rx") format("truetype"), url("css/icomoon.woff?srf3rx") format("woff"), url("css/icomoon.svg?srf3rx#icomoon") format("svg");
+  src: url("css/icomoon.eot?srf3rx#iefix") format("embedded-opentype"),
+    url("css/icomoon.ttf?srf3rx") format("truetype"),
+    url("css/icomoon.woff?srf3rx") format("woff"),
+    url("css/icomoon.svg?srf3rx#icomoon") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -28,14 +31,14 @@ body.menu-show {
   overflow: hidden;
 }
 
-#sratna-wrapper>div {
+#sratna-wrapper > div {
   width: 100%;
   height: 100%;
   overflow-y: hidden;
 }
 
 a {
-  color: #CA82F8;
+  color: #ca82f8;
   -webkit-transition: 0.5s;
   -moz-transition: 0.5s;
   -o-transition: 0.5s;
@@ -44,20 +47,23 @@ a {
 
 a:hover {
   text-decoration: underline;
-  color: #CA82F8;
+  color: #ca82f8;
 }
 
-a:focus, a:active {
+a:focus,
+a:active {
   outline: none;
 }
 
-p, span :not(#jsoneditor) {
+p,
+span :not(#jsoneditor) {
   margin-bottom: 1.5em;
   font-weight: 400;
   font-family: "Karla", Arial, sans-serif;
 }
 
-ul, ol {
+ul,
+ol {
   display: block;
   margin-bottom: 1.5em;
 }
@@ -73,7 +79,12 @@ span :not(#jsoneditor) {
   color: rgba(114, 114, 114, 0.8);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: rgba(0, 0, 0, 0.8);
   font-family: "Playfair Display", Georgia, serif;
   margin: 0 0 30px 0;
@@ -123,7 +134,7 @@ h1, h2, h3, h4, h5, h6 {
   bottom: 0;
   left: 0;
   right: 0;
-  content: '';
+  content: "";
   background: rgba(0, 0, 0, 0.4);
 }
 
@@ -205,8 +216,9 @@ h1, h2, h3, h4, h5, h6 {
   background: black;
 }
 
-#sratna-main-nav .sratna-nav-toggle:hover i::before, #sratna-main-nav .sratna-nav-toggle:hover i::after {
-  content: '';
+#sratna-main-nav .sratna-nav-toggle:hover i::before,
+#sratna-main-nav .sratna-nav-toggle:hover i::after {
+  content: "";
   width: 20px;
   height: 1px;
   background: #fff;
@@ -257,14 +269,16 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-#sratna-main-nav ul li a:hover, #sratna-main-nav ul li a:active, #sratna-main-nav ul li a:focus {
+#sratna-main-nav ul li a:hover,
+#sratna-main-nav ul li a:active,
+#sratna-main-nav ul li a:focus {
   color: black;
   outline: none;
   text-decoration: none;
 }
 
 #sratna-main-nav ul li.active a {
-  color: #CA82F8;
+  color: #ca82f8;
 }
 
 #sratna-main-nav .form-group {
@@ -317,7 +331,7 @@ h1, h2, h3, h4, h5, h6 {
   -moz-border-radius: 0;
   -ms-border-radius: 0;
   border-radius: 0;
-  background: #CA82F8;
+  background: #ca82f8;
   color: #fff;
   border: none;
   padding: 16px;
@@ -360,7 +374,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   right: 0;
   bottom: 0;
-  content: '';
+  content: "";
   background: rgba(0, 0, 0, 0.3);
   opacity: 0;
   z-index: -1;
@@ -386,11 +400,13 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 20px;
 }
 
-#sratna-main-nav .gallery:hover:after, #sratna-main-nav .gallery:focus:after {
+#sratna-main-nav .gallery:hover:after,
+#sratna-main-nav .gallery:focus:after {
   opacity: 1;
 }
 
-#sratna-main-nav .gallery:hover span, #sratna-main-nav .gallery:focus span {
+#sratna-main-nav .gallery:hover span,
+#sratna-main-nav .gallery:focus span {
   opacity: 1;
 }
 
@@ -438,7 +454,8 @@ header .sratna-navbar-brand .sratna-logo:hover {
   text-decoration: none !important;
 }
 
-header .sratna-navbar-brand .sratna-logo:active, header .sratna-navbar-brand .sratna-logo:focus {
+header .sratna-navbar-brand .sratna-logo:active,
+header .sratna-navbar-brand .sratna-logo:focus {
   outline: none;
   text-decoration: none;
 }
@@ -457,7 +474,6 @@ header .sratna-navbar-brand .sratna-logo:active, header .sratna-navbar-brand .sr
 }
 
 @media screen and (max-width: 768px) {
-
   #sratna-services,
   #sratna-contact,
   #sratna-work,
@@ -472,7 +488,7 @@ header .sratna-navbar-brand .sratna-logo:active, header .sratna-navbar-brand .sr
 
 .rotate {
   position: absolute;
-  top: .4em;
+  top: 0.4em;
   left: -50px;
 }
 
@@ -498,7 +514,7 @@ header .sratna-navbar-brand .sratna-logo:active, header .sratna-navbar-brand .sr
   position: absolute;
   top: 8px;
   right: -40px;
-  content: '';
+  content: "";
   background: #000;
   width: 40px;
   height: 1px;
@@ -553,7 +569,7 @@ header .sratna-navbar-brand .sratna-logo:active, header .sratna-navbar-brand .sr
   position: absolute;
   top: 8px;
   right: -40px;
-  content: '';
+  content: "";
   background: #000;
   width: 40px;
   height: 1px;
@@ -634,7 +650,7 @@ header .sratna-navbar-brand .sratna-logo:active, header .sratna-navbar-brand .sr
   left: 0;
 }
 
-.progress>span {
+.progress > span {
   width: 50%;
   height: 100%;
   overflow: hidden;
@@ -905,22 +921,26 @@ header .sratna-navbar-brand .sratna-logo:active, header .sratna-navbar-brand .sr
   width: 45%;
 }
 
-.services-flex .one-forth .one-third, .services-flex .one-forth .one-forth {
+.services-flex .one-forth .one-third,
+.services-flex .one-forth .one-forth {
   display: inline-block;
 }
 
 @media screen and (max-width: 768px) {
-  .services-flex .one-forth .one-third, .services-flex .one-forth .one-forth {
+  .services-flex .one-forth .one-third,
+  .services-flex .one-forth .one-forth {
     height: 400px;
   }
 }
 
-.services-flex .one-third, .services-flex .one-forth {
+.services-flex .one-third,
+.services-flex .one-forth {
   display: inline-block;
 }
 
 @media screen and (max-width: 768px) {
-  .services-flex .one-third, .services-flex .one-forth {
+  .services-flex .one-third,
+  .services-flex .one-forth {
     width: 100%;
     display: block;
   }
@@ -943,7 +963,7 @@ header .sratna-navbar-brand .sratna-logo:active, header .sratna-navbar-brand .sr
 }
 
 .services ul li::before {
-  content: '\2022';
+  content: "\2022";
   color: #000;
   display: inline-block;
   width: 1em;
@@ -980,7 +1000,7 @@ header .sratna-navbar-brand .sratna-logo:active, header .sratna-navbar-brand .sr
   left: 0;
   right: 0;
   bottom: 0;
-  content: '';
+  content: "";
   background: rgba(0, 0, 0, 0.4);
   z-index: -1;
   opacity: 0;
@@ -1053,7 +1073,7 @@ header .sratna-navbar-brand .sratna-logo:active, header .sratna-navbar-brand .sr
   top: 7px;
   left: -60px;
   right: 0;
-  content: '';
+  content: "";
   width: 40px;
   height: 1px;
   background: #000;
@@ -1077,7 +1097,7 @@ header .sratna-navbar-brand .sratna-logo:active, header .sratna-navbar-brand .sr
   margin-top: -30px;
 }
 
-#sratna-blog .owl-theme .owl-controls .owl-nav [class*=owl-] {
+#sratna-blog .owl-theme .owl-controls .owl-nav [class*="owl-"] {
   -webkit-transition: 0.3s;
   -moz-transition: 0.3s;
   -o-transition: 0.3s;
@@ -1092,7 +1112,7 @@ header .sratna-navbar-brand .sratna-logo:active, header .sratna-navbar-brand .sr
   opacity: 1;
 }
 
-#sratna-blog .owl-theme .owl-controls .owl-nav [class*=owl-] .owl-direction {
+#sratna-blog .owl-theme .owl-controls .owl-nav [class*="owl-"] .owl-direction {
   background: transparent;
   color: #000;
   -webkit-box-shadow: none;
@@ -1180,7 +1200,7 @@ header .sratna-navbar-brand .sratna-logo:active, header .sratna-navbar-brand .sr
   position: absolute;
   top: 10px;
   left: -50px;
-  content: '';
+  content: "";
   background: #fff;
   width: 40px;
   height: 1px;
@@ -1212,7 +1232,7 @@ header .sratna-navbar-brand .sratna-logo:active, header .sratna-navbar-brand .sr
   position: relative;
   top: -80px;
   left: 20px;
-  background: #FFE9E3;
+  background: #ffe9e3;
   color: #000;
   padding: 20px 10px;
   font-size: 12px;
@@ -1325,7 +1345,9 @@ header .sratna-navbar-brand .sratna-logo:active, header .sratna-navbar-brand .sr
   padding: 18px 36px !important;
 }
 
-.btn:hover, .btn:active, .btn:focus {
+.btn:hover,
+.btn:active,
+.btn:focus {
   -webkit-box-shadow: none !important;
   -moz-box-shadow: none !important;
   box-shadow: none !important;
@@ -1333,12 +1355,14 @@ header .sratna-navbar-brand .sratna-logo:active, header .sratna-navbar-brand .sr
 }
 
 .btn-primary {
-  background: #CA82F8;
+  background: #ca82f8;
   color: #fff;
-  border: 2px solid #CA82F8;
+  border: 2px solid #ca82f8;
 }
 
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
   background: #d49af9 !important;
   border-color: #d49af9 !important;
 }
@@ -1349,8 +1373,10 @@ header .sratna-navbar-brand .sratna-logo:active, header .sratna-navbar-brand .sr
   border: 1px solid #d9d9d9;
 }
 
-.btn-primary.btn-outline:hover, .btn-primary.btn-outline:focus, .btn-primary.btn-outline:active {
-  background: #CA82F8;
+.btn-primary.btn-outline:hover,
+.btn-primary.btn-outline:focus,
+.btn-primary.btn-outline:active {
+  background: #ca82f8;
   color: #fff;
 }
 
@@ -1360,7 +1386,9 @@ header .sratna-navbar-brand .sratna-logo:active, header .sratna-navbar-brand .sr
   border: 2px solid #5cb85c;
 }
 
-.btn-success:hover, .btn-success:focus, .btn-success:active {
+.btn-success:hover,
+.btn-success:focus,
+.btn-success:active {
   background: #4cae4c !important;
   border-color: #4cae4c !important;
 }
@@ -1371,7 +1399,9 @@ header .sratna-navbar-brand .sratna-logo:active, header .sratna-navbar-brand .sr
   border: 2px solid #5cb85c;
 }
 
-.btn-success.btn-outline:hover, .btn-success.btn-outline:focus, .btn-success.btn-outline:active {
+.btn-success.btn-outline:hover,
+.btn-success.btn-outline:focus,
+.btn-success.btn-outline:active {
   background: #5cb85c;
   color: #fff;
 }
@@ -1382,7 +1412,9 @@ header .sratna-navbar-brand .sratna-logo:active, header .sratna-navbar-brand .sr
   border: 2px solid #5bc0de;
 }
 
-.btn-info:hover, .btn-info:focus, .btn-info:active {
+.btn-info:hover,
+.btn-info:focus,
+.btn-info:active {
   background: #46b8da !important;
   border-color: #46b8da !important;
 }
@@ -1393,7 +1425,9 @@ header .sratna-navbar-brand .sratna-logo:active, header .sratna-navbar-brand .sr
   border: 2px solid #5bc0de;
 }
 
-.btn-info.btn-outline:hover, .btn-info.btn-outline:focus, .btn-info.btn-outline:active {
+.btn-info.btn-outline:hover,
+.btn-info.btn-outline:focus,
+.btn-info.btn-outline:active {
   background: #5bc0de;
   color: #fff;
 }
@@ -1404,7 +1438,9 @@ header .sratna-navbar-brand .sratna-logo:active, header .sratna-navbar-brand .sr
   border: 2px solid #f0ad4e;
 }
 
-.btn-warning:hover, .btn-warning:focus, .btn-warning:active {
+.btn-warning:hover,
+.btn-warning:focus,
+.btn-warning:active {
   background: #eea236 !important;
   border-color: #eea236 !important;
 }
@@ -1415,7 +1451,9 @@ header .sratna-navbar-brand .sratna-logo:active, header .sratna-navbar-brand .sr
   border: 2px solid #f0ad4e;
 }
 
-.btn-warning.btn-outline:hover, .btn-warning.btn-outline:focus, .btn-warning.btn-outline:active {
+.btn-warning.btn-outline:hover,
+.btn-warning.btn-outline:focus,
+.btn-warning.btn-outline:active {
   background: #f0ad4e;
   color: #fff;
 }
@@ -1426,7 +1464,9 @@ header .sratna-navbar-brand .sratna-logo:active, header .sratna-navbar-brand .sr
   border: 2px solid #d9534f;
 }
 
-.btn-danger:hover, .btn-danger:focus, .btn-danger:active {
+.btn-danger:hover,
+.btn-danger:focus,
+.btn-danger:active {
   background: #d43f3a !important;
   border-color: #d43f3a !important;
 }
@@ -1437,7 +1477,9 @@ header .sratna-navbar-brand .sratna-logo:active, header .sratna-navbar-brand .sr
   border: 2px solid #d9534f;
 }
 
-.btn-danger.btn-outline:hover, .btn-danger.btn-outline:focus, .btn-danger.btn-outline:active {
+.btn-danger.btn-outline:hover,
+.btn-danger.btn-outline:focus,
+.btn-danger.btn-outline:active {
   background: #d9534f;
   color: #fff;
 }
@@ -1452,7 +1494,9 @@ header .sratna-navbar-brand .sratna-logo:active, header .sratna-navbar-brand .sr
   transition: 0.3s;
 }
 
-.btn-outline:hover, .btn-outline:focus, .btn-outline:active {
+.btn-outline:hover,
+.btn-outline:focus,
+.btn-outline:active {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
@@ -1507,15 +1551,19 @@ header .sratna-navbar-brand .sratna-logo:active, header .sratna-navbar-brand .sr
   text-decoration: none;
 }
 
-.sratna-nav-toggle.active i::before, .sratna-nav-toggle.active i::after {
+.sratna-nav-toggle.active i::before,
+.sratna-nav-toggle.active i::after {
   background: #000;
 }
 
-.sratna-nav-toggle.dark.active i::before, .sratna-nav-toggle.dark.active i::after {
+.sratna-nav-toggle.dark.active i::before,
+.sratna-nav-toggle.dark.active i::after {
   background: #000;
 }
 
-.sratna-nav-toggle:hover, .sratna-nav-toggle:focus, .sratna-nav-toggle:active {
+.sratna-nav-toggle:hover,
+.sratna-nav-toggle:focus,
+.sratna-nav-toggle:active {
   outline: none;
   border-bottom: none !important;
 }
@@ -1529,14 +1577,14 @@ header .sratna-navbar-brand .sratna-logo:active, header .sratna-navbar-brand .sr
   width: 20px;
   height: 2px;
   color: #000;
-  font: bold 14px/.4 Helvetica;
+  font: bold 14px/0.4 Helvetica;
   text-transform: uppercase;
   text-indent: -55px;
   background: #000;
-  -webkit-transition: all .2s ease-out;
-  -moz-transition: all .2s ease-out;
-  -o-transition: all .2s ease-out;
-  transition: all .2s ease-out;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
 }
 
 .menu-show .sratna-nav-toggle i {
@@ -1544,8 +1592,9 @@ header .sratna-navbar-brand .sratna-logo:active, header .sratna-navbar-brand .sr
   color: #fff;
 }
 
-.sratna-nav-toggle i::before, .sratna-nav-toggle i::after {
-  content: '';
+.sratna-nav-toggle i::before,
+.sratna-nav-toggle i::after {
+  content: "";
   width: 20px;
   height: 2px;
   background: #000;
@@ -1557,7 +1606,8 @@ header .sratna-navbar-brand .sratna-logo:active, header .sratna-navbar-brand .sr
   transition: 0.2s;
 }
 
-.menu-show .sratna-nav-toggle i::before, .menu-show .sratna-nav-toggle i::after {
+.menu-show .sratna-nav-toggle i::before,
+.menu-show .sratna-nav-toggle i::after {
   background: #333333;
 }
 
@@ -1565,13 +1615,14 @@ header .sratna-navbar-brand .sratna-logo:active, header .sratna-navbar-brand .sr
   position: relative;
   color: #fff;
   background: #fff;
-  -webkit-transition: all .2s ease-out;
-  -moz-transition: all .2s ease-out;
-  -o-transition: all .2s ease-out;
-  transition: all .2s ease-out;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
 }
 
-.sratna-nav-toggle.dark i::before, .sratna-nav-toggle.dark i::after {
+.sratna-nav-toggle.dark i::before,
+.sratna-nav-toggle.dark i::after {
   background: #fff;
   -webkit-transition: 0.2s;
   -moz-transition: 0.2s;
@@ -1669,7 +1720,7 @@ header .sratna-navbar-brand .sratna-logo:active, header .sratna-navbar-brand .sr
 }
 
 .contact-info li a {
-  color: #CA82F8;
+  color: #ca82f8;
 }
 
 .form-control {
@@ -1688,7 +1739,8 @@ header .sratna-navbar-brand .sratna-logo:active, header .sratna-navbar-brand .sr
   border-radius: 0px;
 }
 
-.form-control:focus, .form-control:active {
+.form-control:focus,
+.form-control:active {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
@@ -1703,16 +1755,18 @@ input[type="text"] {
   margin-bottom: 30px;
 }
 
-.sratna-social-icons a:hover, .sratna-social-icons a:focus {
+.sratna-social-icons a:hover,
+.sratna-social-icons a:focus {
   text-decoration: none !important;
 }
 
 .sratna-social-icons i {
   font-size: 24px;
-  color: #CA82F8;
+  color: #ca82f8;
 }
 
-.sratna-social-icons i:hover, .sratna-social-icons a:hover {
+.sratna-social-icons i:hover,
+.sratna-social-icons a:hover {
   transform: scale(1.2);
 }
 
@@ -1733,13 +1787,14 @@ input[type="text"] {
   margin-bottom: 0;
 }
 
-#footer p.sratna-social-icons a:hover, #footer p.sratna-social-icons a:focus {
+#footer p.sratna-social-icons a:hover,
+#footer p.sratna-social-icons a:focus {
   text-decoration: none !important;
 }
 
 #footer p.sratna-social-icons i {
   font-size: 24px;
-  color: #CA82F8;
+  color: #ca82f8;
 }
 
 #footer p .block {
@@ -1765,7 +1820,8 @@ input[type="text"] {
   border-radius: 30px;
 }
 
-#footer .subscribe .form-control:focus, #footer .subscribe .form-control:active {
+#footer .subscribe .form-control:focus,
+#footer .subscribe .form-control:active {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;

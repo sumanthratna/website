@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once 'config.php';
 require_once '../templates.php';
 session_start();
@@ -7,22 +7,21 @@ if (isset($_SESSION['user'])) {
     die();
 }
 if ($_SERVER["REQUEST_METHOD"]=="POST" && isset($_POST['login'])) {
-    $username = mysqli_real_escape_string($db,$_POST['login'][0]);
-    $password = mysqli_real_escape_string($db,$_POST['login'][1]);
+    $username = mysqli_real_escape_string($db, $_POST['login'][0]);
+    $password = mysqli_real_escape_string($db, $_POST['login'][1]);
     $sql = "SELECT id FROM users WHERE username = '$username' and password = SHA2('$password', 512)";
-    $result = mysqli_query($db,$sql);
+    $result = mysqli_query($db, $sql);
     if (!$result) {
         printf("Error: %s\n", mysqli_error($db));
         die();
     }
-    $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
     // $active = $row['active'];
     $count = mysqli_num_rows($result);
-    if($count == 1) {
+    if ($count == 1) {
         $_SESSION['user'] = $username;
         header("location: manage.php");
-    }
-    else {
+    } else {
         $message = "Invalid credentials";
     }
 }

@@ -31,7 +31,7 @@ function get_header($page)
 
     $title = ucfirst($page).' - Sumanth Ratna';
 
-    $out = <<<EOT
+    $out = <<<HTML
 <!DOCTYPE HTML>
 <html lang="en">
     <head>
@@ -156,7 +156,7 @@ function get_header($page)
                     </div>
                 </div>
             </header>
-EOT;
+HTML;
     echo $out;
 }
 function get_footer()
