@@ -1,5 +1,8 @@
 <?php
 require_once dirname(__FILE__).'/../private/keys.php';
+if ($_SERVER['HTTP_HOST']==="2022sratna.sites.tjhsst.edu") {
+    header("Location: https://sumanthratna.ml$_SERVER[REQUEST_URI]");
+}
 function socials()
 {
     // make size 48x48px
@@ -15,7 +18,7 @@ HTML;
 }
 function posts()
 {
-    $data = file_get_contents("https://".$_SERVER['HTTP_HOST']."/index.json");
+    $data = file_get_contents("./index.json");
     return json_decode($data, true);
 }
 function get_header($page)
@@ -213,7 +216,7 @@ function get_footer()
             </div>
         </footer>
     </div>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
 </body>
         <script src="$domain/js/main.js"></script>
 </html>

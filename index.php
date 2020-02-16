@@ -1,7 +1,7 @@
 <?php
 require_once 'templates.php';
+get_header('home');
 ?>
-<?php get_header('home'); ?>
 <div id="sratna-about">
     <div class="container">
         <div class="row text-center">
@@ -32,7 +32,7 @@ require_once 'templates.php';
                         <div class="rotate">
                             <h2 class="heading">About</h2>
                         </div>
-                        <p>I'm a sophomore at the Thomas Jefferson High School for Science and Technology. <a href="#sratna-services">I like to code</a>, especially with machine learning, mobile apps, and web development.</p>
+                        <p>I'm a sophomore at the Thomas Jefferson High School for Science and Technology. <a href="#sratna-services">I like to code</a>, especially with machine learning. I'm also interested in biochemistry.</p>
                         <?php socials(); ?>
                         <p><a href="contact.php" class="btn btn-primary btn-outline">Contact Me!</a></p>
                     </div>
