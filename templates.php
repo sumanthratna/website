@@ -1,5 +1,6 @@
 <?php
 require_once dirname(__FILE__).'/../private/keys.php';
+error_log($_SERVER['HTTP_HOST'].' '.$_SERVER['REMOTE_ADDR'].$_SERVER['REQUEST_URI']);
 if ($_SERVER['HTTP_HOST']==="2022sratna.sites.tjhsst.edu") {
     header("Location: https://sumanthratna.ml$_SERVER[REQUEST_URI]");
 }
@@ -10,8 +11,6 @@ function socials()
 <p class='sratna-social-icons'>
 	<a href='https://github.com/sumanthratna/'><i class='icon-github'></i></a>
 	<a href='https://stackoverflow.com/users/7127932/sumanth-ratna'><i class='icon-stackoverflow'></i></a>
-	<!--<a href='https://www.facebook.com/sumanthratna29'><i class='icon-facebook4'></i></a>
-	<a href='https://twitter.com/sumanthratna'><i class='icon-twitter3'></i></a>-->
 </p>
 HTML;
     echo $out;

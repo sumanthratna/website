@@ -1712,6 +1712,10 @@ input[type="text"] {
   color: #CA82F8;
 }
 
+.sratna-social-icons i:hover, .sratna-social-icons a:hover {
+  transform: scale(1.2);
+}
+
 #footer {
   padding: 8em 0;
   display: block;
