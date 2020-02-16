@@ -2,21 +2,21 @@
   "curl-box": {
     "title": "How to download a Box file from the command line",
     "excerpt": "How to download a Box file (even private files) using curl.",
-    "image": "https://sumanthratna.gq/blog/curl-box/img.jpg",
+    "image": "https://sumanthratna.gq/blog/curl-box/img.png",
     "date": "June 20, 2019",
     "comments": []
   },
   "grade-view": {
     "title": "GradeView",
     "excerpt": "My grades app for Fairfax County Public Schools.",
-    "image": "https://sumanthratna.gq/blog/grade-view/img.jpg",
+    "image": "https://sumanthratna.gq/blog/grade-view/img.png",
     "date": "April 17, 2019",
     "comments": []
   },
   "this": {
     "title": "this",
     "excerpt": "My personal website",
-    "image": "https://sumanthratna.gq/blog/this/img.jpg",
+    "image": "https://sumanthratna.gq/blog/this/img.png",
     "date": "March 7, 2019",
     "comments": []
   }
