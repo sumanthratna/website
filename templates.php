@@ -17,7 +17,7 @@ HTML;
 }
 function posts()
 {
-    $data = file_get_contents("./index.json");
+    $data = file_get_contents(__DIR__."/index.json");
     return json_decode($data, true);
 }
 function get_header($page)
