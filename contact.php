@@ -5,6 +5,7 @@ require_once 'templates.php';
 if ($_SERVER['REQUEST_METHOD']=="POST" and isset($_POST['contact'])) {
     require_once 'vendor/autoload.php';
     $data = $_POST['contact'];
+    error_log('CONTACT '.json_encode($data));
     $message = '';
     \NeverBounce\Auth::setApiKey($neverbounce_key);
     $validemail = \NeverBounce\Single::check($data[2], true, true);
@@ -12,17 +13,17 @@ if ($_SERVER['REQUEST_METHOD']=="POST" and isset($_POST['contact'])) {
         $email = new \SendGrid\Mail\Mail();
         $email->setFrom($validemail->email);
         $email->setSubject('Contact - Sumanth Ratna');
-        $email->addTo("sratna@sumanthratna.gq", "Sumanth Ratna");
+        $email->addTo("sratna@sumanthratna.ml", "Sumanth Ratna");
         $email->addContent("text/html", nl2br($data[0]).'<br><br><br><br>-------------------<br>'.'- '.trim($data[1]));
         $sendgrid = new \SendGrid($sendgrid_key);
         try {
             $response = $sendgrid->send($email);
             $message = 'Thanks for your message!';
         } catch (Exception $e) {
-            $message = 'error sending message (but a valid email was detected):\n\n'.$e->getMessage().'\n\nHere\'s what you wrote:\n'.nl2br($data[2]);
+            $message = 'error sending message (but a valid sender email was detected):\n\n'.$e->getMessage().'\n\nHere\'s what you wrote:\n'.nl2br($data[2]);
         }
     } else {
-        $message = 'invalid email address\n\nHere\'s what you wrote:\n'.nl2br($data[2]);
+        $message = "invalid email address<br><br>Here's what you wrote: ".nl2br($data[2]);
     }
 }
 ?>
