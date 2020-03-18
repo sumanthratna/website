@@ -22,7 +22,7 @@ get_header('home');
                 <div class="about-desc">
                     <div class="owl-carousel3">
                         <div class="item">
-                            <h2><span>Sumanth</span><span>Ratna</span></h2>
+                            <h2><span>Sumanth </span><span>Ratna</span></h2>
                         </div>
                         <div class="item">
                             <h2><span>I'm </span><span>A Student</span></h2>

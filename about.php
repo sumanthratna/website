@@ -20,7 +20,7 @@ get_header('about');
 			</div>
 			<div class="col-md-6 col-md-push-1 animate-box">
 				<div class="about-desc">
-					<h2><span>Sumanth</span><span>Ratna</span></h2>
+					<h2><span>Sumanth </span><span>Ratna</span></h2>
 					<div class="desc">
 						<div class="rotate">
 							<h2 class="heading">About</h2>

@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD']=="POST" and isset($_POST['contact'])) {
             $response = $sendgrid->send($email);
             $message = 'Thanks for your message!';
         } catch (Exception $e) {
-            $message = 'error sending message (but a valid sender email was detected):\n\n'.$e->getMessage().'\n\nHere\'s what you wrote:\n'.nl2br($data[2]);
+            $message = 'error sending message (but a valid sender email was detected):<br><br>'.$e->getMessage().'\n\nHere\'s what you wrote:\n'.nl2br($data[2]);
         }
     } else {
         $message = "invalid email address<br><br>Here's what you wrote: ".nl2br($data[2]);

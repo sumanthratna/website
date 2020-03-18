@@ -1,6 +1,6 @@
 <?php
 require_once dirname(__FILE__).'/../private/keys.php';
-error_log('HIT '.$_SERVER['HTTP_HOST'].' '.$_SERVER['REMOTE_ADDR'].$_SERVER['REQUEST_URI']);
+error_log('HIT '.(isset($_SERVER["HTTPS"]) ? 'https' : 'http').'://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'].' '.$_SERVER['REMOTE_ADDR']);
 if ($_SERVER['HTTP_HOST']==="2022sratna.sites.tjhsst.edu") {
     header("Location: https://sumanthratna.ml$_SERVER[REQUEST_URI]");
 }
