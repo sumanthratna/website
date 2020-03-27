@@ -1,6 +1,11 @@
 <?php
 require_once dirname(__FILE__).'/../private/keys.php';
-error_log('HIT '.(isset($_SERVER["HTTPS"]) ? 'https' : 'http').'://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'].' '.$_SERVER['REMOTE_ADDR']);
+$hit = array(
+    "URL" => (isset($_SERVER["HTTPS"]) ? 'https' : 'http').'://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'],
+    "IP" => $_SERVER['REMOTE_ADDR'],
+    "referrer" => isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER']:''
+);
+error_log('HIT '.json_encode($hit, JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES));
 if ($_SERVER['HTTP_HOST']==="2022sratna.sites.tjhsst.edu") {
     header("Location: https://sumanthratna.ml$_SERVER[REQUEST_URI]");
 }
