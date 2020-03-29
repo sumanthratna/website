@@ -84,8 +84,8 @@
                             <ul class='sratna-nav'>
                                 <li {($page==='home') ? "class='active'":""}><a href={'https://'|cat:$smarty.server.HTTP_HOST}>Home</a></li>
                                 <li {($page==='blog') ? "class='active'":""}><a href={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/blog'}>Blog</a></li>
-                                <li {($page==='about') ? "class='active'":""}><a href={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/about.php'}>About</a></li>
-                                <li {($page==='contact') ? "class='active'":""}><a href={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/contact.php'}>Contact</a></li>
+                                <li {($page==='about') ? "class='active'":""}><a href={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/about'}>About</a></li>
+                                <li {($page==='contact') ? "class='active'":""}><a href={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/contact'}>Contact</a></li>
                             </ul>
                         </div>
                     </div>

@@ -34,7 +34,7 @@
 						</ul>
 					</div>
                     <div class="col-md-7 col-md-push-1 animate-box">
-                        <p id="output-message"></p>
+                        <p id="output-message">&#8203;</p>
 			            <form id="contact-form" action="contact.php" method="post">
                             <div class="row">
                                 <div class="col-md-12">
@@ -54,7 +54,7 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input name="submit" type="submit" value="Send Message" class="btn btn-primary">
+                                        <input id="submit" name="submit" type="submit" value="Send Message" class="btn btn-primary">
                                     </div>
                                 </div>
                             </div>
@@ -65,6 +65,7 @@
 		</div>
 	</div>
 </div>
+
 <script>
 /* attach a submit handler to the form */
 $("#contact-form").submit(function(event) {
@@ -72,17 +73,39 @@ $("#contact-form").submit(function(event) {
   /* stop form from submitting normally */
   event.preventDefault();
   
-  $("#output-message").text('Loading...');
+  $("#output-message").fadeOut(function() {
+      $(this).text('Loading...').fadeIn();
+  });
+  $("#message").prop( "disabled", true );
+  $("#name").prop( "disabled", true );
+  $("#email").prop( "disabled", true );
+  $("#submit").prop( "disabled", true );
 
   /* get the action attribute from the <form> element */
   var $form = $( this ), url = $form.attr( 'action' );
 
   /* Send the data using post */
-  var posting = $.post( url, { message: $('#message').val(), name: $('#name').val(), email: $("#email").val() } );
+  var $secret = '{$secret|escape:'javascript'}';
+  console.log($secret);
+  var posting = $.post( url, { message: $('#message').val(), name: $('#name').val(), email: $("#email").val(), secret: $secret } );
 
   /* Alerts the results */
   posting.done(function( data ) {
-      $("#output-message").text(jQuery.parseJSON(data).message);
+        var outputMessage = jQuery.parseJSON(data).message;
+            $("#output-message").fadeOut(function() {
+            $(this).text(outputMessage).fadeIn();
+        });
+      if (outputMessage == 'Success! Thanks for your message!') {
+            $("#message").val('');
+            $("#name").val('');
+            $("#email").val('');
+            $("#submit").prop( "disabled", false );
+      } else {
+            $("#message").prop( "disabled", false );
+            $("#name").prop( "disabled", false );
+            $("#email").prop( "disabled", false );
+            $("#submit").prop( "disabled", false );
+      }
   });
 });
 </script>

@@ -31,7 +31,7 @@
                         </div>
                         <p>I'm a sophomore at the Thomas Jefferson High School for Science and Technology. <a href="#sratna-services">I like to code</a>, especially with machine learning. I'm also interested in biochemistry.</p>
                         {include file='socials.tpl'}
-                        <p><a href="contact.php" class="btn btn-primary btn-outline">Contact Me!</a></p>
+                        <p><a href={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/contact'} class="btn btn-primary btn-outline">Contact Me!</a></p>
                     </div>
                 </div>
             </div>

@@ -12,6 +12,9 @@ $smarty = new CustomSmarty();
 $posts = file_get_contents(__DIR__."/index.json");
 $smarty->assign('posts', json_decode($posts, true));
 
+$config = parse_ini_file('../private/keys.ini');
+$smarty->assign('secret', $config['secret']);
+
 $router->get('/', function() use ($smarty) {
     $smarty->display("pages/home.tpl");
 });
@@ -32,10 +35,10 @@ $router->mount('/blog', function() use ($smarty, $router, $posts) {
     });
 
 });
-$router->get('/about', function($name) use ($smarty) {
+$router->get('/about', function() use ($smarty) {
     $smarty->display("pages/about.tpl");
 });
-$router->get('/contact', function($name) use ($smarty) {
+$router->get('/contact', function() use ($smarty) {
     $smarty->display("pages/contact.tpl");
 });
 $router->mount('/admin', function() use ($smarty, $router) {
@@ -75,6 +78,9 @@ $router->mount('/admin', function() use ($smarty, $router) {
         // COPY LOGIC FROM config.php
     });
 
+});
+$router->post('/api', function() use ($smarty) {
+    // $smarty->display("pages/contact.tpl");
 });
 $router->set404(function() use ($smarty) {
     header('HTTP/1.1 404 Not Found');
