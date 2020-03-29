@@ -27,11 +27,14 @@ $router->mount('/blog', function() use ($smarty, $router, $posts) {
 
     // will result in '/blog/id'
     $router->get('/{id}', function($id) use ($smarty, $posts) {
+        // try:
         // DOESN'T WORK!
         $post = $posts[$id];
         $smarty->assign('post_id', $id);
         $smarty->assign('post', $post);
         $smarty->display("pages/blog/post.tpl");
+        // catch illegal string offset:
+        // trigger 404
     });
 
 });
@@ -42,42 +45,39 @@ $router->get('/contact', function() use ($smarty) {
     $smarty->display("pages/contact.tpl");
 });
 $router->mount('/admin', function() use ($smarty, $router) {
+    session_start();
     
     // will result in '/admin/'
     $router->get('/', function() use ($smarty) {
         if (isset($_SESSION['user'])) {
-            header("location: https://".$_SERVER['SERVER_NAME'].'/admin/manage');
+            header("location: https://".$_SERVER['SERVER_NAME']."/admin/manage");
         } else {
-            header("location: https://".$_SERVER['SERVER_NAME'].'/admin/login');
+            header("location: https://".$_SERVER['SERVER_NAME']."/admin/login");
         }
-    });
-    
-    // will result in '/admin/session'
-    $router->get('/session', function() use ($smarty) {
-        // COPY LOGIC FROM session.php
     });
     
     // will result in '/admin/manage'
     $router->get('/manage', function() use ($smarty) {
-        $smarty->display("pages/admin/manage.tpl");
+        if (isset($_SESSION['user'])) {
+             $smarty->display("pages/admin/manage.tpl");
+        } else {
+             header("location: https://".$_SERVER['SERVER_NAME']."/admin/login");
+        }
     });
     
     // will result in '/admin/logout'
     $router->get('/logout', function() use ($smarty) {
-        // COPY LOGIC FROM logout.php
-        // REDIRECT TO /admin/login
+        header("location: https://".$_SERVER['SERVER_NAME']."/auth.php?action=logout");
     });
 
     // will result in '/admin/login'
     $router->get('/login', function() use ($smarty) {
-        $smarty->display("pages/admin/session.tpl");
+        if (isset($_SESSION['user'])) {
+            header("location: https://".$_SERVER['SERVER_NAME']."/admin/manage");
+        } else {
+            $smarty->display("pages/admin/login.tpl");
+        }
     });
-    
-    // will result in '/admin/config'
-    $router->get('/config', function() use ($smarty) {
-        // COPY LOGIC FROM config.php
-    });
-
 });
 $router->post('/api', function() use ($smarty) {
     // $smarty->display("pages/contact.tpl");

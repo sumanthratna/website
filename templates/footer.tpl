@@ -7,7 +7,7 @@
                                 <div class="col-md-10">
                                     <h2>Let's Talk</h2>
                                     <p>Email me.</p>
-                                    <p>{mailto address=$email}</p>
+                                    <p>{mailto address='sratna@'|cat:$smarty.server.HTTP_HOST}</p>
                                     {include file='socials.tpl'}
                                 </div>
                             </div>

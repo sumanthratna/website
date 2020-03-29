@@ -86,7 +86,6 @@ $("#contact-form").submit(function(event) {
 
   /* Send the data using post */
   var $secret = '{$secret|escape:'javascript'}';
-  console.log($secret);
   var posting = $.post( url, { message: $('#message').val(), name: $('#name').val(), email: $("#email").val(), secret: $secret } );
 
   /* Alerts the results */
@@ -99,13 +98,12 @@ $("#contact-form").submit(function(event) {
             $("#message").val('');
             $("#name").val('');
             $("#email").val('');
-            $("#submit").prop( "disabled", false );
       } else {
             $("#message").prop( "disabled", false );
             $("#name").prop( "disabled", false );
             $("#email").prop( "disabled", false );
-            $("#submit").prop( "disabled", false );
       }
+      $("#submit").prop( "disabled", false );
   });
 });
 </script>

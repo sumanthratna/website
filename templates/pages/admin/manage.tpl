@@ -1,27 +1,15 @@
 {include file='header.tpl' page='admin'}
 <div id="sratna-contact">
     <div class="container">
-        <p><center><a href="logout.php" type="submit" class="btn btn-primary">Logout of Admin Panel</a></center></p>
-        <p>
-            <center id='message'>
-                <?php if (!empty($message)): ?>
-                    <?php echo $message; ?>
-                <?php endif; ?>
-            </center>
-        </p>
+        <p><center><a href={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/admin/logout'} type="submit" class="btn btn-primary">Logout of Admin Panel</a></center></p>
+        
+        <p id="output-message">&#8203;</p>
 
         <div class="panel-group" id="accordion">
-            <?php
-                function load_index()
-                {
-                    header('Content-Type: application/json');
-                    echo file_get_contents('../index.json');
-                }
-            ?>
             <script>
                 function refreshJSONeditor() {
-                    var editor = ace.edit("jsoneditor");
-                    editor.getSession().setValue(JSON.stringify(<?php load_index(); ?>, null, 4), -1);
+                    var editor = ace.edit("jsoneditor")
+                    editor.getSession().setValue(JSON.stringify({$posts|@json_encode}, null, 4), -1);
                     editor.renderer.updateFull(true);
                 }
                 $('#edit').on('show.bs.collapse', function() {
@@ -78,8 +66,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <?php $date = getdate(); ?>
-                                        <label>Date: </label><input name="create[2]" type="date" class="form-control" value="<?php echo(date('Y-m-d')); ?>" style="background-color:#fafafa;">
+                                        <label>Date: </label><input name="create[2]" type="date" class="form-control" value={$smarty.now|date_format:"Y-m-d"} style="background-color:#fafafa;">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -105,14 +92,13 @@
                 </div>
                 <div id="organize" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <script src="<?php echo $domain ?>/js/jquery-ui.min.js"></script>
-                        <link rel="stylesheet" href="<?php echo $domain ?>/css/jquery-ui.min.css">
+                        <script src={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/js/jquery-ui.min.js'}></script>
+                        <link rel="stylesheet" href={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/css/jquery-ui.min.css'}>
                         <ul id="sortable" class="list-group">
-                            <?php
-                                foreach (posts() as $key=>$value) {
-                                    echo "<li class=\"ui-state-default list-group-item\" id=\"sortable-$key\">${value['title']}</li>";
-                                }
-                            ?>
+                            {foreach from=$posts key=id item=post}
+                                {assign var=post_title value=$post.title}
+                                <li class="ui-state-default list-group-item" id={"sortable-"|cat:$id}>{$post_title}</li>
+                            {/foreach}
                         </ul>
                         <script>
                             function updateOrder() {
@@ -120,10 +106,12 @@
                                 for (let listItem of document.getElementById("sortable").children) {
                                     ids.push(listItem.id.replace('sortable-', ''));
                                 }
-                                $.post('manage.php', {'organize': JSON.stringify(ids, null, 4)}).done(function() {
+                                var $manageUrl = ' {('https://'|cat:$smarty.server.HTTP_HOST|cat:'/admin.php')|escape:'javascript'} ';
+                                var $secret = '{$secret|escape:'javascript'}';
+                                $.post( $manageUrl.trim(), { 'organize': JSON.stringify(ids, null, 4), 'secret': $secret } ).done(function() {
                                     refreshJSONeditor();
-                                    $('#message').fadeOut(0, function() {
-                                        $('#message').text('Successfully updated order of posts.').fadeIn(1000);
+                                    $('#output-message').fadeOut(0, function() {
+                                        $('#output-message').text('Successfully updated order of posts.').fadeIn(1000);
                                     });
                                 });
                             }
@@ -150,6 +138,7 @@
                         <script src="https://cdn.jsdelivr.net/ace/1.2.6/noconflict/ext-language_tools.js" type="text/javascript" charset="utf-8"></script>
                         <hr id='savestatus'/>
                         <div id="jsoneditor" style="height:400px;font-family:monospace; font-size:12px;"></div>
+                        {literal}
                         <script>
                             ace.config.set("basePath", "https://cdn.jsdelivr.net/ace/1.2.6/noconflict/");
                             var editor = ace.edit("jsoneditor");
@@ -176,13 +165,13 @@
                                         $('#invalidjson').fadeOut(1000, function() {});
                                         $.post(window.location, {'edit': JSON.stringify(JSON.parse(editor.getValue()), null, 4)});
                                         $('#savestatus').css('border', '1px solid green');
-                                        $('#message').fadeOut(0, function() {
-                                            $('#message').text('Successfully saved JSON.').fadeIn(1000);
+                                        $('#output-message').fadeOut(0, function() {
+                                            $('#output-message').text('Successfully saved JSON.').fadeIn(1000);
                                         });
                                     }
                                     else {
-                                        $('#message').fadeOut(0, function() {
-                                            $('#message').text('Please fix the errors in the JSON before saving.').fadeIn(1000);
+                                        $('#output-message').fadeOut(0, function() {
+                                            $('#output-message').text('Please fix the errors in the JSON before saving.').fadeIn(1000);
                                         });
                                     }
                                 }
@@ -192,6 +181,7 @@
                             refreshJSONeditor();
                             $('#savestatus').css('border', '1px solid grey');
                         </script>
+                        {/literal}
                     </div>
                 </div>
             </div>
