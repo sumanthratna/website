@@ -1841,3 +1841,7 @@ input[type="text"] {
 .js .animate-box {
   opacity: 0;
 }
+
+ul.sratna-nav a:hover {
+    transform: scale(1.1);
+}
