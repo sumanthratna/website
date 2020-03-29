@@ -1,7 +1,4 @@
-<?php
-require_once 'templates.php';
-get_header('about');
-?>
+{include file='header.tpl' page='about'}
 <div id="sratna-about">
 	<div class="container">
 		<div class="row text-center">
@@ -26,7 +23,7 @@ get_header('about');
 							<h2 class="heading">About</h2>
 						</div>
 						<p>I'm a sophomore at the Thomas Jefferson High School for Science and Technology. <a href="#sratna-services">I like to code</a>, especially with machine learning. I'm also interested in biochemistry.</p>
-						<?php socials(); ?>
+						{include file='socials.tpl'}
 						<!--<p><a href="work.html" class="btn btn-primary btn-outline">View My Works</a></p>-->
 					</div>
 				</div>
@@ -155,6 +152,4 @@ get_header('about');
 		</div>
 	</div>
 </div>
-<?php
-get_footer();
-?>
+{include file='footer.tpl'}

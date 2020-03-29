@@ -1,100 +1,35 @@
 <?php
-require_once 'templates.php';
-?>
-<?php
-if ($_SERVER['REQUEST_METHOD']=="POST" and isset($_POST['contact'])) {
+error_log(print_r($_POST, TRUE));
+if ($_SERVER['REQUEST_METHOD']=="POST" and isset($_POST)) {
+    $config = parse_ini_file('../private/keys.ini');
+    $neverbounce_key = $config['neverbounce_key'];
+    $sendgrid_key = $config['sendgrid_key'];
+    
     require_once 'vendor/autoload.php';
-    $data = $_POST['contact'];
-    error_log('CONTACT '.json_encode($data));
+    
+    error_log('CONTACT '.json_encode($_POST));
+    
     $message = '';
     \NeverBounce\Auth::setApiKey($neverbounce_key);
-    $validemail = \NeverBounce\Single::check($data[2], true, true);
+    $validemail = \NeverBounce\Single::check($_POST['email'], true, true);
     if ($validemail->result_integer==0 || $validemail->result_integer==4) {
         $email = new \SendGrid\Mail\Mail();
         $email->setFrom($validemail->email);
         $email->setSubject('Contact - Sumanth Ratna');
         $email->addTo("sratna@sumanthratna.ml", "Sumanth Ratna");
-        $email->addContent("text/html", nl2br($data[0]).'<br><br><br><br>-------------------<br>'.'- '.trim($data[1]));
+        $email->addContent("text/html", nl2br($_POST['message']).'<br><br><br><br>-------------------<br>'.'- '.trim($_POST['name']));
         $sendgrid = new \SendGrid($sendgrid_key);
         try {
             $response = $sendgrid->send($email);
             $message = 'Thanks for your message!';
         } catch (Exception $e) {
-            $message = 'error sending message (but a valid sender email was detected):<br><br>'.$e->getMessage().'\n\nHere\'s what you wrote:\n'.nl2br($data[2]);
+            $message = 'error sending message (but a valid sender email was detected):<br><br>'.$e->getMessage().'\n\nHere\'s what you wrote:\n'.nl2br($_POST['message']);
         }
     } else {
-        $message = "invalid email address<br><br>Here's what you wrote: ".nl2br($data[2]);
+        $message = "invalid email address<br><br>Here's what you wrote: ".nl2br($_POST['message']);
     }
+    $output = json_encode(array("message" => $message));
+    echo $output;
+    return $output;
 }
 ?>
-<?php get_header('contact'); ?>
-		<div id="sratna-contact">
-			<div class="container">
-				<div class="row text-center">
-					<h2 class="bold">Contact</h2>
-				</div>
-				<div class="row">
-					<div class="col-md-12 col-md-offset-0 text-center animate-box intro-heading">
-						<span>Contact</span>
-						<h2>Contact Me</h2>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-12">
-						<div class="rotate">
-							<h2 class="heading">Contact</h2>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-12 col-md-offset-0">
-					    <div class="animate-box">
-					        <center>You can contact me about any of my projects including FCPS GradeView. </center>
-					    </div>
-					    <br>
-						<div class="row">
-							<div class="col-md-4 animate-box">
-								<h3>My Address</h3>
-								<ul class="contact-info">
-									<!--<li><span><i class="icon-map5"></i></span>7214 Bull Run Post Office Rd, Centreville, VA 20121</li>-->
-									<li><span><i class="icon-phone4"></i></span>+1(571)241-0094</li>
-									<li><span><i class="icon-envelope2"></i></span><a href="mailto:sratna@<?php echo $_SERVER['HTTP_HOST']?>">sratna@<?php echo $_SERVER['HTTP_HOST']?></a></li>
-									<li><span><i class="icon-globe3"></i></span><a href="<?php echo $_SERVER['HTTP_HOST'] ?>"><?php echo $_SERVER['HTTP_HOST'] ?></a></li>
-								</ul>
-							</div>
-                            <div class="col-md-7 col-md-push-1 animate-box">
-							    <?php if (!empty($message)): ?>
-                                    <?php echo($message);?>
-    						    <?php else: ?>
-						            <form action="" method="post">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <textarea name="contact[0]" class="form-control" id="" cols="30" rows="7" placeholder="Message (supports HTML markup)"></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <input name="contact[1]" type="text" class="form-control" placeholder="Name">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <input name="contact[2]" type="email" class="form-control" placeholder="Email">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <input name="submit" type="submit" value="Send Message" class="btn btn-primary">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-							    <?php endif; ?>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-        <?php get_footer(); ?>
