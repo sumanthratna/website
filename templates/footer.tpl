@@ -5,7 +5,7 @@
                         <div class="col-md-4 col-pb-sm">
                             <div class="row">
                                 <div class="col-md-10">
-                                    <h2>Let's Talk</h2>
+                                    <h2><a href={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/contact'}>Let's Talk</a></h2>
                                     <p>Email me.</p>
                                     <p>{mailto address='sratna@'|cat:$smarty.server.HTTP_HOST}</p>
                                     {include file='socials.tpl'}
@@ -13,7 +13,7 @@
                             </div>
                         </div>
                         <div class="col-md-4 col-pb-sm">
-                            <h2>Latest Blog Posts</h2>
+                            <h2><a href={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/blog'}>Latest Blog Posts</a></h2>
                             <div style="height:300px; overflow-y:scroll">
                                 {foreach from=$posts key=id item=post}
                                     {assign var=post_url value={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/blog/'|cat:$id}}

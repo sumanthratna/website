@@ -27,16 +27,15 @@ $router->mount('/blog', function() use ($smarty, $router, $posts) {
 
     // will result in '/blog/id'
     $router->get('/([a-z0-9-]+)', function($id) use ($smarty, $posts) {
-        // $smarty->clear_cache('pages/blog/post.tpl');
-        // try:
-        // DOESN'T WORK!
-        $post = $posts[$id];
-        error_log(print_r($posts, TRUE));
-        $smarty->assign('post_id', $id);
-        $smarty->assign('post', $post);
-        $smarty->display("pages/blog/post.tpl");
-        // catch illegal string offset:
-        // trigger 404
+        if (isset($posts[$id])) {
+            $post = $posts[$id];
+            // error_log(print_r($posts, TRUE));
+            $smarty->assign('post_id', $id);
+            $smarty->assign('post', $post);
+            $smarty->display("pages/blog/post.tpl");
+        } else {
+            // trigger 404
+        }
     });
 
 });

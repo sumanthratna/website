@@ -1,7 +1,7 @@
 {
   "curl-box": {
     "title": "How to download a Box file from the command line",
-    "excerpt": "How to download a Box file (even private files) using curl.",
+    "excerpt": "How to download a Box file (even private files) using <code>curl</code>.",
     "image": "https://sumanthratna.ml/images/blog/curl-box.png",
     "date": "June 20, 2019",
     "comments": [],

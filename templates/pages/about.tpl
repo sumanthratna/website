@@ -6,12 +6,12 @@
 		</div>
 		<div class="row row-padded-bottom">
 			<div class="col-md-5 animate-box">
-				<div class="owl-carousel3">
+			    <div class="owl-carousel3">
                     <div class="item">
-                        <img class="img-responsive about-img" src="images/me.jpg" alt="a picture of me">
+                        {html_image file="images/me.jpg" class="img-responsive about-img" alt="A picture of me."}
                     </div>
                     <div class="item">
-                        <img class="img-responsive about-img" src="images/laptop.jpeg" alt="a picture of me">
+                        {html_image file="images/laptop.jpeg" class="img-responsive about-img" alt="A picture of me."}
                     </div>
                 </div>
 			</div>
@@ -22,9 +22,8 @@
 						<div class="rotate">
 							<h2 class="heading">About</h2>
 						</div>
-						<p>I'm a sophomore at the Thomas Jefferson High School for Science and Technology. <a href="#sratna-services">I like to code</a>, especially with machine learning. I'm also interested in biochemistry.</p>
+						<p>I'm a sophomore at the Thomas Jefferson High School for Science and Technology. I'm interested in machine learning and biochemistry.</p>
 						{include file='socials.tpl'}
-						<!--<p><a href="work.html" class="btn btn-primary btn-outline">View My Works</a></p>-->
 					</div>
 				</div>
 			</div>
@@ -80,8 +79,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="one-forth services-img" style="background-image: url(images/services-img-1.jpg);">
-					</div>
+					<div class="one-forth services-img" style="background-image: url(images/services-img-1.jpg);"></div>
 				</div>
 			</div>
 		</div>

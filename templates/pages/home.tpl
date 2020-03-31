@@ -8,10 +8,10 @@
             <div class="col-md-5 animate-box">
                 <div class="owl-carousel3">
                     <div class="item">
-                        <img class="img-responsive about-img" src="images/me.jpg" alt="a picture of me">
+                        {html_image file="images/me.jpg" class="img-responsive about-img" alt="A picture of me." height="458" width="335" }
                     </div>
                     <div class="item">
-                        <img class="img-responsive about-img" src="images/laptop.jpeg" alt="a picture of me">
+                        {html_image file="images/laptop.jpeg" class="img-responsive about-img" alt="A picture of me." height="" }
                     </div>
                 </div>
             </div>
@@ -29,7 +29,7 @@
                         <div class="rotate">
                             <h2 class="heading">About</h2>
                         </div>
-                        <p>I'm a sophomore at the Thomas Jefferson High School for Science and Technology. <a href="#sratna-services">I like to code</a>, especially with machine learning. I'm also interested in biochemistry.</p>
+                        <p>I'm a sophomore at the Thomas Jefferson High School for Science and Technology. I'm interested in machine learning and biochemistry.</p>
                         {include file='socials.tpl'}
                         <p><a href={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/contact'} class="btn btn-primary btn-outline">Contact Me!</a></p>
                     </div>
@@ -127,7 +127,7 @@
                         <div class="col-md-12">
                             <div class="article">
                                 <a href={$post_url} class="blog-img">
-                                    <img class="img-responsive" src={$img_url} alt="">
+                                    {html_image file=$img_url class="img-responsive" alt="" height="360"}
                                     <div class="overlay"></div>
                                     <div class="link">
                                         <span class="read">Read More</h2>
