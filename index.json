@@ -5,7 +5,7 @@
     "image": "https://user.tjhsst.edu/2022sratna/images/blog/curl-box.png",
     "date": "June 20, 2019",
     "comments": [],
-    "contents": "This is my personal website."
+    "contents": "<code>curl -L https://api.box.com/2.0/files/[FILE ID]/content -H \"Authorization: Bearer [DEVELOPER TOKEN]\" -o [FILE NAME]</code>First get the file ID from the URL in the browser. Then get the developer token by <a href=\"https://app.box.com/developers/console\">creating a new Box app</a> (click the configuration tab). You can choose the file name to output to. View an example <a href=\"https://asciinema.org/a/V1NJDw4M8RJvVVVioTIw5qa4j\">here</a>."
   },
   "grade-view": {
     "title": "GradeView",
@@ -15,12 +15,12 @@
     "comments": [],
     "contents": "If you have questions about the app, please <a href={'https://'|cat:$smarty.server.SERVER_NAME|cat:'/contact'}>contact me</a>. If you'd like, you can open an issue or pull request on the <a href=\"https://github.com/sumanthratna/grade-view.git\">GitHub repository</a>. <a href=\"https://apps.apple.com/us/app/gradeview/id1459817290\">iOS</a>, <a href=\"https://gradeview.en.aptoide.com/\">Android</a>"
   },
-  "this": {
+  "what-is-this": {
     "title": "this",
     "excerpt": "My personal website",
-    "image": "https://user.tjhsst.edu/2022sratna/images/blog/this.png",
+    "image": "https://user.tjhsst.edu/2022sratna/images/blog/what-is-this.png",
     "date": "March 7, 2019",
     "comments": [],
-    "contents": "<code>curl -L https://api.box.com/2.0/files/[FILE ID]/content -H \"Authorization: Bearer [DEVELOPER TOKEN]\" -o [FILE NAME]</code>First get the file ID from the URL in the browser. Then get the developer token by <a href=\"https://app.box.com/developers/console\">creating a new Box app</a> (click the configuration tab). You can choose the file name to output to. View an example <a href=\"https://asciinema.org/a/V1NJDw4M8RJvVVVioTIw5qa4j\">here</a>."
+    "contents": "This is my personal website."
   }
 }

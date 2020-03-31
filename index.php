@@ -9,8 +9,8 @@ $router = new \Bramus\Router\Router();
 require_once dirname(__FILE__).'/setup.php';
 $smarty = new CustomSmarty();
 
-$posts = file_get_contents(__DIR__."/index.json");
-$smarty->assign('posts', json_decode($posts, true));
+$posts = json_decode(file_get_contents(__DIR__."/index.json"), TRUE);
+$smarty->assign('posts', $posts);
 
 $config = parse_ini_file('../private/keys.ini');
 $smarty->assign('secret', $config['secret']);
@@ -26,10 +26,12 @@ $router->mount('/blog', function() use ($smarty, $router, $posts) {
     });
 
     // will result in '/blog/id'
-    $router->get('/{id}', function($id) use ($smarty, $posts) {
+    $router->get('/([a-z0-9-]+)', function($id) use ($smarty, $posts) {
+        // $smarty->clear_cache('pages/blog/post.tpl');
         // try:
         // DOESN'T WORK!
         $post = $posts[$id];
+        error_log(print_r($posts, TRUE));
         $smarty->assign('post_id', $id);
         $smarty->assign('post', $post);
         $smarty->display("pages/blog/post.tpl");

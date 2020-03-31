@@ -13,7 +13,7 @@
                             </div>
                         </div>
                         <div class="col-md-4 col-pb-sm">
-                            <h2>Latest Blog</h2>
+                            <h2>Latest Blog Posts</h2>
                             <div style="height:300px; overflow-y:scroll">
                                 {foreach from=$posts key=id item=post}
                                     {assign var=post_url value={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/blog/'|cat:$id}}
