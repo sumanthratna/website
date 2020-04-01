@@ -96,8 +96,6 @@
                                 $("#excerpt").prop( "disabled", true );
                                 
                                 var $manageUrl = '{('https://'|cat:$smarty.server.HTTP_HOST|cat:'/admin.php')|escape:'javascript'}';
-                                
-                                /* Send the data using post */
                                 var $secret = '{$secret|escape:'javascript'}';
                                 
                                 var $id = $('#id').val();
@@ -105,13 +103,15 @@
                                 if ($id === "") {
                                     $id = $title.toLowerCase().replace(/[[:space:]]+/g, '-').replace('[^0-9a-z\-]', '');
                                 }
+                                
+                                /* Send the data using post */
                                 var posting = $.post( $manageUrl, { 'create': { title: $title, id: $id, date: $("#date").val(), excerpt: $("#excerpt").val() }, secret: $secret } );
                                 
                                 /* Alerts the results */
                                 posting.done(function( data ) {
                                     var outputMessage = jQuery.parseJSON(data).message;
                                         $("#output-message").fadeOut(function() {
-                                        $(this).text(outputMessage).fadeIn();
+                                        $(this).html(outputMessage).fadeIn();
                                     });
                                   if (outputMessage.startsWith('Successfully created post')) {
                                         $("#title").val('');
@@ -127,17 +127,6 @@
                                   $("#submit-create").prop( "disabled", false );
                                 });
                             });
-                            function updateOrder() {
-                                
-                                var $manageUrl = '{('https://'|cat:$smarty.server.HTTP_HOST|cat:'/admin.php')|escape:'javascript'}';
-                                var $secret = '{$secret|escape:'javascript'}';
-                                $.post( $manageUrl, { 'organize': JSON.stringify(ids, null, 4), 'secret': $secret } ).done(function() {
-                                    refreshJSONeditor();
-                                    $('#output-message').fadeOut(0, function() {
-                                        $('#output-message').text('Successfully updated order of posts. Refresh this page to see changes to the footer.').fadeIn(1000);
-                                    });
-                                });
-                            }
                         </script>
                     </div>
                 </div>
