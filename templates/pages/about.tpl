@@ -8,10 +8,10 @@
 			<div class="col-md-5 animate-box">
 			    <div class="owl-carousel3">
                     <div class="item">
-                        {html_image file="images/me.jpg" class="img-responsive about-img" alt="A picture of me."}
+                        {html_image file="images/me.jpg" class="img-responsive about-img" alt="A picture of me." height="458" width="335" }
                     </div>
                     <div class="item">
-                        {html_image file="images/laptop.jpeg" class="img-responsive about-img" alt="A picture of me."}
+                        {html_image file="images/laptop.jpeg" class="img-responsive about-img" alt="A picture of me." height="768" width="1024" }
                     </div>
                 </div>
 			</div>

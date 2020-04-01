@@ -1,5 +1,4 @@
 <?php
-error_log(print_r($_POST, TRUE));
 if ($_SERVER['REQUEST_METHOD']=="POST" and isset($_POST)) {
     $config = parse_ini_file('../private/keys.ini');
     if ($_POST['secret'] == $config['secret']) {
@@ -29,10 +28,10 @@ if ($_SERVER['REQUEST_METHOD']=="POST" and isset($_POST)) {
         } else {
             $message = "invalid email address";
         }
-        $output = json_encode(array("message" => $message));
     } else {
-        $output = 'INVALID SECRET';
+        $message = 'INVALID SECRET';
     }
+    $output = json_encode(array("message" => $message));
     echo $output;
     return $output;
 }

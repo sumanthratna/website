@@ -8,6 +8,7 @@ $router = new \Bramus\Router\Router();
 
 require_once dirname(__FILE__).'/setup.php';
 $smarty = new CustomSmarty();
+$smarty->loadFilter('output', 'trimwhitespace');
 
 $posts = json_decode(file_get_contents(__DIR__."/index.json"), TRUE);
 $smarty->assign('posts', $posts);
