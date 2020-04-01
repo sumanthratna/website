@@ -50,6 +50,6 @@
             </div>
         </footer>
     </div>
-    <script src={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/js/main.js'}></script>
+    <script src={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/js/main.js'} async></script>
 </body>
 </html>

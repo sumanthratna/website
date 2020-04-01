@@ -36,6 +36,7 @@ $router->mount('/blog', function() use ($smarty, $router, $posts) {
             $smarty->display("pages/blog/post.tpl");
         } else {
             // trigger 404
+            echo '3';
         }
     });
 
@@ -96,6 +97,3 @@ $router->run(function() {
     );
     error_log('HIT '.json_encode($hit, JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES));
 });
-
-// Run it!
-$router->run();
