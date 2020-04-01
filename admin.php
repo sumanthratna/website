@@ -12,7 +12,6 @@ if ($_SERVER['REQUEST_METHOD']=="POST") {
         $message = '';
         if (isset($_POST['create'])) {
             $data = $_POST['create'];
-            error_log(print_r($data, TRUE));
             $data['date'] = date("F j, Y", strtotime($data['date']));
             $post = array(
                 $data['id']=>array(
@@ -28,6 +27,7 @@ if ($_SERVER['REQUEST_METHOD']=="POST") {
             // JSON_UNESCAPED_SLASHES won't mess up contents since contents is initialized as an empty string, not HTML
             file_put_contents(realpath(__DIR__."/index.json"), json_encode($posts, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
             $message = "Successfully created post <a href=\"https://".$_SERVER['SERVER_NAME']."/blog/".$data['id']."\" target=\"_blank\">".$data['title']."</a>.";
+            error_log('ADMIN CREATE '.json_encode($post, JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES));
         }
         if (isset($_POST['organize'])) {
             $newArray = array();
@@ -36,10 +36,12 @@ if ($_SERVER['REQUEST_METHOD']=="POST") {
                 $newArray[$key] = $oldArray[$key];
             }
             file_put_contents(realpath(__DIR__."/index.json"), json_encode($newArray, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+            error_log('ADMIN ORGANIZE '.$_POST['organize']);
         }
         if (isset($_POST['edit'])) {
             file_put_contents(realpath(__DIR__."/index.json"), $_POST['edit']);
             $message = 'Successfully updated blog index file.';
+            error_log('ADMIN EDIT '.json_encode(json_decode($_POST['edit'], TRUE)));
         }
         
         require_once dirname(__FILE__).'/setup.php';

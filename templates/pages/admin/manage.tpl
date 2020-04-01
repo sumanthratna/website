@@ -101,7 +101,7 @@
                                 var $id = $('#id').val();
                                 var $title = $('#title').val();
                                 if ($id === "") {
-                                    $id = $title.toLowerCase().replace(/[[:space:]]+/g, '-').replace('[^0-9a-z\-]', '');
+                                    $id = $title.toLowerCase().replace(new RegExp("\\s+",'g'),"-").replace(new RegExp("[^0-9a-z\-]",'g'),"");
                                 }
                                 
                                 /* Send the data using post */
@@ -112,21 +112,20 @@
                                     var outputMessage = jQuery.parseJSON(data).message;
                                         $("#output-message").fadeOut(function() {
                                         $(this).html(outputMessage).fadeIn();
-                                    });
+                                    } );
                                   if (outputMessage.startsWith('Successfully created post')) {
                                         $("#title").val('');
                                         $("#id").val('');
                                         $("#date").val({$smarty.now|date_format:"Y-m-d"});
                                         $("#excerpt").val('');
-                                  } else {
-                                        $("#title").prop( "disabled", true );
-                                        $("#id").prop( "disabled", true );
-                                        $("#date").prop( "disabled", true );
-                                        $("#excerpt").prop( "disabled", true );
                                   }
+                                    $("#title").prop( "disabled", false );
+                                    $("#id").prop( "disabled", false );
+                                    $("#date").prop( "disabled", false );
+                                    $("#excerpt").prop( "disabled", false );
                                   $("#submit-create").prop( "disabled", false );
-                                });
-                            });
+                                } );
+                            } );
                         </script>
                     </div>
                 </div>
