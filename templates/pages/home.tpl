@@ -68,7 +68,7 @@
                                     </ul>
                                 </div>
                                 <div class="services animate-box">
-                                    <h3>3 - Web Development</h3>
+                                    <h3>2 - Web Development</h3>
                                     <ul>
                                         <li>HTML</li>
                                         <li>CSS/Bootstrap</li>
@@ -79,7 +79,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="services animate-box">
-                                    <h3>2 - Programming Languages</h3>
+                                    <h3>3 - Programming Languages</h3>
                                     <ul>
                                         <li>C/C++/Java</li>
                                         <li>Python</li>
