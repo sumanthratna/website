@@ -34,11 +34,13 @@
                         </div>
                     </div>
                 </div>
+                <input type="hidden" name="recaptcha-response" id="recaptcha-response">
             </form>
         </div>
     </div>
 </div>
 
+<script src="https://www.google.com/recaptcha/api.js?render={$recaptcha_site_key}"></script>
 <script>
 /* attach a submit handler to the form */
 $("#login-form").submit(function(event) {
@@ -56,24 +58,27 @@ $("#login-form").submit(function(event) {
   /* get the action attribute from the <form> element */
   var $form = $( this ), url = $form.attr( 'action' );
 
-  /* Send the data using post */
-  var $secret = '{$secret|escape:'javascript'}';
-  var posting = $.post( url, { username: $('#username').val(), password: $('#password').val(), secret: $secret } );
+  grecaptcha.execute('{$recaptcha_site_key}', { action: 'admin' } ).then(function(token) {
+        $('#recaptcha-response').val(token);
+      /* Send the data using post */
+      var $secret = "{$secret|escape:'javascript'}";
+      var posting = $.post( url, { username: $('#username').val(), password: $('#password').val(), secret: $secret, recaptcha_response: $('#recaptcha-response').prop("value") } );
 
-  /* Alerts the results */
-  posting.done(function( data ) {
-        var outputMessage = jQuery.parseJSON(data).message;
+      /* Alerts the results */
+      posting.done(function( data ) {
+            var outputMessage = jQuery.parseJSON(data).message;
             $("#output-message").fadeOut(function() {
-            $(this).text(outputMessage).fadeIn();
-        });
-      if (outputMessage == 'Invalid credentials') {
-            $("#submit").prop( "disabled", false );
-            $("#username").prop( "disabled", false );
-            $("#password").prop( "disabled", false );
-            $("#submit").prop( "disabled", false );
-      } else {
-            window.location.replace("{'https://'|cat:$smarty.server.HTTP_HOST|cat:'/admin/manage'}");
-      }
+                $(this).text(outputMessage).fadeIn();
+            });
+          if (outputMessage == 'Invalid credentials') {
+                $("#submit").prop( "disabled", false );
+                $("#username").prop( "disabled", false );
+                $("#password").prop( "disabled", false );
+                $("#submit").prop( "disabled", false );
+          } else {
+                window.location.replace("{'https://'|cat:$smarty.server.HTTP_HOST|cat:'/admin/manage'}");
+          }
+      });
   });
 });
 </script>

@@ -57,6 +57,7 @@
                                         <input id="submit" name="submit" type="submit" value="Send Message" class="btn btn-primary">
                                     </div>
                                 </div>
+                                <input type="hidden" name="recaptcha-response" id="recaptcha-response">
                             </div>
                         </form>
 					</div>
@@ -66,6 +67,7 @@
 	</div>
 </div>
 
+<script src="https://www.google.com/recaptcha/api.js?render={$recaptcha_site_key}"></script>
 <script>
 /* attach a submit handler to the form */
 $("#contact-form").submit(function(event) {
@@ -80,31 +82,35 @@ $("#contact-form").submit(function(event) {
   $("#name").prop( "disabled", true );
   $("#email").prop( "disabled", true );
   $("#submit").prop( "disabled", true );
-
+  
   /* get the action attribute from the <form> element */
   var $form = $( this ), url = $form.attr( 'action' );
+  
+    grecaptcha.execute('{$recaptcha_site_key}', { action: 'contact' } ).then(function(token) {
+        $('#recaptcha-response').val(token);
+      
+      /* Send the data using post */
+      var $secret = "{$secret|escape:'javascript'}";
+      console.log($('#recaptcha-response').attr("value"));
+      var posting = $.post( url, { message: $('#message').val(), name: $('#name').val(), email: $("#email").val(), secret: $secret, recaptcha_response: $('#recaptcha-response').prop("value") } );
 
-  /* Send the data using post */
-  var $secret = '{$secret|escape:'javascript'}';
-  var posting = $.post( url, { message: $('#message').val(), name: $('#name').val(), email: $("#email").val(), secret: $secret } );
-
-  /* Alerts the results */
-  posting.done(function( data ) {
-        var outputMessage = jQuery.parseJSON(data).message;
-            $("#output-message").fadeOut(function() {
-            $(this).text(outputMessage).fadeIn();
-        });
-      if (outputMessage == 'Success! Thanks for your message!') {
-            $("#message").val('');
-            $("#name").val('');
-            $("#email").val('');
-      } else {
-            $("#message").prop( "disabled", false );
+      /* Alerts the results */
+      posting.done(function( data ) {
+            var outputMessage = jQuery.parseJSON(data).message;
+                $("#output-message").fadeOut(function() {
+                $(this).text(outputMessage).fadeIn();
+            });
+          if (outputMessage == 'Success! Thanks for your message!') {
+                $("#message").val('');
+                $("#name").val('');
+                $("#email").val('');
+          }
+          $("#message").prop( "disabled", false );
             $("#name").prop( "disabled", false );
             $("#email").prop( "disabled", false );
-      }
-      $("#submit").prop( "disabled", false );
-  });
+          $("#submit").prop( "disabled", false );
+      });
+    });
 });
 </script>
 {include file='footer.tpl'}

@@ -22,9 +22,9 @@ foreach ($posts as $id => $post) {
 }
 $smarty->assign('lunr_posts', $lunr_posts);
 
-
 $config = parse_ini_file('../private/keys.ini');
 $smarty->assign('secret', $config['secret']);
+$smarty->assign('recaptcha_site_key', $config['recaptcha_site_key']);
 
 $router->get('/', function() use ($smarty) {
     $smarty->display("pages/home.tpl");
