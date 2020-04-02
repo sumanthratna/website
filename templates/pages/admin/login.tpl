@@ -10,20 +10,20 @@
 				<h2>Login</h2>
 			</div>
 		</div>
-		<p id="output-message">&#8203;</p>
+		<p id="output-message" style="text-align: center;">&#8203;</p>
 		<div class="col-md-7 col-md-push-1 animate-box">
-            <form action="../auth.php?action=login" method="post">
+            <form id="login-form" action="../auth.php?action=login" method="post" autocomplete="on">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>Username: </label><input id="username" name="username" type="text" class="form-control">
+                            <label>Username: </label><input id="username" name="username" type="text" class="form-control" autocomplete="username">
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>Password: </label><input id="password" name="password" type="password" class="form-control">
+                            <label>Password: </label><input id="password" name="password" type="password" class="form-control" autocomplete="current-password">
                         </div>
                     </div>
                 </div>
@@ -41,7 +41,7 @@
 
 <script>
 /* attach a submit handler to the form */
-$("#contact-form").submit(function(event) {
+$("#login-form").submit(function(event) {
 
   /* stop form from submitting normally */
   event.preventDefault();
@@ -58,7 +58,7 @@ $("#contact-form").submit(function(event) {
 
   /* Send the data using post */
   var $secret = '{$secret|escape:'javascript'}';
-  var posting = $.post( url, { username: $('#message').val(), password: $('#password').val(), secret: $secret } );
+  var posting = $.post( url, { username: $('#username').val(), password: $('#password').val(), secret: $secret } );
 
   /* Alerts the results */
   posting.done(function( data ) {
@@ -68,8 +68,11 @@ $("#contact-form").submit(function(event) {
         });
       if (outputMessage == 'Invalid credentials') {
             $("#submit").prop( "disabled", false );
+            $("#username").prop( "disabled", false );
+            $("#password").prop( "disabled", false );
+            $("#submit").prop( "disabled", false );
       } else {
-            window.location.replace("http://stackoverflow.com");
+            window.location.replace("{'https://'|cat:$smarty.server.HTTP_HOST|cat:'/admin/manage'}");
       }
   });
 });

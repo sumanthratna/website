@@ -53,7 +53,7 @@ var idx = lunr(function () {
   }, this)
   
 });
-// console.log(idx.tokenSet.toArray());
+console.log(idx.tokenSet.toArray());
 var searchRequest = getUrlParameter('input');
 console.log(idx.search(searchRequest));
 </script>
