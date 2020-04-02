@@ -6,7 +6,7 @@ case 'login':
         header("Location: https://".$_SERVER['SERVER_NAME']."/admin/manage");
         die();
     }
-    if ($_SERVER["REQUEST_METHOD"]=="POST" && isset($_POST)) {
+    if ($_SERVER["REQUEST_METHOD"]=="POST" && isset($_POST['recaptcha_response'])) {
         $config = parse_ini_file('../private/keys.ini');
     
         $message = '';
@@ -14,7 +14,6 @@ case 'login':
         $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
         $recaptcha_secret = $config['recaptcha_secret'];
         $recaptcha_response = $_POST['recaptcha_response'];
-        error_log(print_r($_POST, TRUE));
     
         // Make and decode POST request:
         $recaptcha = file_get_contents($recaptcha_url . '?secret=' . $recaptcha_secret . '&response=' . $recaptcha_response);

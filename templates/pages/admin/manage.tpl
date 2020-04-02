@@ -1,5 +1,7 @@
 {include file='header.tpl' page='admin'}
 <div id="sratna-contact">
+    <script src="https://www.google.com/recaptcha/api.js?render={$recaptcha_site_key}"></script>
+    <input type="hidden" name="recaptcha-response" id="recaptcha-response">
     <div class="container">
         <p style="text-align: center;"><a href={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/admin/logout'} type="submit" class="btn btn-primary">Logout of Admin Panel</a></p>
         
@@ -104,26 +106,30 @@
                                     $id = $title.toLowerCase().replace(new RegExp("\\s+",'g'),"-").replace(new RegExp("[^0-9a-z\-]",'g'),"");
                                 }
                                 
-                                /* Send the data using post */
-                                var posting = $.post( $manageUrl, { 'create': { title: $title, id: $id, date: $("#date").val(), excerpt: $("#excerpt").val() }, secret: $secret } );
+                                grecaptcha.execute('{$recaptcha_site_key}', { action: 'admin' } ).then(function(token) {
+                                    $('#recaptcha-response').val(token);
                                 
-                                /* Alerts the results */
-                                posting.done(function( data ) {
-                                    var outputMessage = jQuery.parseJSON(data).message;
-                                        $("#output-message").fadeOut(function() {
-                                        $(this).html(outputMessage).fadeIn();
+                                    /* Send the data using post */
+                                    var posting = $.post( $manageUrl, { 'create': { title: $title, id: $id, date: $("#date").val(), excerpt: $("#excerpt").val() }, secret: $secret, recaptcha_response: $('#recaptcha-response').prop("value") } );
+                                    
+                                    /* Alerts the results */
+                                    posting.done(function( data ) {
+                                        var outputMessage = jQuery.parseJSON(data).message;
+                                            $("#output-message").fadeOut(function() {
+                                            $(this).html(outputMessage).fadeIn();
+                                        } );
+                                      if (outputMessage.startsWith('Successfully created post')) {
+                                            $("#title").val('');
+                                            $("#id").val('');
+                                            $("#date").val({$smarty.now|date_format:"Y-m-d"});
+                                            $("#excerpt").val('');
+                                      }
+                                        $("#title").prop( "disabled", false );
+                                        $("#id").prop( "disabled", false );
+                                        $("#date").prop( "disabled", false );
+                                        $("#excerpt").prop( "disabled", false );
+                                      $("#submit-create").prop( "disabled", false );
                                     } );
-                                  if (outputMessage.startsWith('Successfully created post')) {
-                                        $("#title").val('');
-                                        $("#id").val('');
-                                        $("#date").val({$smarty.now|date_format:"Y-m-d"});
-                                        $("#excerpt").val('');
-                                  }
-                                    $("#title").prop( "disabled", false );
-                                    $("#id").prop( "disabled", false );
-                                    $("#date").prop( "disabled", false );
-                                    $("#excerpt").prop( "disabled", false );
-                                  $("#submit-create").prop( "disabled", false );
                                 } );
                             } );
                         </script>
@@ -152,15 +158,19 @@
                                 for (let listItem of document.getElementById("sortable").children) {
                                     ids.push(listItem.id.replace('sortable-', ''));
                                 }
-                                var $manageUrl = '{('https://'|cat:$smarty.server.HTTP_HOST|cat:'/admin.php')|escape:'javascript'}';
-                                var $secret = '{$secret|escape:'javascript'}';
+                                var $manageUrl = "{('https://'|cat:$smarty.server.HTTP_HOST|cat:'/admin.php')|escape:'javascript'}";
+                                var $secret = "{$secret|escape:'javascript'}";
                                 
-                                $.post( $manageUrl, { 'organize': JSON.stringify(ids, null, 4), 'secret': $secret } ).done(function() {
-                                    refreshJSONeditor();
-                                    $('#output-message').fadeOut(0, function() {
-                                        $('#output-message').text('Successfully updated order of posts. Refresh this page to see changes to the footer.').fadeIn(1000);
+                                grecaptcha.execute('{$recaptcha_site_key}', { action: 'admin' } ).then(function(token) {
+                                    $('#recaptcha-response').val(token);
+                                
+                                    $.post( $manageUrl, { 'organize': JSON.stringify(ids, null, 4), 'secret': $secret, recaptcha_response: $('#recaptcha-response').prop("value") } ).done(function() {
+                                        refreshJSONeditor();
+                                        $('#output-message').fadeOut(0, function() {
+                                            $('#output-message').text('Successfully updated order of posts. Refresh this page to see changes to the footer.').fadeIn(1000);
+                                        });
                                     });
-                                });
+                                } );
                             }
                         </script>
                         <input name="submit-organize" type="submit" value="Update Order of Posts" class="btn btn-primary" onclick="updateOrder()">
@@ -210,13 +220,17 @@
                                     if (editor.getSession().getAnnotations().length==0) {
                                         $('#invalidjson').fadeOut(1000, function() {});
                                         
-                                        var $manageUrl = '{('https://'|cat:$smarty.server.HTTP_HOST|cat:'/admin.php')|escape:'javascript'}';
-                                        var $secret = '{$secret|escape:'javascript'}';
+                                        var $manageUrl = "{('https://'|cat:$smarty.server.HTTP_HOST|cat:'/admin.php')|escape:'javascript'}";
+                                        var $secret = "{$secret|escape:'javascript'}";
                                         
-                                        $.post($manageUrl, { 'edit': JSON.stringify(JSON.parse(editor.getValue()), null, 4), 'secret': $secret });
-                                        $('#savestatus').css('border', '1px solid green');
-                                        $('#output-message').fadeOut(0, function() {
-                                            $('#output-message').text('Successfully saved JSON.').fadeIn(1000);
+                                        grecaptcha.execute('{$recaptcha_site_key}', { action: 'admin' } ).then(function(token) {
+                                            $('#recaptcha-response').val(token);
+                                            $.post($manageUrl, { 'edit': JSON.stringify(JSON.parse(editor.getValue()), null, 4), 'secret': $secret, recaptcha_response: $('#recaptcha-response').prop("value") }).done(function () {
+                                                $('#savestatus').css('border', '1px solid green');
+                                                $('#output-message').fadeOut(0, function() {
+                                                    $('#output-message').text('Successfully saved JSON.').fadeIn(1000);
+                                                } );
+                                            } );
                                         } );
                                     }
                                     else {
