@@ -54,19 +54,7 @@
             ::-webkit-scrollbar-thumb:hover {
               background: #555;
             }
-        </style>
-
-        <script src={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/js/jquery.min.js'}></script>
-        <script src={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/js/jquery.easing.1.3.js'} async></script>
-        <script src={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/js/jquery.waypoints.min.js'} defer></script>
-        <script src={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/js/jquery.magnific-popup.min.js'} async></script>
-        <script src={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/js/bootstrap.min.js'} async></script>
-        <script src={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/js/owl.carousel.min.js'} defer></script>
-        <script src={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/js/modernizr-2.6.2.min.js'}></script>
-
-        <!--[if lt IE 9]>
-        <script src={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/js/respond.min.js'}></script>
-        <![endif]-->
+    </style>
 
     </head>
     <body>
@@ -76,7 +64,10 @@
                 <div class="sratna-table-cell js-fullheight">
                     <div class="row">
                         <div class="col-md-12">
-                            get_search_form();
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="search" placeholder="UNDER CONSTRUCTION">
+                                <button type="submit" id="search-submit" class="btn btn-primary"><i class="icon-search3"></i></button>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
@@ -116,7 +107,7 @@
                         <div class="col-md-12">
                             <div class="sratna-navbar-brand">
                                 <a class="img-responsive sratna-logo" href={'https://'|cat:$smarty.server.HTTP_HOST}>
-                                    {html_image file='https://'|cat:$smarty.server.HTTP_HOST|cat:'/favicon.ico' alt="Sumanth Ratna's logo" height="32px" width="32px"}
+                                    {html_image file='https://'|cat:$smarty.server.HTTP_HOST|cat:'/favicon.ico' alt="Sumanth Ratna's logo" height="32px" width="32px" loading="lazy"}
                                     <!--<span>S_</span><span>_R</span>-->
                                 </a>
                             </div>

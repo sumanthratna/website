@@ -468,7 +468,8 @@ header .sratna-navbar-brand .sratna-logo:focus {
 #sratna-testimony,
 #sratna-progress,
 #sratna-contact,
-#sratna-about {
+#sratna-about,
+#sratna-search {
   padding: 10em 0;
   clear: both;
   position: relative;
@@ -482,7 +483,8 @@ header .sratna-navbar-brand .sratna-logo:focus {
   #sratna-testimony,
   #sratna-progress,
   #sratna-contact,
-  #sratna-about {
+  #sratna-about,
+  #sratna-search {
     padding: 5em 0;
   }
 }

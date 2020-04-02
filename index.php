@@ -13,6 +13,16 @@ $smarty->loadFilter('output', 'trimwhitespace');
 $posts = json_decode(file_get_contents(__DIR__."/index.json"), TRUE);
 $smarty->assign('posts', $posts);
 
+$lunr_posts = array();
+foreach ($posts as $id => $post) {
+    $lunr_post = $post;
+    $lunr_post['id'] = $id;
+    $lunr_post['contents'] = strip_tags($post['contents']);
+    array_push($lunr_posts, $lunr_post);
+}
+$smarty->assign('lunr_posts', $lunr_posts);
+
+
 $config = parse_ini_file('../private/keys.ini');
 $smarty->assign('secret', $config['secret']);
 
@@ -81,6 +91,9 @@ $router->mount('/admin', function() use ($smarty, $router) {
             $smarty->display("pages/admin/login.tpl");
         }
     });
+});
+$router->get('/search', function() use ($smarty) {
+    $smarty->display("pages/search.tpl");
 });
 $router->post('/api', function() use ($smarty) {
     // $smarty->display("pages/contact.tpl");

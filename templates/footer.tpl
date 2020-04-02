@@ -50,6 +50,22 @@
             </div>
         </footer>
     </div>
+    <script src={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/js/jquery.min.js'}></script>
+    <script src={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/js/jquery.easing.1.3.js'} async></script>
+    <script src={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/js/jquery.waypoints.min.js'} defer></script>
+    <script src={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/js/jquery.magnific-popup.min.js'} async></script>
+    <script src={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/js/bootstrap.min.js'} async></script>
+    <script src={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/js/owl.carousel.min.js'} defer></script>
+    <!--[if lt IE 9]>
+    <script src={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/js/respond.min.js'}></script>
+    <![endif]-->
+    <script src={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/js/modernizr-2.6.2.min.js'}></script>
     <script src={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/js/main.js'} async></script>
+    <script>
+        $("#search-submit").click(function(event) {
+            event.preventDefault();
+            window.location.replace("{'https://'|cat:$smarty.server.HTTP_HOST|cat:'/search?input='}" + encodeURIComponent($("#search").val()));
+        } );
+    </script>
 </body>
 </html>
