@@ -1,0 +1,35 @@
+js/respond.min.js linguist-vendored
+js/phone.js linguist-vendored
+js/owl.carousel.min.js linguist-vendored
+js/modernizr-2.6.2.min.js linguist-vendored
+js/jquery.waypoints.min.js linguist-vendored
+js/jquery.min.js linguist-vendored
+js/jquery.magnific-popup.min.js linguist-vendored
+js/jquery.easing.1.3.js linguist-vendored
+js/jquery-ui.min.js linguist-vendored
+js/bootstrap.min.js linguist-vendored
+
+css/owl.theme.default.min.css linguist-vendored
+css/owl.carousel.min.css linguist-vendored
+css/normalize.min.css linguist-vendored
+css/magnific-popup.css linguist-vendored
+css/jquery-ui.min.css linguist-vendored
+css/animate.css linguist-vendored
+
+css/icomoon.woff linguist-vendored
+css/icomoon.ttf linguist-vendored
+css/icomoon.svg linguist-vendored
+css/icomoon.eot linguist-vendored
+css/icomoon.css linguist-vendored
+
+css/glyphicons-halflings-regular.woff2 linguist-vendored
+css/glyphicons-halflings-regular.woff linguist-vendored
+css/glyphicons-halflings-regular.ttf linguist-vendored
+css/glyphicons-halflings-regular.svg linguist-vendored
+css/glyphicons-halflings-regular.eot linguist-vendored
+
+css/bootstrap.scss linguist-vendored
+css/bootstrap.css.map linguist-vendored
+css/bootstrap.css linguist-vendored
+css/_*.scss linguist-vendored
+
