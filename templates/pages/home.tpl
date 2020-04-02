@@ -63,29 +63,42 @@
                                 <div class="services animate-box">
                                     <h3>1 - General Computer Science</h3>
                                     <ul>
-                                        <li>Machine Learning/TensorFlow</li>
-                                        <li>Mobile App Development/Flutter</li>
+                                        <li>Machine Learning
+                                            <ul>
+                                              <li>TensorFlow</li>
+                                              <li>PyTorch</li>
+                                            </ul>
+                                        </li>
+                                        <li>Mobile App Development
+                                            <ul>
+                                              <li>Flutter</li>
+                                            </ul>
+                                        </li>
                                     </ul>
                                 </div>
                                 <div class="services animate-box">
-                                    <h3>2 - Web Development</h3>
+                                    <h3>2 - Programming Languages</h3>
                                     <ul>
-                                        <li>HTML</li>
-                                        <li>CSS/Bootstrap</li>
-                                        <li>JavaScript/Angular</li>
-                                        <li>Dynamic Websites/Content Management Systems/WordPress</li>
+                                        <li>Java/C++</li>
+                                        <li>Python</li>
+                                        <li>Dart</li>
+                                        <li>PHP</li>
+                                        <li>AppleScript/Bash/Zsh</li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="services animate-box">
-                                    <h3>3 - Programming Languages</h3>
+                                    <h3>3 - Computational Biology</h3>
                                     <ul>
-                                        <li>C/C++/Java</li>
-                                        <li>Python</li>
-                                        <li>AppleScript/Bash</li>
-                                        <li>PHP</li>
-                                        <li>Dart</li>
+                                        <li>PyMol</li>
+                                        <li>Image Analysis
+                                            <ul>
+                                                <li>Classification</li>
+                                                <li>Semantic Segmentation</li>
+                                            </ul>
+                                        </li>
+                                        <li>Genomics</li>
                                     </ul>
                                 </div>
                             </div>
