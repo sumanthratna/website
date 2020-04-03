@@ -58,7 +58,7 @@ $("#login-form").submit(function(event) {
   /* get the action attribute from the <form> element */
   var $form = $( this ), url = $form.attr( 'action' );
 
-  grecaptcha.execute('{$recaptcha_site_key}', { action: 'admin' } ).then(function(token) {
+  grecaptcha.execute('{$recaptcha_site_key}', { action: 'login' } ).then(function(token) {
         $('#recaptcha-response').val(token);
       /* Send the data using post */
       var $secret = "{$secret|escape:'javascript'}";

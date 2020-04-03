@@ -11,19 +11,14 @@ case 'login':
     
         $message = '';
         
-        $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
-        $recaptcha_secret = $config['recaptcha_secret'];
-        $recaptcha_response = $_POST['recaptcha_response'];
+        require __DIR__ . '/vendor/autoload.php';
+        $recaptcha = new \ReCaptcha\ReCaptcha($config['recaptcha_secret']);
+        $resp = $recaptcha->setExpectedHostname($_SERVER['SERVER_NAME'])
+                          ->setExpectedAction('login')
+                          ->verify($_POST['recaptcha_response'], $_SERVER['REMOTE_ADDR']);
     
-        // Make and decode POST request:
-        $recaptcha = file_get_contents($recaptcha_url . '?secret=' . $recaptcha_secret . '&response=' . $recaptcha_response);
-        $recaptcha = json_decode($recaptcha);
-    
-        // Take action based on the score returned:
-        $recaptcha_score = $recaptcha->score;
-        $captcha_success = $recaptcha_score >= 0.5;
-        if (!$captcha_success) {
-            $message = 'ReCAPTCHA failed.';
+        if (!$resp->isSuccess()) {
+            $message = 'ReCAPTCHA failed.'.$resp->getErrorCodes();
         } else {
             $requestUsername = $_POST['username'];
             $requestPassword = $_POST['password'];
