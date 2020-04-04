@@ -100,8 +100,11 @@ $router->mount('/admin', function() use ($smarty, $router) {
 $router->get('/search', function() use ($smarty) {
     $smarty->display("pages/search.tpl");
 });
-$router->post('/api', function() use ($smarty) {
-    // $smarty->display("pages/contact.tpl");
+$router->get('/ibet', function() use ($smarty) {
+    header("Location: https://sumanthratna.ml/assets/ibet.pdf", TRUE, 301);
+});
+$router->get('/ibet.pdf', function() use ($smarty) {
+    header("Location: https://sumanthratna.ml/assets/ibet.pdf", TRUE, 301);
 });
 $router->set404(function() use ($smarty) {
     header('HTTP/1.1 404 Not Found');
