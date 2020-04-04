@@ -1,5 +1,10 @@
 <?php
 
+if ($_SERVER['SERVER_NAME']==="2022sratna.sites.tjhsst.edu") {
+    header("Location: https://sumanthratna.ml".$_SERVER['REQUEST_URI'], TRUE, 301);
+    die();
+}
+
 // Require composer autoloader
 require __DIR__ . '/vendor/autoload.php';
 

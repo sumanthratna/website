@@ -66,7 +66,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <input type="text" class="form-control" id="search" placeholder="UNDER CONSTRUCTION">
+                                <input type="text" class="form-control" id="search" placeholder="Search...">
                                 <button type="submit" id="search-submit" class="btn btn-primary"><i class="icon-search3"></i></button>
                             </div>
                         </div>

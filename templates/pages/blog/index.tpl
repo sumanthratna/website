@@ -9,7 +9,7 @@
         class="col-md-12 col-md-offset-0 text-center animate-box intro-heading fadeInUp animated"
       >
         <span>Blog</span>
-        <h2>Read Our Case</h2>
+        <h2>Random Thoughts</h2>
       </div>
     </div>
     <div class="row">

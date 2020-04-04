@@ -17,8 +17,8 @@
 				</div>
 			</div>
 		</div>
-		<div class="row animate-box">
-			UNDER CONSTRUCTION
+		<div class="row animate-box" id="search-results">
+			
 		</div>
 	</div>
 </div>
@@ -39,7 +39,7 @@ var getUrlParameter = function getUrlParameter(sParam) {
     }
 };
 
-var documents = {$lunr_posts|@json_encode};
+var blogPosts = {$lunr_posts|@json_encode};
 var idx = lunr(function () {
   this.ref('id');
   this.field('title');
@@ -47,15 +47,49 @@ var idx = lunr(function () {
   this.field('date');
   this.field('comments');
   this.field('contents');
+  
+  this.metadataWhitelist = ['position'];
 
-  documents.forEach(function (doc) {
-    this.add(doc)
-  }, this)
+  blogPosts.forEach(function (blogPost) {
+    this.add(blogPost);
+  }, this);
   
 });
-console.log(idx.tokenSet.toArray());
+// console.log(idx.tokenSet.toArray());
 var searchRequest = getUrlParameter('input');
-console.log(idx.search(searchRequest));
+var searchResults = idx.search(searchRequest);
+var resultNodes = searchResults.map(function createResultNode(result) {
+    var resultId = result['ref'];
+    
+    var resultIndex = blogPosts.findIndex(function findByID(blogPost, index, arr) {
+        return blogPost['id']==resultId;
+    } );
+    
+    var positions = result['matchData']['metadata'][searchRequest]['contents']['position'];
+    var minBound = 0;
+    var maxBound = blogPosts[resultIndex]['contents'].length-1;
+    var positionsFlattened = positions.flat();
+    var globalLeftBound  = Math.min.apply(null, positionsFlattened),
+        globalRightBound = Math.max.apply(null, positionsFlattened);
+    var globalLeftBoundExpanded  = Math.max(minBound, globalLeftBound-12),
+        globalRightBoundExpanded = Math.min(globalRightBound+12, maxBound);
+    var description = (globalLeftBoundExpanded==minBound ? "":"...") + blogPosts[resultIndex]['contents'].substring(globalLeftBoundExpanded, globalRightBoundExpanded) + (globalRightBoundExpanded==maxBound ? "":"...");
+        
+    var title = blogPosts[resultIndex]['title'];
+    var href = $("<a href=\"{'https://'|cat:$smarty.server.HTTP_HOST|cat:'/blog/'}" + result['ref'] + "\"></a>").text(title);
+    var titleNode = $("<h3></h3>").append(href);
+
+    var partsToBold = positions.map(function getPartToBold(position) {
+        return blogPosts[resultIndex]['contents'].substring(position[0], position[1]);
+    } );
+    partsToBold.forEach(function boldPart(partToBold) {
+        description = description.replace(partToBold, "<b>" + partToBold + "</b>");
+    } );
+    var descriptionNode = $("<p></p>").html(description);
+    var resultNode = $("<div class=\"container\"></div>").append(titleNode).append(descriptionNode).append($("<hr>"));
+    return resultNode;
+} );
+$("#search-results").append(...resultNodes);
 </script>
 
 {include file='footer.tpl'}

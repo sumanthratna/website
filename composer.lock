@@ -207,16 +207,16 @@
         },
         {
             "name": "sendgrid/sendgrid",
-            "version": "7.4.5",
+            "version": "7.4.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sendgrid/sendgrid-php.git",
-                "reference": "21231bb2f9694007da80a9d39b878c65867f8ca8"
+                "reference": "f3d17a2607f062447ed8356e4cb3ee7b5d3c15c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sendgrid/sendgrid-php/zipball/21231bb2f9694007da80a9d39b878c65867f8ca8",
-                "reference": "21231bb2f9694007da80a9d39b878c65867f8ca8",
+                "url": "https://api.github.com/repos/sendgrid/sendgrid-php/zipball/f3d17a2607f062447ed8356e4cb3ee7b5d3c15c8",
+                "reference": "f3d17a2607f062447ed8356e4cb3ee7b5d3c15c8",
                 "shasum": ""
             },
             "require": {
@@ -259,7 +259,7 @@
                 "sendgrid",
                 "twilio sendgrid"
             ],
-            "time": "2020-03-18 19:53:23"
+            "time": "2020-04-01 20:01:38"
         },
         {
             "name": "smarty/smarty",
