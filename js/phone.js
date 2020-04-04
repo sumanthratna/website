@@ -17,7 +17,7 @@
  * limitations under the License.
  * ========================================================== */
 
-+function($) {
++ function($) {
 
   "use strict";
 
@@ -56,37 +56,40 @@
 
     constructor: BFHPhone,
 
-    getFormattedNumber: function() {
+    function getFormattedNumber() {
       var format = this.options.format;
       var phoneNumber = this.options.number;
       var formattedNumber = "";
 
       var newNumber = "";
       for (var i = 0; i < phoneNumber.length; i++) {
-        if (/[0-9]/.test(phoneNumber.charAt(i))) {
-          newNumber += phoneNumber.charAt(i);
+        var currentChar = phoneNumber.charAt(i);
+        if (/[0-9]/.test(currentChar)) {
+          newNumber += currentChar;
         }
       }
       phoneNumber = newNumber;
 
       var j = 0;
       for (var i = 0; i < format.length; i++) {
-        if (/[0-9]/.test(format.charAt(i))) {
-          if (format.charAt(i) == phoneNumber.charAt(j)) {
-            formattedNumber += phoneNumber.charAt(j);
+        var currentCharFormat = format.charAt(i);
+        var currentCharPhone = phoneNumber.charAt(j);
+        if (/[0-9]/.test(currentCharFormat)) {
+          if (currentCharFormat === currentCharPhone) {
+            formattedNumber += currentCharPhone;
             j++;
           } else {
-            formattedNumber += format.charAt(i);
+            formattedNumber += currentCharFormat;
           }
-        } else if (format.charAt(i) !== "d") {
-          if (phoneNumber.charAt(j) !== "" || format.charAt(i) === "+") {
-            formattedNumber += format.charAt(i);
+        } else if (currentCharFormat !== "d") {
+          if (currentCharPhone !== "" || currentCharFormat === "+") {
+            formattedNumber += currentCharFormat;
           }
         } else {
-          if (phoneNumber.charAt(j) === "") {
+          if (currentCharPhone === "") {
             formattedNumber += "";
           } else {
-            formattedNumber += phoneNumber.charAt(j);
+            formattedNumber += currentCharPhone;
             j++;
           }
         }
@@ -95,7 +98,7 @@
       return formattedNumber;
     },
 
-    addFormatter: function() {
+    function addFormatter() {
       var formattedNumber = this.getFormattedNumber();
 
       this.$element.addClass("disabled");
@@ -103,13 +106,13 @@
       this.$element.removeClass("disabled");
     },
 
-    displayFormatter: function() {
+    function displayFormatter() {
       var formattedNumber = this.getFormattedNumber();
 
       this.$element.html(formattedNumber);
     },
 
-    changeCountry: function(e) {
+    function changeCountry(e) {
       var $this = $(this);
       var phoneObject = $(this).data("bfhphone");
 
@@ -118,13 +121,13 @@
       phoneObject.addFormatter();
     },
 
-    change: function(e) {
+    function change(e) {
       var $this;
 
       $this = $(this).data("bfhphone");
 
       if ($this.$element.is(".disabled, :disabled")) {
-          return false;
+        return false;
       }
 
       var number = $this.$element.val();
@@ -143,7 +146,7 @@
 
       return false;
     }
-  }
+  };
 
   /* PHONE PLUGIN DEFINITION
    * ======================= */

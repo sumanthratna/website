@@ -32,7 +32,7 @@ body.menu-show {
   overflow: hidden;
 }
 
-#sratna-wrapper > div {
+#sratna-wrapper>div {
   width: 100%;
   height: 100%;
   overflow-y: hidden;
@@ -477,6 +477,7 @@ header .sratna-navbar-brand .sratna-logo:focus {
 }
 
 @media screen and (max-width: 768px) {
+
   #sratna-services,
   #sratna-contact,
   #sratna-work,
@@ -655,7 +656,7 @@ header .sratna-navbar-brand .sratna-logo:focus {
   left: 0;
 }
 
-.progress > span {
+.progress>span {
   width: 50%;
   height: 100%;
   overflow: hidden;
@@ -932,6 +933,7 @@ header .sratna-navbar-brand .sratna-logo:focus {
 }
 
 @media screen and (max-width: 768px) {
+
   .services-flex .one-forth .one-third,
   .services-flex .one-forth .one-forth {
     height: 400px;
@@ -944,6 +946,7 @@ header .sratna-navbar-brand .sratna-logo:focus {
 }
 
 @media screen and (max-width: 768px) {
+
   .services-flex .one-third,
   .services-flex .one-forth {
     width: 100%;
@@ -1848,5 +1851,5 @@ input[type="text"] {
 }
 
 ul.sratna-nav a:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }

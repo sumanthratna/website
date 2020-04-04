@@ -1,7 +1,7 @@
 <?php
 
-if (filter_input('INPUT_SERVER', 'SERVER_NAME', FILTER_SANITIZE_URL)==="2022sratna.sites.tjhsst.edu") {
-    header("Location: https://sumanthratna.ml".$_SERVER['REQUEST_URI'], TRUE, 301);
+if (filter_input(INPUT_SERVER, 'SERVER_NAME', FILTER_SANITIZE_URL)==="2022sratna.sites.tjhsst.edu") {
+    header("Location: https://sumanthratna.ml".$_SERVER['REQUEST_URI'], true, 301);
     return;
 }
 
@@ -12,10 +12,10 @@ require __DIR__ . '/vendor/autoload.php';
 $router = new \Bramus\Router\Router();
 
 require_once dirname(__FILE__).'/setup.php';
-$smarty = new CustomSmarty();
+$smarty = new CustomSmarty(filter_input(INPUT_SERVER, 'DOCUMENT_ROOT'));
 $smarty->loadFilter('output', 'trimwhitespace');
 
-$posts = json_decode(file_get_contents(__DIR__."/index.json"), TRUE);
+$posts = json_decode(file_get_contents(__DIR__."/index.json"), true);
 $smarty->assign('posts', $posts);
 
 $lunr_posts = array();
@@ -31,18 +31,18 @@ $config = parse_ini_file('../private/keys.ini');
 $smarty->assign('secret', $config['secret']);
 $smarty->assign('recaptcha_site_key', $config['recaptcha_site_key']);
 
-$router->get('/', function() use ($smarty) {
+$router->get('/', function () use ($smarty) {
     $smarty->display("pages/home.tpl");
 });
-$router->mount('/blog', function() use ($smarty, $router, $posts) {
+$router->mount('/blog', function () use ($smarty, $router, $posts) {
 
     // will result in '/blog/'
-    $router->get('/', function() use ($smarty) {
+    $router->get('/', function () use ($smarty) {
         $smarty->display("pages/blog/index.tpl");
     });
 
     // will result in '/blog/id'
-    $router->get('/([a-z0-9-]+)', function($id) use ($smarty, $posts) {
+    $router->get('/([a-z0-9-]+)', function ($id) use ($smarty, $posts) {
         if (isset($posts[$id])) {
             $post = $posts[$id];
             // error_log(print_r($posts, TRUE));
@@ -51,66 +51,65 @@ $router->mount('/blog', function() use ($smarty, $router, $posts) {
             $smarty->display("pages/blog/post.tpl");
         } else {
             // trigger 404
-            echo '3';
+            print_r('404');
+        }
+    });
+});
+$router->get('/about', function () use ($smarty) {
+    $smarty->display("pages/about.tpl");
+});
+$router->get('/contact', function () use ($smarty) {
+    $smarty->display("pages/contact.tpl");
+});
+$router->mount('/admin', function () use ($smarty, $router) {
+    session_start();
+
+    // will result in '/admin/'
+    $router->get('/', function () use ($smarty) {
+        if (isset($_SESSION['user'])) {
+            header("Location: https://".$_SERVER['SERVER_NAME']."/admin/manage");
+        } else {
+            header("Location: https://".$_SERVER['SERVER_NAME']."/admin/login");
         }
     });
 
-});
-$router->get('/about', function() use ($smarty) {
-    $smarty->display("pages/about.tpl");
-});
-$router->get('/contact', function() use ($smarty) {
-    $smarty->display("pages/contact.tpl");
-});
-$router->mount('/admin', function() use ($smarty, $router) {
-    session_start();
-    
-    // will result in '/admin/'
-    $router->get('/', function() use ($smarty) {
-        if (isset($_SESSION['user'])) {
-            header("location: https://".$_SERVER['SERVER_NAME']."/admin/manage");
-        } else {
-            header("location: https://".$_SERVER['SERVER_NAME']."/admin/login");
-        }
-    });
-    
     // will result in '/admin/manage'
-    $router->get('/manage', function() use ($smarty) {
+    $router->get('/manage', function () use ($smarty) {
         if (isset($_SESSION['user'])) {
-             $smarty->display("pages/admin/manage.tpl");
+            $smarty->display("pages/admin/manage.tpl");
         } else {
-             header("location: https://".$_SERVER['SERVER_NAME']."/admin/login");
+            header("Location: https://".$_SERVER['SERVER_NAME']."/admin/login");
         }
     });
-    
+
     // will result in '/admin/logout'
-    $router->get('/logout', function() use ($smarty) {
-        header("location: https://".$_SERVER['SERVER_NAME']."/auth.php?action=logout");
+    $router->get('/logout', function () use ($smarty) {
+        header("Location: https://".$_SERVER['SERVER_NAME']."/auth.php?action=logout");
     });
 
     // will result in '/admin/login'
-    $router->get('/login', function() use ($smarty) {
+    $router->get('/login', function () use ($smarty) {
         if (isset($_SESSION['user'])) {
-            header("location: https://".$_SERVER['SERVER_NAME']."/admin/manage");
+            header("Location: https://".$_SERVER['SERVER_NAME']."/admin/manage");
         } else {
             $smarty->display("pages/admin/login.tpl");
         }
     });
 });
-$router->get('/search', function() use ($smarty) {
+$router->get('/search', function () use ($smarty) {
     $smarty->display("pages/search.tpl");
 });
-$router->get('/ibet', function() use ($smarty) {
-    header("Location: https://sumanthratna.ml/assets/ibet.pdf", TRUE, 301);
+$router->get('/ibet', function () use ($smarty) {
+    header("Location: https://sumanthratna.ml/assets/ibet.pdf", true, 301);
 });
-$router->get('/ibet.pdf', function() use ($smarty) {
-    header("Location: https://sumanthratna.ml/assets/ibet.pdf", TRUE, 301);
+$router->get('/ibet.pdf', function () use ($smarty) {
+    header("Location: https://sumanthratna.ml/assets/ibet.pdf", true, 301);
 });
-$router->set404(function() use ($smarty) {
+$router->set404(function () use ($smarty) {
     header('HTTP/1.1 404 Not Found');
     $smarty->display("pages/404.tpl");
 });
-$router->run(function() {
+$router->run(function () {
     $hit = array(
         "URL" => (isset($_SERVER["HTTPS"]) ? 'https' : 'http').'://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'],
         "IP" => $_SERVER['REMOTE_ADDR'],

@@ -54,7 +54,7 @@
               background: #555;
             }
     </style>
-    
+
     <script src={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/js/jquery.min.js'}></script>
 
     </head>

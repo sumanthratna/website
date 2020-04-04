@@ -4,20 +4,20 @@ session_start();
 
 if ($_SERVER['REQUEST_METHOD']=="POST" && isset($_POST['recaptcha_response'])) {
     $config = parse_ini_file('../private/keys.ini');
-    
+
     $message = '';
-    
+
     require __DIR__ . '/vendor/autoload.php';
     $recaptcha = new \ReCaptcha\ReCaptcha($config['recaptcha_secret']);
     $resp = $recaptcha->setExpectedHostname($_SERVER['SERVER_NAME'])
                       ->setExpectedAction('admin')
-                      ->verify($_POST['recaptcha_response'], filter_input('INPUT_SERVER', 'REMOTE_ADDR', FILTER_VALIDATE_IP));
+                      ->verify($_POST['recaptcha_response'], filter_input(INPUT_SERVER, 'REMOTE_ADDR', FILTER_VALIDATE_IP));
 
     if (!$resp->isSuccess()) {
         $message = 'ReCAPTCHA failed.'.$resp->getErrorCodes();
     } else {
-        $posts = json_decode(file_get_contents(__DIR__."/index.json"), TRUE);
-        
+        $posts = json_decode(file_get_contents(__DIR__."/index.json"), true);
+
         if ($_POST['secret'] == $config['secret']) {
             $message = '';
             if (isset($_POST['create'])) {
@@ -51,18 +51,17 @@ if ($_SERVER['REQUEST_METHOD']=="POST" && isset($_POST['recaptcha_response'])) {
             if (isset($_POST['edit'])) {
                 file_put_contents(realpath(__DIR__."/index.json"), $_POST['edit']);
                 $message = 'Successfully updated blog index file.';
-                error_log('ADMIN EDIT '.json_encode(json_decode($_POST['edit'], TRUE)));
+                error_log('ADMIN EDIT '.json_encode(json_decode($_POST['edit'], true)));
             }
-            
+
             require_once dirname(__FILE__).'/setup.php';
-            $smarty = new CustomSmarty();
+            $smarty = new CustomSmarty(filter_input(INPUT_SERVER, 'DOCUMENT_ROOT'));
             $smarty->clearAllCache();
         } else {
             $message = 'INVALID SECRET';
         }
     }
     $output = json_encode(array("message" => $message));
-    echo $output;
+    echo htmlspecialchars($output);
     return $output;
 }
-?>
