@@ -1,149 +1,117 @@
 <?php
-require_once 'templates.php';
-get_header('home');
-?>
-<div id="sratna-about">
-    <div class="container">
-        <div class="row text-center">
-            <h2 class="bold">About</h2>
-        </div>
-        <div class="row">
-            <div class="col-md-5 animate-box">
-                <div class="owl-carousel3">
-                    <div class="item">
-                        <img class="img-responsive about-img" src="images/me.jpg" alt="a picture of me">
-                    </div>
-                    <div class="item">
-                        <img class="img-responsive about-img" src="images/laptop.jpeg" alt="a picture of me">
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-md-push-1 animate-box">
-                <div class="about-desc">
-                    <div class="owl-carousel3">
-                        <div class="item">
-                            <h2><span>Sumanth </span><span>Ratna</span></h2>
-                        </div>
-                        <div class="item">
-                            <h2><span>I'm </span><span>A Student</span></h2>
-                        </div>
-                    </div>
-                    <div class="desc">
-                        <div class="rotate">
-                            <h2 class="heading">About</h2>
-                        </div>
-                        <p>I'm a sophomore at the Thomas Jefferson High School for Science and Technology. <a href="#sratna-services">I like to code</a>, especially with machine learning. I'm also interested in biochemistry.</p>
-                        <?php socials(); ?>
-                        <p><a href="contact.php" class="btn btn-primary btn-outline">Contact Me!</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div id="sratna-services">
-    <div class="container">
-        <div class="row text-center">
-            <h2 class="bold">Skills</h2>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="services-flex">
-                    <div class="one-third">
-                        <div class="row">
-                            <div class="col-md-12 col-md-offset-0 animate-box intro-heading">
-                                <span>My Skills</span>
-                                <h2>Here Are Some of My Skills</h2>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="rotate">
-                                    <h2 class="heading">Skills</h2>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="services animate-box">
-                                    <h3>1 - General Computer Science</h3>
-                                    <ul>
-                                        <li>Machine Learning/TensorFlow</li>
-                                        <li>Mobile App Development/Flutter</li>
-                                    </ul>
-                                </div>
-                                <div class="services animate-box">
-                                    <h3>3 - Web Development</h3>
-                                    <ul>
-                                        <li>HTML</li>
-                                        <li>CSS/Bootstrap</li>
-                                        <li>JavaScript/Angular</li>
-                                        <li>Dynamic Websites/Content Management Systems/WordPress</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="services animate-box">
-                                    <h3>2 - Programming Languages</h3>
-                                    <ul>
-                                        <li>C/C++/Java</li>
-                                        <li>Python</li>
-                                        <li>AppleScript/Bash</li>
-                                        <li>PHP</li>
-                                        <li>Dart</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--<div class="one-forth services-img" style="background-image: url(images/services-img-1.jpg);"></div>-->
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div id="sratna-blog">
-    <div class="container">
-        <div class="row text-center">
-            <h2 class="bold">Blog</h2>
-        </div>
-        <div class="row">
-            <div class="col-md-12 col-md-offset-0 text-center animate-box intro-heading">
-                <span>Blog</span>
-                <h2>Interesting Things</h2>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="rotate">
-                    <h2 class="heading">My Blog</h2>
-                </div>
-            </div>
-        </div>
-        <div class="row animate-box">
-            <div class="owl-carousel1">
-                <?php
-                    foreach (posts() as $key=>$value) {
-                        echo '<div class="item">';
-                        echo '<div class="col-md-12">';
-                        echo '<div class="article">';
-                        echo '<a href="'.('//'.$_SERVER['HTTP_HOST'].'/blog/'.$key).'" class="blog-img">';
-                        echo '<img class="img-responsive" src="'.$value['image'].'" alt="">';
-                        echo '<div class="overlay"></div>';
-                        echo '<div class="link">';
-                        echo '<span class="read">Read More</h2>';
-                        echo '</div>';
-                        echo '</a>';
-                        echo '<div class="desc">';
-                        echo '<span class="meta">'.$value['date'].'</span>';
-                        echo '<h2><a href="'.('//'.$_SERVER['HTTP_HOST'].'/blog/'.$key).'">'.$value['title'].'</a></h2>';
-                        echo '<p>'.$value['excerpt'].'</p>';
-                        echo '</div>';
-                        echo '</div>';
-                        echo '</div>';
-                        echo '</div>';
-                    }
-                ?>
-            </div>
-        </div>
-    </div>
-</div>
-<?php echo get_footer(); ?>
+
+if ($_SERVER['SERVER_NAME']==="2022sratna.sites.tjhsst.edu") {
+    header("Location: https://sumanthratna.ml".$_SERVER['REQUEST_URI'], TRUE, 301);
+    die();
+}
+
+// Require composer autoloader
+require __DIR__ . '/vendor/autoload.php';
+
+// Create Router instance
+$router = new \Bramus\Router\Router();
+
+require_once dirname(__FILE__).'/setup.php';
+$smarty = new CustomSmarty();
+$smarty->loadFilter('output', 'trimwhitespace');
+
+$posts = json_decode(file_get_contents(__DIR__."/index.json"), TRUE);
+$smarty->assign('posts', $posts);
+
+$lunr_posts = array();
+foreach ($posts as $id => $post) {
+    $lunr_post = $post;
+    $lunr_post['id'] = $id;
+    $lunr_post['contents'] = strip_tags($post['contents']);
+    array_push($lunr_posts, $lunr_post);
+}
+$smarty->assign('lunr_posts', $lunr_posts);
+
+$config = parse_ini_file('../private/keys.ini');
+$smarty->assign('secret', $config['secret']);
+$smarty->assign('recaptcha_site_key', $config['recaptcha_site_key']);
+
+$router->get('/', function() use ($smarty) {
+    $smarty->display("pages/home.tpl");
+});
+$router->mount('/blog', function() use ($smarty, $router, $posts) {
+
+    // will result in '/blog/'
+    $router->get('/', function() use ($smarty) {
+        $smarty->display("pages/blog/index.tpl");
+    });
+
+    // will result in '/blog/id'
+    $router->get('/([a-z0-9-]+)', function($id) use ($smarty, $posts) {
+        if (isset($posts[$id])) {
+            $post = $posts[$id];
+            // error_log(print_r($posts, TRUE));
+            $smarty->assign('post_id', $id);
+            $smarty->assign('post', $post);
+            $smarty->display("pages/blog/post.tpl");
+        } else {
+            // trigger 404
+            echo '3';
+        }
+    });
+
+});
+$router->get('/about', function() use ($smarty) {
+    $smarty->display("pages/about.tpl");
+});
+$router->get('/contact', function() use ($smarty) {
+    $smarty->display("pages/contact.tpl");
+});
+$router->mount('/admin', function() use ($smarty, $router) {
+    session_start();
+    
+    // will result in '/admin/'
+    $router->get('/', function() use ($smarty) {
+        if (isset($_SESSION['user'])) {
+            header("location: https://".$_SERVER['SERVER_NAME']."/admin/manage");
+        } else {
+            header("location: https://".$_SERVER['SERVER_NAME']."/admin/login");
+        }
+    });
+    
+    // will result in '/admin/manage'
+    $router->get('/manage', function() use ($smarty) {
+        if (isset($_SESSION['user'])) {
+             $smarty->display("pages/admin/manage.tpl");
+        } else {
+             header("location: https://".$_SERVER['SERVER_NAME']."/admin/login");
+        }
+    });
+    
+    // will result in '/admin/logout'
+    $router->get('/logout', function() use ($smarty) {
+        header("location: https://".$_SERVER['SERVER_NAME']."/auth.php?action=logout");
+    });
+
+    // will result in '/admin/login'
+    $router->get('/login', function() use ($smarty) {
+        if (isset($_SESSION['user'])) {
+            header("location: https://".$_SERVER['SERVER_NAME']."/admin/manage");
+        } else {
+            $smarty->display("pages/admin/login.tpl");
+        }
+    });
+});
+$router->get('/search', function() use ($smarty) {
+    $smarty->display("pages/search.tpl");
+});
+$router->post('/api', function() use ($smarty) {
+    // $smarty->display("pages/contact.tpl");
+});
+$router->set404(function() use ($smarty) {
+    header('HTTP/1.1 404 Not Found');
+    $smarty->display("pages/404.tpl");
+});
+$router->run(function() {
+    $hit = array(
+        "URL" => (isset($_SERVER["HTTPS"]) ? 'https' : 'http').'://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'],
+        "IP" => $_SERVER['REMOTE_ADDR'],
+        "referrer" => isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER']:''
+    );
+    error_log('HIT '.json_encode($hit, JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES));
+});

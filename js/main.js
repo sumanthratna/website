@@ -167,16 +167,4 @@
     contentWayPoint();
     owlCarouselFeatureSlide();
   });
-
-  $("#smt").click(function() {
-    $.ajax({
-      type: "POST",
-      url: "contact.php",
-      data: {
-        name: "sumo"
-      }
-    }).done(function(msg) {
-      alert("Data Saved: " + msg);
-    });
-  });
 })();

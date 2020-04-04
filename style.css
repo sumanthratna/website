@@ -16,6 +16,7 @@ body {
   font-weight: 400;
   background: #fafafa;
   color: gray;
+  scroll-behavior: smooth;
 }
 
 body.menu-show {
@@ -467,7 +468,9 @@ header .sratna-navbar-brand .sratna-logo:focus {
 #sratna-testimony,
 #sratna-progress,
 #sratna-contact,
-#sratna-about {
+#sratna-about,
+#sratna-search,
+#sratna-login {
   padding: 10em 0;
   clear: both;
   position: relative;
@@ -481,7 +484,9 @@ header .sratna-navbar-brand .sratna-logo:focus {
   #sratna-testimony,
   #sratna-progress,
   #sratna-contact,
-  #sratna-about {
+  #sratna-about,
+  #sratna-search,
+  #sratna-login {
     padding: 5em 0;
   }
 }
@@ -1840,4 +1845,8 @@ input[type="text"] {
 
 .js .animate-box {
   opacity: 0;
+}
+
+ul.sratna-nav a:hover {
+    transform: scale(1.1);
 }
