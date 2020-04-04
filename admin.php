@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD']=="POST" && isset($_POST['recaptcha_response'])) {
     $recaptcha = new \ReCaptcha\ReCaptcha($config['recaptcha_secret']);
     $resp = $recaptcha->setExpectedHostname($_SERVER['SERVER_NAME'])
                       ->setExpectedAction('admin')
-                      ->verify($_POST['recaptcha_response'], $_SERVER['REMOTE_ADDR']);
+                      ->verify($_POST['recaptcha_response'], filter_input('INPUT_SERVER', 'REMOTE_ADDR', FILTER_VALIDATE_IP));
 
     if (!$resp->isSuccess()) {
         $message = 'ReCAPTCHA failed.'.$resp->getErrorCodes();

@@ -121,8 +121,8 @@
         }
       },
       navText: [
-        '<i class="icon-arrow-left3 owl-direction"></i>',
-        '<i class="icon-arrow-right3 owl-direction"></i>'
+        "<i class=\"icon-arrow-left3 owl-direction\"></i>",
+        "<i class=\"icon-arrow-right3 owl-direction\"></i>"
       ]
     });
     var owl2 = $(".owl-carousel");
@@ -137,8 +137,8 @@
       autoHeight: true,
       items: 1,
       navText: [
-        '<i class="icon-arrow-left3 owl-direction"></i>',
-        '<i class="icon-arrow-right3 owl-direction"></i>'
+        "<i class=\"icon-arrow-left3 owl-direction\"></i>",
+        "<i class=\"icon-arrow-right3 owl-direction\"></i>"
       ]
     });
     var owl3 = $(".owl-carousel3");
@@ -153,8 +153,8 @@
       autoHeight: true,
       items: 1,
       navText: [
-        '<i class="icon-arrow-left3 owl-direction"></i>',
-        '<i class="icon-arrow-right3 owl-direction"></i>'
+        "<i class=\"icon-arrow-left3 owl-direction\"></i>",
+        "<i class=\"icon-arrow-right3 owl-direction\"></i>"
       ]
     });
   };

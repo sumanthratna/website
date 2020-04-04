@@ -1,8 +1,8 @@
 <?php
 
-if ($_SERVER['SERVER_NAME']==="2022sratna.sites.tjhsst.edu") {
+if (filter_input('INPUT_SERVER', 'SERVER_NAME', FILTER_SANITIZE_URL)==="2022sratna.sites.tjhsst.edu") {
     header("Location: https://sumanthratna.ml".$_SERVER['REQUEST_URI'], TRUE, 301);
-    die();
+    return;
 }
 
 // Require composer autoloader

@@ -123,7 +123,9 @@
 
       $this = $(this).data("bfhphone");
 
-      if ($this.$element.is(".disabled, :disabled")) return false;
+      if ($this.$element.is(".disabled, :disabled")) {
+          return false;
+      }
 
       var number = $this.$element.val();
       var newNumber = "";
@@ -170,7 +172,7 @@
     format: "",
     number: "",
     country: ""
-  }
+  };
 
 
   /* PHONE DATA-API
@@ -189,7 +191,7 @@
   $(function() {
     $("body")
       .on("propertychange.bfhphone.data-api change.bfhphone.data-api input.bfhphone.data-api keyup.bfhphone.data-api paste.bfhphone.data-api", ".bfh-phone", BFHPhone.prototype.change)
-      .on("change.bfhphone.data-api", ".bfh-country", BFHPhone.prototype.changeCountry)
-  })
+      .on("change.bfhphone.data-api", ".bfh-country", BFHPhone.prototype.changeCountry);
+  });
 
 }(window.jQuery);
