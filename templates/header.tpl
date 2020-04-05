@@ -31,19 +31,19 @@
         <link rel="shortcut icon" href={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/favicon.ico'}>
         <link href="https://fonts.googleapis.com/css?family=Karla:400,700%7CPlayfair+Display:400,400i,700" rel="stylesheet">
 
-        <link rel="stylesheet" href={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/css/animate.css'}>
+        <link rel="stylesheet" href={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/css/animate.css'} media="print" onload="this.media='all'">
 
-        <link rel="stylesheet" href={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/css/icomoon.css'}>
+        <link rel="stylesheet" href={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/css/icomoon.css'} media="print" onload="this.media='all'">
 
         <link rel="stylesheet" href={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/css/bootstrap.css'}>
 
-        <link rel="stylesheet" href={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/css/owl.carousel.min.css'}>
-        <link rel="stylesheet" href={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/css/owl.theme.default.min.css'}>
+        <link rel="stylesheet" href={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/css/owl.carousel.min.css'} media="print" onload="this.media='all'">
+        <link rel="stylesheet" href={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/css/owl.theme.default.min.css'} media="print" onload="this.media='all'">
 
         <link rel="stylesheet" href={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/css/magnific-popup.css'}>
         <link rel="stylesheet" href={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/style.css'}>
 
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" media="print" onload="this.media='all'">
 
         <style>
             ::-webkit-scrollbar {
