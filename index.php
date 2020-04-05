@@ -113,10 +113,12 @@ $router->set404(function () use ($smarty) {
     $smarty->display("pages/404.tpl");
 });
 $router->run(function () {
-    $hit = array(
-        "URL" => (isset($_SERVER["HTTPS"]) ? 'https' : 'http').'://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'],
-        "IP" => $_SERVER['REMOTE_ADDR'],
-        "referrer" => isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER']:''
-    );
-    error_log('HIT '.json_encode($hit, JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES));
+    if ($_SERVER['REQUEST_URI'] !== '/favicon.ico') {
+        $hit = array(
+            "URL" => (isset($_SERVER["HTTPS"]) ? 'https' : 'http').'://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'],
+            "IP" => $_SERVER['REMOTE_ADDR'],
+            "referrer" => isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER']:''
+        );
+        error_log('HIT '.json_encode($hit, JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES));
+    }
 });
