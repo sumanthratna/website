@@ -105,20 +105,15 @@ $router->get('/ibet', function () use ($smarty) {
 $router->get('/ibet.pdf', function () use ($smarty) {
     header("Location: https://sumanthratna.ml/assets/ibet.pdf", true, 301);
 });
-$router->get('/favicon.ico', function () use ($smarty) {
-    header("Location: https://sumanthratna.ml/images/favicon.ico", true, 301);
-});
 $router->set404(function () use ($smarty) {
     header('HTTP/1.1 404 Not Found');
     $smarty->display("pages/404.tpl");
 });
 $router->run(function () {
-    if ($_SERVER['REQUEST_URI'] !== '/favicon.ico') {
-        $hit = array(
-            "URL" => (isset($_SERVER["HTTPS"]) ? 'https' : 'http').'://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'],
-            "IP" => $_SERVER['REMOTE_ADDR'],
-            "referrer" => isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER']:''
-        );
-        error_log('HIT '.json_encode($hit, JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES));
-    }
+    $hit = array(
+        "URL" => (isset($_SERVER["HTTPS"]) ? 'https' : 'http').'://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'],
+        "IP" => $_SERVER['REMOTE_ADDR'],
+        "referrer" => isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER']:''
+    );
+    error_log('HIT '.json_encode($hit, JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES));
 });
