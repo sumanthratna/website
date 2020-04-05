@@ -105,6 +105,9 @@ $router->get('/ibet', function () use ($smarty) {
 $router->get('/ibet.pdf', function () use ($smarty) {
     header("Location: https://sumanthratna.ml/assets/ibet.pdf", true, 301);
 });
+$router->get('/favicon.ico', function () use ($smarty) {
+    header("Location: https://sumanthratna.ml/images/favicon.ico", true, 301);
+});
 $router->set404(function () use ($smarty) {
     header('HTTP/1.1 404 Not Found');
     $smarty->display("pages/404.tpl");
