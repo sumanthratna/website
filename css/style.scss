@@ -63,11 +63,11 @@ $form-group-margin-bottom: 30px !default;
 
 @font-face {
 	font-family: 'icomoon';
-	src:url('icomoon.eot?srf3rx');
-	src:url('icomoon.eot?srf3rx#iefix') format('embedded-opentype'),
-		url('icomoon.ttf?srf3rx') format('truetype'),
-		url('icomoon.woff?srf3rx') format('woff'),
-		url('icomoon.svg?srf3rx#icomoon') format('svg');
+	src:url('css/icomoon.eot?srf3rx');
+	src:url('css/icomoon.eot?srf3rx#iefix') format('embedded-opentype'),
+		url('css/icomoon.ttf?srf3rx') format('truetype'),
+		url('css/icomoon.woff?srf3rx') format('woff'),
+		url('css/icomoon.svg?srf3rx#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -89,8 +89,8 @@ $form-group-margin-bottom: 30px !default;
 }
 
 // Import 
-@import 'bootstrap/mixins';
-@import 'bootstrap/variables';
+@import '_mixins';
+@import '_variables';
 
 
 

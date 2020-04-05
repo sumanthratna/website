@@ -33,3 +33,6 @@ css/bootstrap.css.map linguist-vendored
 css/bootstrap.css linguist-vendored
 css/_*.scss linguist-vendored
 
+style.css linguist-generated
+style.css.map linguist-generated
+

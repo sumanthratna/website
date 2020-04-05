@@ -74,7 +74,7 @@
 
   var counter = function() {
     $(".js-counter").countTo({
-      function formatter(value, options) {
+      formatter(value, options) {
         return value.toFixed(options.decimals);
       }
     });

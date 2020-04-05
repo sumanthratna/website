@@ -1,5 +1,9 @@
 sumanthratna.*.txt
 
+# generated from css/style.scss
+style.css
+style.css.map
+
 .*
 ~*
 
