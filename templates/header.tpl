@@ -5,14 +5,19 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>{$page|capitalize} - Sumanth Ratna</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Sumanth Ratna" />
+        <meta name="description" content="This is Sumanth Ratna's personal website. Sumanth is a current student at Thomas Jefferson High School for Science and Technology." />
         <meta name="keywords" content="Sumanth Ratna" />
         <meta name="author" content="Sumanth Ratna" />
 
-        <meta property="og:title" content="Sumanth Ratna" />
-        <meta property="og:image" content={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/favicon.ico'} />
-        <meta property="og:url" content={'https://'|cat:$smarty.server.HTTP_HOST} />
-        <link rel="canonical" href={'https://'|cat:$smarty.server.HTTP_HOST} />
+        <meta prefix="og: http://ogp.me/ns#" name="title" property="og:title" content="{$page|capitalize} - Sumanth Ratna" />
+        <meta prefix="og: http://ogp.me/ns#" name="image" property="og:image" content="{'https://'|cat:$smarty.server.HTTP_HOST|cat:'/images/ogp.png'}" />
+        <meta prefix="og: http://ogp.me/ns#" property="og:image:type" content="image/png" />
+        <meta prefix="og: http://ogp.me/ns#" property="og:image:width" content="1200" />
+        <meta prefix="og: http://ogp.me/ns#" property="og:image:height" content="627" />
+        <meta prefix="og: http://ogp.me/ns#" property="og:image:alt" content="Sumanth Ratna's logo." />
+        <meta prefix="og: http://ogp.me/ns#" property="og:url" content="{'https://'|cat:$smarty.server.HTTP_HOST}" />
+        <meta prefix="og: http://ogp.me/ns#" name="description" property='og:description' content="This is Sumanth Ratna's personal website. Sumanth is a current student at Thomas Jefferson High School for Science and Technology." />
+        <link rel="canonical" href="{'https://'|cat:$smarty.server.HTTP_HOST}" />
 
         <style>
             html, body {
@@ -53,7 +58,7 @@
             ::-webkit-scrollbar-thumb:hover {
               background: #555;
             }
-    </style>
+        </style>
 
     <script src={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/js/jquery.min.js'}></script>
 
