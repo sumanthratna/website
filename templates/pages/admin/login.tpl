@@ -11,27 +11,23 @@
 			</div>
 		</div>
 		<p id="output-message" style="text-align: center;">&#8203;</p>
-		<div class="col-md-7 col-md-push-1 animate-box">
+		<div class="animate-box">
             <form id="login-form" action="../auth.php?action=login" method="post" autocomplete="on">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Username: </label><input id="username" name="username" type="text" class="form-control" autocomplete="username">
-                        </div>
+                <div class="form-group row">
+                    <label for="username" class="col-sm-2 col-form-label">Username</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="username" autocomplete="username">
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Password: </label><input id="password" name="password" type="password" class="form-control" autocomplete="current-password">
-                        </div>
+                <div class="form-group row">
+                    <label for="password" class="col-sm-2 col-form-label">Password</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="password" autocomplete="current-password">
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <input id="submit" name="submit" type="submit" value="Submit" class="btn btn-primary">
-                        </div>
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn btn-primary">Sign in</button>
                     </div>
                 </div>
                 <input type="hidden" name="recaptcha-response" id="recaptcha-response">

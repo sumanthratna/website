@@ -30,8 +30,8 @@
                     {assign var=post_excerpt value=$post.excerpt}
                     <div class="article animate-box fadeInUp animated">
                       <a href={$post_url} class="blog-img">
-                        {*{html_image file=$img_url class="img-responsive" alt="" loading="lazy"}*}
-                        <img src={$img_url} class="img-responsive" alt="" loading="lazy">
+                        {*{html_image file=$img_url class="img-fluid" alt="" loading="lazy"}*}
+                        <img src={$img_url} class="img-fluid" alt="" loading="lazy">
                         <div class="overlay"></div>
                         <div class="link">
                           <span class="read">Read more </span>
@@ -59,7 +59,7 @@
                     <div class="article animate-box fadeInUp animated">
                       <a href={$post_url} class="blog-img">
                         <img
-                          class="img-responsive"
+                          class="img-fluid"
                           src={$img_url}
                           alt=""
                         />
@@ -90,7 +90,7 @@
                     <div class="article animate-box fadeInUp animated">
                       <a href={$post_url} class="blog-img">
                         <img
-                          class="img-responsive"
+                          class="img-fluid"
                           src={$img_url}
                           alt=""
                         />

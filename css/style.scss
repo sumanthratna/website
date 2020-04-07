@@ -1,12 +1,26 @@
+$bootstrap-sass-asset-helper: false;
+
 $font-primary: 'Karla', Arial, sans-serif;
 $font-secondary: 'Playfair Display', Georgia, serif;
 // Overrides
-$grid-gutter-width: 40px !default; 
-$border-radius-base:  4px !default;
-$padding-base-vertical: 14px !default;
+$grid-gutter-width: 40px; 
+$border-radius-base:  4px;
+$padding-base-vertical: 14px;
 
-$brand-primary: #CA82F8 !default;
-$brand-secondary: #FFE9E3 !default; 
+$brand-primary: #CA82F8;
+$brand-secondary: #FFE9E3;
+
+$brand-success:         #5cb85c;
+$brand-info:            #5bc0de;
+$brand-warning:         #f0ad4e;
+$brand-danger:          #d9534f;
+
+$gray-base:              #000;
+$gray-darker:            lighten($gray-base, 13.5%);
+$gray-dark:              lighten($gray-base, 20%);
+$gray:                   lighten($gray-base, 33.5%);
+$gray-light:             lighten($gray-base, 46.7%);
+$gray-lighter:           lighten($gray-base, 93.5%);
 
 $brand-white: #fff;
 $brand-black: #000;
@@ -26,7 +40,7 @@ $form-group-margin-bottom: 30px !default;
     -moz-transition:    all $transition ease;
     -o-transition:      all $transition ease;
     -webkit-transition: all $transition ease;
-    -ms-transition: 		all $transition ease;
+    -ms-transition: 	all $transition ease;
     transition:         all $transition ease;
 }
 @mixin inline-block() {
@@ -89,8 +103,9 @@ $form-group-margin-bottom: 30px !default;
 }
 
 // Import 
-@import 'bootstrap/mixins';
+@import 'bootstrap/functions';
 @import 'bootstrap/variables';
+@import 'bootstrap/mixins';
 
 
 
@@ -191,7 +206,7 @@ h1, h2, h3, h4, h5, h6 {
 		-o-transform: scale(0.99);
 		transform: scale(0.99);
 		position: relative;
-		&:after{
+		&:after {
 			position: absolute;
 			top: 0;
 			bottom: 0;
@@ -201,8 +216,8 @@ h1, h2, h3, h4, h5, h6 {
 			background: rgba(0,0,0,.4);
 		}
 	}
-	@media screen and(max-width: $screen-sm){
-		padding-top: 5em;
+	@include media-breakpoint-down(sm) {
+	    padding-top: 5em;
 	}
 }
 
@@ -232,8 +247,8 @@ h1, h2, h3, h4, h5, h6 {
 	-o-transform: scale(0.0);
 	transform: scale(0.0);
 	overflow-y: scroll;
-	@media screen and(max-width: $screen-sm){
-		width: 300px;
+	@include media-breakpoint-down(sm) {
+	    width: 300px;
 	}
 	.sratna-nav-toggle {
 		position: absolute;
@@ -288,8 +303,8 @@ h1, h2, h3, h4, h5, h6 {
 		// text-align: center;
 		padding: 0;
 		margin: 0 0 3em 0;
-		@media screen and (max-width: $screen-sm) {
-			padding: 20px 0 0 0;
+		@include media-breakpoint-down(sm) {
+		    padding: 20px 0 0 0;
 		}
 		li {
 			padding: 0;
@@ -304,9 +319,9 @@ h1, h2, h3, h4, h5, h6 {
 				text-transform: uppercase;
 				font-weight: 400;
 
-				@media screen and (max-width: $screen-sm) {
-					font-size: 16px;
-				}
+				@include media-breakpoint-down(sm) {
+        		    font-size: 16px;
+        		}
 				&:hover, &:active, &:focus {
 					color: rgba(0,0,0,1);
 					outline: none;
@@ -327,8 +342,8 @@ h1, h2, h3, h4, h5, h6 {
 		margin-bottom: 40px;
 		position: relative;
 		width: 100%;
-		@media screen and (max-width: $screen-xs){
-			width: 100%;
+		@include media-breakpoint-down(xs) {
+		    width: 100%;
 		}
 		input::-webkit-input-placeholder {
 			color: lighten($brand-black,20%);
@@ -383,11 +398,11 @@ h1, h2, h3, h4, h5, h6 {
 		display: table;
 		z-index: 0;
 		text-decoration: none;
-		@media screen and(max-width: $screen-sm){
-			width: 25%;
+		@include media-breakpoint-down(sm) {
+		    width: 25%;
 		}
-		@media screen and(max-width: $screen-xs){
-			width: 50%;
+		@include media-breakpoint-down(xs) {
+		    width: 50%;
 		}
 		&:after{
 			position: absolute;
@@ -434,8 +449,8 @@ header{
 	right: 0;	
 	z-index: 9;
 	margin: 0 auto;
-	@media screen and (max-width: $screen-sm) {
-		padding: 2em 0;
+	@include media-breakpoint-down(sm) {
+	    padding: 2em 0;
 	}
 	.sratna-navbar-brand{
 		float: left;
@@ -483,8 +498,8 @@ header{
 	padding: 10em 0;
 	clear: both;
 	position: relative;
-	@media screen and(max-width: $screen-sm){
-		padding: 5em 0;
+	@include media-breakpoint-down(sm) {
+	    padding: 5em 0;
 	}
 }
 
@@ -579,8 +594,8 @@ header{
 	font-size: 250px;
 	color: lighten($brand-black,94%);
 	font-weight: 700;
-	@media screen and(max-width: $screen-sm){
-		font-size: 60px;
+	@include media-breakpoint-down(sm) {
+	    font-size: 60px;
 	}
 }
 // heading
@@ -797,18 +812,18 @@ header{
 	.one-forth{
 		width: 45%;
 		.one-third,.one-forth{
-		display: inline-block;
-		@media screen and(max-width: $screen-sm){
-			height: 400px;
-			}
+    		display: inline-block;
+    		@include media-breakpoint-down(sm) {
+        	    height: 400px;
+        	}
 		}
 	}
 	.one-third,.one-forth{
 		display: inline-block;
-		@media screen and(max-width: $screen-sm){
-			width: 100%;
+		@include media-breakpoint-down(sm) {
+    	    width: 100%;
 			display: block;
-		}
+    	}
 	}
 }
 .services{
@@ -895,12 +910,12 @@ header{
 				}
 			}
 		}
-		@media screen and(max-width: $screen-sm){
-			height: 400px;
+		@include media-breakpoint-down(sm) {
+    	    height: 400px;
 			.display-t{
 				height: 400px;
 			}
-		}
+    	}
 	}
 	.desc{
 		.read{
@@ -962,7 +977,7 @@ header{
 		// float: left;
 	}
 	.owl-theme .owl-controls .owl-nav .owl-next{
-		// float: lef;
+		// float: left;
 	}
 }
 .article{
@@ -1011,10 +1026,10 @@ header{
 				text-transform: uppercase;
 				letter-spacing: 5px;
 				-webkit-transform: rotate(-90deg);
-		     	-moz-transform: rotate(-90deg);
-		      -ms-transform: rotate(-90deg);
-		      -o-transform: rotate(-90deg);
-		      transform: rotate(-90deg);
+                -moz-transform: rotate(-90deg);
+                -ms-transform: rotate(-90deg);
+                -o-transform: rotate(-90deg);
+                transform: rotate(-90deg);
 				transform-origin: 0;
 				position: relative;
 				&:after{
@@ -1173,6 +1188,7 @@ header{
 		}
 	}
 }
+
 .btn-success {
 	background: $brand-success;
 	color: $brand-white;
@@ -1392,15 +1408,15 @@ header{
 	margin: 0 auto;
 	cursor: pointer;
 	margin-top: 0;
-  	@media screen and (max-width: $screen-sm) {
-  		display: block;
+	@include media-breakpoint-down(sm) {
+	    display: block;
   		top: 0px;
-  	}
+	}
   
 }
 
-ul.sratna-nav a:hover {	
-  transform: scale(1.1);	
+.sratna-nav a:hover{
+    transform: scale(1.1);
 }
 
 
@@ -1541,4 +1557,21 @@ input[type="text"] {
 	.js & {
 		opacity: 0;
 	}
+}
+
+.card {
+    .card-header {
+        // TODO: for some reason the transition only work when all the transition mixin is included all 3 times:
+        .collapsable-title {
+            @include transition(.3s);
+            &:hover {
+                text-decoration: none;
+                @include transition(.3s);
+                h4.mb-0 {
+                    color: $brand-primary;
+                    @include transition(.3s);
+                }
+            }
+        }
+    }
 }

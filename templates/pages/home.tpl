@@ -8,10 +8,10 @@
             <div class="col-md-5 animate-box">
                 <div class="owl-carousel3">
                     <div class="item">
-                        {html_image file="images/me.jpg" class="img-responsive about-img" alt="A picture of me." height="458" width="335" loading="lazy"}
+                        {html_image file="images/me.jpg" class="img-fluid about-img" alt="A picture of me." height="458" width="335" loading="lazy"}
                     </div>
                     <div class="item">
-                        {html_image file="images/laptop.jpg" class="img-responsive about-img" alt="A picture of me." height="768" width="1024" loading="lazy"}
+                        {html_image file="images/laptop.jpg" class="img-fluid about-img" alt="A picture of me." height="768" width="1024" loading="lazy"}
                     </div>
                 </div>
             </div>
@@ -140,8 +140,8 @@
                         <div class="col-md-12">
                             <div class="article">
                                 <a href={$post_url} class="blog-img">
-                                    {*{html_image file=$img_url class="img-responsive" alt="" height="360" loading="lazy"}*}
-                                    <img src={$img_url} class="img-responsive" alt="" width="360" loading="lazy">
+                                    {*{html_image file=$img_url class="img-fluid" alt="" height="360" loading="lazy"}*}
+                                    <img src={$img_url} class="img-fluid" alt="" width="360" loading="lazy">
                                     <div class="overlay"></div>
                                     <div class="link">
                                         <span class="read">Read More</h2>

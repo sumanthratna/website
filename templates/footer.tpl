@@ -53,6 +53,7 @@
     <script src={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/js/jquery.easing.1.3.js'} async></script>
     <script src={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/js/jquery.waypoints.min.js'} defer></script>
     <script src={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/js/jquery.magnific-popup.min.js'} async></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/js/bootstrap.min.js'} async></script>
     <script src={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/js/owl.carousel.min.js'} defer></script>
     <!--[if lt IE 9]>

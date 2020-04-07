@@ -7,7 +7,7 @@
         
         <p style="text-align: center;" id="output-message">&#8203;</p>
 
-        <div class="panel-group" id="accordion">
+        <div id="accordion">
             <script>
                 function refreshJSONeditor() {
                     var editor = ace.edit("jsoneditor")
@@ -23,14 +23,16 @@
                     editor.resize(true);
                 });
             </script>
-            <div class="panel panel-default">
-                <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#create">
-                    <h4 class="panel-title">
-                        <a href>Create Post</a>
-                    </h4>
+            <div class="card">
+                <div class="card-header" id="createHeading">
+                    <a class="collapsable-title" data-toggle="collapse" data-target="#create" aria-expanded="false" aria-controls="create" role="button" href="#create">
+                        <h4 class="mb-0">
+                            Create Post
+                        </h4>
+                    </a>
                 </div>
-                <div id="create" class="panel-collapse collapse">
-                    <div class="panel-body">
+                <div id="create" class="collapse" aria-labelledby="createHeading" data-parent="#accordion">
+                    <div class="card-body">
 			            <form id="create-form" action="admin.php" method="post">
                             <div class="row">
                                 <div class="col-md-4">
@@ -136,14 +138,16 @@
                     </div>
                 </div>
             </div>
-            <div class="panel panel-default">
-                <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#organize">
-                    <h4 class="panel-title">
-                        <a href>Organize Posts</a>
-                    </h4>
+            <div class="card">
+                <div class="card-header" id="organizeHeading">
+                    <a class="collapsable-title" data-toggle="collapse" data-target="#organize" aria-expanded="false" aria-controls="organize" role="button" href="#organize">
+                        <h4 class="mb-0">
+                            Organize Posts
+                        </h4>
+                    </a>
                 </div>
-                <div id="organize" class="panel-collapse collapse">
-                    <div class="panel-body">
+                <div id="organize" class="collapse" aria-labelledby="organizeHeading" data-parent="#accordion">
+                    <div class="card-body">
                         <script src={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/js/jquery-ui.min.js'}></script>
                         <link rel="stylesheet" href={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/css/jquery-ui.min.css'}>
                         <ul id="sortable" class="list-group">
@@ -183,24 +187,26 @@
                     </script>
                 </div>
             </div>
-            <div class="panel panel-default">
-                <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#edit">
-                    <h4 class="panel-title">
-                        <a href>Manual Configuration</a>
-                    </h4>
+            <div class="card">
+                <div class="card-header" id="editHeading">
+                    <a class="collapsable-title" data-toggle="collapse" data-target="#edit" aria-expanded="false" aria-controls="edit" role="button" href="#edit">
+                        <h4 class="mb-0">
+                            Manual Configuration
+                        </h4>
+                    </a>
                 </div>
-                <div id="edit" class="panel-collapse collapse">
-                    <div class="panel-body">
-                        <script src="https://cdn.jsdelivr.net/ace/1.2.6/noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
-                        <script src="https://cdn.jsdelivr.net/ace/1.2.6/noconflict/ext-language_tools.js" type="text/javascript" charset="utf-8"></script>
+                <div id="edit" class="collapse" aria-labelledby="editHeading" data-parent="#accordion">
+                    <div class="card-body">
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.9/ace.min.js" type="text/javascript" charset="utf-8"></script>
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.9/ext-language_tools.min.js" type="text/javascript" charset="utf-8"></script>
                         <hr id='savestatus'/>
-                        <div id="jsoneditor" style="height:400px;font-family:monospace; font-size:12px;"></div>
+                        <div id="jsoneditor"></div>
                         <script>
-                            ace.config.set("basePath", "https://cdn.jsdelivr.net/ace/1.2.6/noconflict/");
+                            ace.config.set("basePath", "https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.9/");
                             var editor = ace.edit("jsoneditor");
                             editor.setOptions( {
                                fontFamily: "Monospace",
-                               fontSize: "16pt",
+                               fontSize: "12pt",
                                autoScrollEditorIntoView: true,
                                enableBasicAutocompletion: true,
                                highlightSelectedWord: true,

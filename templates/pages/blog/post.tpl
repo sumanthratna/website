@@ -6,8 +6,8 @@
                 <div class="blog-entry animate-box col-pb-sm">
                     <a href="#" class="blog-img">
                         {nocache}
-                            {*{html_image file=$post.image class="img-responsive" alt="" loading="lazy"}*}
-                            <img src={$post.image} class="img-responsive" alt="" loading="lazy">
+                            {*{html_image file=$post.image class="img-fluid" alt="" loading="lazy"}*}
+                            <img src={$post.image} class="img-fluid" alt="" loading="lazy">
                         {/nocache}
                     </a>
                     <div class="desc">
