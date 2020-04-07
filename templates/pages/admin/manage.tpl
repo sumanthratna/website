@@ -148,14 +148,17 @@
                 </div>
                 <div id="organize" class="collapse" aria-labelledby="organizeHeading" data-parent="#accordion">
                     <div class="card-body">
-                        <script src={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/js/jquery-ui.min.js'}></script>
-                        <link rel="stylesheet" href={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/css/jquery-ui.min.css'}>
+                        <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
                         <ul id="sortable" class="list-group">
                             {foreach from=$posts key=id item=post}
                                 {assign var=post_title value=$post.title}
-                                <li class="ui-state-default list-group-item" id={"sortable-"|cat:$id}>{$post_title}</li>
+                                <li class="list-group-item" id={"sortable-"|cat:$id}>{$post_title}</li>
                             {/foreach}
                         </ul>
+                        <script>
+                            // Simple list
+                            Sortable.create(sortable, { /* options */ });
+                        </script>
                         <script>
                             function updateOrder() {
                                 var ids = [];
