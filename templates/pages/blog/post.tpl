@@ -4,7 +4,12 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="blog-entry animate-box col-pb-sm">
-                    <a href="#" class="blog-img">{nocache}{html_image file=$post.image class="img-responsive" alt="" loading="lazy"}{/nocache}</a>
+                    <a href="#" class="blog-img">
+                        {nocache}
+                            {*{html_image file=$post.image class="img-responsive" alt="" loading="lazy"}*}
+                            <img src={$post.image} class="img-responsive" alt="" loading="lazy">
+                        {/nocache}
+                    </a>
                     <div class="desc">
                         <h3><a href="#">{nocache}{$post.title}{/nocache}</a></h3>
                         <span><small>{nocache}{$post.date}{/nocache}</small> | <small><i class="icon-bubble3"></i> {nocache}{$post.comments|@count}{/nocache}</small></span>

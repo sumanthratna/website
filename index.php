@@ -12,6 +12,9 @@ require __DIR__ . '/vendor/autoload.php';
 $router = new \Bramus\Router\Router();
 
 require_once dirname(__FILE__).'/setup.php';
+if(!isset($_SERVER["DOCUMENT_ROOT"])) {
+   $_SERVER["DOCUMENT_ROOT"] = dirname(__FILE__);
+}
 $smarty = new CustomSmarty(filter_input(INPUT_SERVER, 'DOCUMENT_ROOT'));
 $smarty->loadFilter('output', 'trimwhitespace');
 

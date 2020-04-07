@@ -30,7 +30,8 @@
                     {assign var=post_excerpt value=$post.excerpt}
                     <div class="article animate-box fadeInUp animated">
                       <a href={$post_url} class="blog-img">
-                        {html_image file=$img_url class="img-responsive" alt="" loading="lazy"}
+                        {*{html_image file=$img_url class="img-responsive" alt="" loading="lazy"}*}
+                        <img src={$img_url} class="img-responsive" alt="" loading="lazy">
                         <div class="overlay"></div>
                         <div class="link">
                           <span class="read">Read more </span>
@@ -40,7 +41,7 @@
                         <span class="meta">{$post_date}</span>
                         <h2><a href={$post_url}>{$post_title}</a></h2>
                         <p>
-                          {$post_excerpt}
+                          {$post_excerpt|trim}
                         </p>
                       </div>
                     </div>

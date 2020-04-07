@@ -21,7 +21,7 @@
                                     {assign var=post_date value=$post.date}
                                     {assign var=post_title value=$post.title}
                                     <div class="f-entry">
-                                        <a href={$post_url} class="featured-img" style="background-image: url({$img_url});"></a>
+                                        <a href={$post_url} class="featured-img"></a>
                                         <div class="desc">
                                             <span>{$post_date}</span>
                                             <h3><a href={$post_url}>{$post_title}</a></h3>
