@@ -9,19 +9,49 @@
 
         <div id="accordion">
             <script>
-                function refreshJSONeditor() {
-                    var editor = ace.edit("jsoneditor")
-                    editor.getSession().setValue(JSON.stringify({$posts|@json_encode}, null, 4), -1);
-                    editor.renderer.updateFull(true);
+                /**
+                 * Create a new JSONEditor
+                 * @param { string | Element } selector  A query selector id like '#myEditor'
+                 *                                     or a DOM element to use as container
+                 * @param { Object } [options]
+                 * @param { Object } [json]
+                 * @return { JSONEditor } Returns the created JSONEditor
+                 */
+                function createJSONEditor (selector, options, json) {
+                  var container = (typeof selector === 'string')
+                    ? document.querySelector(selector)
+                    : selector;
+                
+                  var editor = new JSONEditor(container, options, json);
+                  container.jsoneditor = editor;
+                  return editor;
                 }
+                
+                /**
+                 * Find a JSONEditor instance from it's container element or id
+                 * @param { string | Element } selector  A query selector id like '#myEditor'
+                 *                                     or a DOM element
+                 * @return { JSONEditor | null } Returns the created JSONEditor, or null otherwise.
+                 */
+                function findJSONEditor (selector) {
+                  var container = (typeof selector === 'string')
+                      ? document.querySelector(selector)
+                      : selector;
+                
+                  return container && container.jsoneditor || null;
+                }
+                function refreshJSONeditor() {
+                    const editor = findJSONEditor('#jsoneditor');
+                    
+                    editor.set({$posts|@json_encode});
+                }
+                const editor = findJSONEditor('#jsoneditor');
                 $('#edit').on('show.bs.collapse', function() {
-                    var editor = ace.edit("jsoneditor");
                     editor.resize(true);
-                });
+                } );
                 $('#edit').on('shown.bs.collapse', function() {
-                    var editor = ace.edit("jsoneditor");
                     editor.resize(true);
-                });
+                } );
             </script>
             <div class="card">
                 <div class="card-header" id="createHeading">
@@ -182,12 +212,6 @@
                         </script>
                         <input name="submit-organize" type="submit" value="Update Order of Posts" class="btn btn-primary" onclick="updateOrder()">
                     </div>
-                    <script>
-                        $(function() {
-                            $('#sortable').sortable();
-                            $('#sortable').disableSelection();
-                        });
-                    </script>
                 </div>
             </div>
             <div class="card">
@@ -200,57 +224,35 @@
                 </div>
                 <div id="edit" class="collapse" aria-labelledby="editHeading" data-parent="#accordion">
                     <div class="card-body">
-                        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.9/ace.min.js" type="text/javascript" charset="utf-8"></script>
-                        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.9/ext-language_tools.min.js" type="text/javascript" charset="utf-8"></script>
+                        <link href="https://cdnjs.cloudflare.com/ajax/libs/jsoneditor/8.6.4/jsoneditor.min.css" rel="stylesheet" type="text/css">
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/jsoneditor/8.6.4/jsoneditor.min.js"></script>
                         <hr id='savestatus'/>
                         <div id="jsoneditor"></div>
                         <script>
-                            ace.config.set("basePath", "https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.9/");
-                            var editor = ace.edit("jsoneditor");
-                            editor.setOptions( {
-                               fontFamily: "Monospace",
-                               fontSize: "12pt",
-                               autoScrollEditorIntoView: true,
-                               enableBasicAutocompletion: true,
-                               highlightSelectedWord: true,
-                               maxLines: Infinity
-                            } );
-                            editor.on("change", function(e) {
-                                $('#savestatus').css('border', '1px solid red');
-                            } );
-                            editor.commands.addCommand({
-                                name: 'saveFile',
-                                bindKey: {
-                                    win: 'Ctrl-S',
-                                    mac: 'Command-S',
-                                    sender: 'editor|cli'
-                                },
-                                exec: function(env, args, request) {
-                                    if (editor.getSession().getAnnotations().length==0) {
-                                        $('#invalidjson').fadeOut(1000, function() {});
-                                        
-                                        var $manageUrl = "{('https://'|cat:$smarty.server.HTTP_HOST|cat:'/admin.php')|escape:'javascript'}";
-                                        var $secret = "{$secret|escape:'javascript'}";
-                                        
-                                        grecaptcha.execute('{$recaptcha_site_key}', { action: 'admin' } ).then(function(token) {
-                                            $('#recaptcha-response').val(token);
-                                            $.post($manageUrl, { 'edit': JSON.stringify(JSON.parse(editor.getValue()), null, 4), 'secret': $secret, recaptcha_response: $('#recaptcha-response').prop("value") }).done(function () {
-                                                $('#savestatus').css('border', '1px solid green');
-                                                $('#output-message').fadeOut(0, function() {
-                                                    $('#output-message').text('Successfully saved JSON.').fadeIn(1000);
-                                                } );
+                            const modes = ['tree', 'view', 'form', 'code', 'text', 'preview'];
+                            function onChange() {
+                                var $manageUrl = "{('https://'|cat:$smarty.server.HTTP_HOST|cat:'/admin.php')|escape:'javascript'}";
+                                var $secret = "{$secret|escape:'javascript'}";
+                                try {
+                                    var jsonString = JSON.stringify(findJSONEditor('#jsoneditor').get(), null, 4);
+                                    
+                                    grecaptcha.execute('{$recaptcha_site_key}', { action: 'admin' } ).then(function(token) {
+                                        $('#recaptcha-response').val(token);
+                                        $.post($manageUrl, { 'edit': jsonString, 'secret': $secret, recaptcha_response: $('#recaptcha-response').prop("value") }).done(function () {
+                                            $('#savestatus').css('border', '1px solid green');
+                                            $('#output-message').fadeOut(0, function() {
+                                                $('#output-message').text('Successfully saved JSON.').fadeIn(1000);
                                             } );
                                         } );
-                                    }
-                                    else {
-                                        $('#output-message').fadeOut(0, function() {
-                                            $('#output-message').text('Please fix the errors in the JSON before saving.').fadeIn(1000);
-                                        } );
-                                    }
+                                    } );
+                                } catch(parseError) {
+                                    $('#output-message').fadeOut(0, function() {
+                                        $('#output-message').html('Invalid JSON; not updating <code>index.json</code>.').fadeIn(1000);
+                                    } );
                                 }
-                            });
-                            editor.$blockScrolling = Infinity;
-                            editor.getSession().setMode("ace/mode/json");
+                            }
+                            const options = { modes: modes, onChange: onChange };
+                            const newEditor = createJSONEditor('#jsoneditor', options);
                             refreshJSONeditor();
                             $('#savestatus').css('border', '1px solid grey');
                         </script>
