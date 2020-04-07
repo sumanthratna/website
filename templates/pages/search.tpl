@@ -1,5 +1,5 @@
 {include file='header.tpl' page='search'}
-<div id="sratna-contact">
+<div id="sratna-search">
 	<div class="container">
 		<div class="row text-center">
 			<h2 class="bold">Search</h2>

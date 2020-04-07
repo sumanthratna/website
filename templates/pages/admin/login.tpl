@@ -1,5 +1,5 @@
 {include file='header.tpl' page='admin'}
-<div id="sratna-about">
+<div id="sratna-login">
     <div class="container">
         <div class="row text-center">
 			<h2 class="bold">Login</h2>
