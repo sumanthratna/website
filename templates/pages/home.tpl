@@ -141,7 +141,7 @@
                             <div class="article">
                                 <a href={$post_url} class="blog-img">
                                     {*{html_image file=$img_url class="img-responsive" alt="" height="360" loading="lazy"}*}
-                                    <img src={$img_url} class="img-responsive" alt="" loading="lazy">
+                                    <img src={$img_url} class="img-responsive" alt="" width="360" loading="lazy">
                                     <div class="overlay"></div>
                                     <div class="link">
                                         <span class="read">Read More</h2>

@@ -44,7 +44,7 @@ case 'login':
             }
         }
         $output = json_encode(array("message" => $message));
-        echo htmlspecialchars($output);
+        print($output);
         return $output;
     }
     return;

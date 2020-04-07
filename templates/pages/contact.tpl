@@ -91,7 +91,6 @@ $("#contact-form").submit(function(event) {
       
       /* Send the data using post */
       var $secret = "{$secret|escape:'javascript'}";
-      console.log($('#recaptcha-response').attr("value"));
       var posting = $.post( url, { message: $('#message').val(), name: $('#name').val(), email: $("#email").val(), secret: $secret, recaptcha_response: $('#recaptcha-response').prop("value") } );
 
       /* Alerts the results */
