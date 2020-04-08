@@ -123,8 +123,8 @@ body {
 	line-height: 1.8;
 	font-size: 16px;
 	font-weight: 400;
-	background: lighten($brand-black,98%);
-	color: lighten($brand-black,50%);
+	background: lighten($brand-black, 98%);
+	color: lighten($brand-black, 50%);
 	&.menu-show {
 		overflow: hidden;
 		position: fixed;
@@ -454,7 +454,7 @@ header{
 	}
 	.sratna-navbar-brand{
 		float: left;
-		.sratna-logo{
+		.sratna-logo {
 			font-size: 20px;
 			text-transform: uppercase;
 			color: $brand-black;
@@ -465,13 +465,13 @@ header{
 			display: block;
 			text-align: center;
 			background: $brand-black;
-			span{
+			span {
 				display: block;
 				margin-bottom: 0;
 				line-height: 1.2;
 				color: $brand-white;
 			}
-			&:hover{
+			&:hover {
 				text-decoration: none !important;
 				// color: $brand-black !important;
 			}

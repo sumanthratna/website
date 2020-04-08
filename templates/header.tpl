@@ -6,8 +6,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>{$page|capitalize} - Sumanth Ratna</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="This is Sumanth Ratna's personal website. Sumanth is a current student at Thomas Jefferson High School for Science and Technology." />
-        <meta name="keywords" content="Sumanth Ratna" />
+        <meta name="description" content="This is Sumanth Ratna's personal website. Sumanth is currently a student at Thomas Jefferson High School for Science and Technology." />
+        <meta name="keywords" content="sumanth, ratna, tjhsst" />
         <meta name="author" content="Sumanth Ratna" />
 
         <meta prefix="og: http://ogp.me/ns#" name="title" property="og:title" content="{$page|capitalize} - Sumanth Ratna" />
@@ -19,15 +19,6 @@
         <meta prefix="og: http://ogp.me/ns#" property="og:url" content="{'https://'|cat:$smarty.server.HTTP_HOST}" />
         <meta prefix="og: http://ogp.me/ns#" name="description" property='og:description' content="This is Sumanth Ratna's personal website. Sumanth is a current student at Thomas Jefferson High School for Science and Technology." />
         <link rel="canonical" href="{'https://'|cat:$smarty.server.HTTP_HOST}" />
-
-        <style>
-            html, body {
-                width: 100%;
-                height: 100%;
-                margin: 0;
-                padding: 0;
-            }
-        </style>
 
         <link rel="shortcut icon" href={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/favicon.ico'}>
         <link href="https://fonts.googleapis.com/css?family=Karla:400,700%7CPlayfair+Display:400,400i,700" rel="stylesheet">
@@ -48,6 +39,13 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" media="print" onload="this.media='all'">
 
         <style>
+            html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                scroll-behavior: smooth;
+            }
             ::-webkit-scrollbar {
               width: 10px;
             }
@@ -113,12 +111,12 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="sratna-navbar-brand">
+                            <!--<div class="sratna-navbar-brand">-->
                                 <a class="img-fluid sratna-logo" href={'https://'|cat:$smarty.server.HTTP_HOST}>
-                                    {html_image file='https://'|cat:$smarty.server.HTTP_HOST|cat:'/favicon.ico' class="img-fluid" alt="Sumanth Ratna's logo" height="32px" width="32px" loading="lazy"}
+                                    {html_image file='https://'|cat:$smarty.server.HTTP_HOST|cat:'/favicon.ico' class="animate-box img-fluid" alt="Sumanth Ratna's logo" height="48px" width="48px" loading="lazy"}
                                     <!--<span>S_</span><span>_R</span>-->
                                 </a>
-                            </div>
+                            <!--</div>-->
                             <a href="#" class="js-sratna-nav-toggle sratna-nav-toggle"><i></i></a>
                         </div>
                     </div>

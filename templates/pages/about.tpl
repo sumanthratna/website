@@ -1,12 +1,12 @@
 {include file='header.tpl' page='about'}
 <div id="sratna-about">
-	<div class="container">
-		<div class="row text-center">
-			<h2 class="bold">About</h2>
-		</div>
-		<div class="row row-padded-bottom">
-			<div class="col-md-5 animate-box">
-			    <div class="owl-carousel3">
+    <div class="container">
+        <div class="row text-center">
+            <h2 class="bold">About</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-5 animate-box">
+                <div class="owl-carousel3">
                     <div class="item">
                         {html_image file="images/me.jpg" class="img-fluid about-img" alt="A picture of me." height="458" width="335" loading="lazy"}
                     </div>
@@ -14,20 +14,28 @@
                         {html_image file="images/laptop.jpg" class="img-fluid about-img" alt="A picture of me." height="768" width="1024" loading="lazy"}
                     </div>
                 </div>
-			</div>
-			<div class="col-md-6 col-md-push-1 animate-box">
-				<div class="about-desc">
-					<h2><span>Sumanth </span><span>Ratna</span></h2>
-					<div class="desc">
-						<div class="rotate">
-							<h2 class="heading">About</h2>
-						</div>
-						<p>I'm a sophomore at the Thomas Jefferson High School for Science and Technology. I'm interested in machine learning and biochemistry.</p>
-						{include file='socials.tpl'}
-					</div>
-				</div>
-			</div>
-		</div>
+            </div>
+            <div class="col-md-6 col-md-push-1 animate-box">
+                <div class="about-desc">
+                    <div class="owl-carousel3">
+                        <div class="item">
+                            <h2><span>Sumanth </span><span>Ratna</span></h2>
+                        </div>
+                        <div class="item">
+                            <h2><span>I'm </span><span>A Student</span></h2>
+                        </div>
+                    </div>
+                    <div class="desc">
+                        <div class="rotate">
+                            <h2 class="heading">About</h2>
+                        </div>
+                        <p>I'm a sophomore at the Thomas Jefferson High School for Science and Technology. I'm interested in machine learning and biochemistry.</p>
+                        {include file='socials.tpl'}
+                        <p><a href={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/contact'} class="btn btn-primary btn-outline">Contact Me!</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
 		<!--<div class="row">
 			<div class="col-md-4 animate-box">
 				<p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
