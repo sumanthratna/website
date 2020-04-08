@@ -37,6 +37,7 @@
         <link rel="stylesheet" href={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/css/icomoon.css'} media="print" onload="this.media='all'">
 
         <link rel="stylesheet" href={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/css/bootstrap.css'}>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.css">
 
         <link rel="stylesheet" href={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/css/owl.carousel.min.css'} media="print" onload="this.media='all'">
         <link rel="stylesheet" href={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/css/owl.theme.default.min.css'} media="print" onload="this.media='all'">

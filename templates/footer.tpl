@@ -50,6 +50,16 @@
             </div>
         </footer>
     </div>
+    <!-- START Bootstrap-Cookie-Alert -->
+    <div class="alert text-center cookiealert" role="alert">
+        <b>Do you like cookies?</b> &#x1F36A; We use cookies to ensure you get the best experience on our website. <a href="https://cookiesandyou.com/" target="_blank" rel="noopener">Learn more</a>
+    
+        <button type="button" class="btn btn-primary btn-sm acceptcookies" aria-label="Close">
+            I agree
+        </button>
+    </div>
+    <!-- END Bootstrap-Cookie-Alert -->
+    
     <script src={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/js/jquery.easing.1.3.js'} async></script>
     <script src={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/js/jquery.waypoints.min.js'} defer></script>
     <script src={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/js/jquery.magnific-popup.min.js'} async></script>
@@ -61,6 +71,7 @@
     <![endif]-->
     <script src={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/js/modernizr-2.6.2.min.js'}></script>
     <script src={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/js/main.js'} async></script>
+    <script src="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.js"></script>
     <script>
         $("#search-submit").click(function(event) {
             event.preventDefault();
