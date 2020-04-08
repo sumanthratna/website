@@ -10,19 +10,21 @@ case 'login':
         $config = parse_ini_file('../private/keys.ini');
 
         $message = '';
+        
+        $requestUsername = $_POST['username'];
+        $requestPassword = $_POST['password'];
+        
+        $requestRecaptchaResponse = $_POST['recaptcha_response'];
 
         require __DIR__ . '/vendor/autoload.php';
         $recaptcha = new \ReCaptcha\ReCaptcha($config['recaptcha_secret']);
         $resp = $recaptcha->setExpectedHostname($_SERVER['SERVER_NAME'])
                           ->setExpectedAction('login')
-                          ->verify($_POST['recaptcha_response'], filter_input(INPUT_SERVER, 'REMOTE_ADDR', FILTER_VALIDATE_IP));
+                          ->verify($requestRecaptchaResponse, filter_input(INPUT_SERVER, 'REMOTE_ADDR', FILTER_VALIDATE_IP));
 
         if (!$resp->isSuccess()) {
             $message = 'ReCAPTCHA failed.'.$resp->getErrorCodes();
         } else {
-            $requestUsername = $_POST['username'];
-            $requestPassword = $_POST['password'];
-
             $dbname = $config['dbname'];
             $host = $config['dbhost'];
             $port = $config['dbport'];
@@ -45,6 +47,13 @@ case 'login':
         }
         $output = json_encode(array("message" => $message));
         print($output);
+        
+        $log_data = array();
+        $log_data['requested_username'] = $requestUsername;
+        $log_data['result'] = $message;
+        $log_data['recaptcha_response'] = $requestRecaptchaResponse;
+        error_log('LOGIN '.json_encode($log_data, JSON_PRETTY_PRINT));
+        
         return $output;
     }
     return;
