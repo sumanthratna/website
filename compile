@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+BLUE="\033[36m"
+BOLD="\033[1m"
+NORMAL="\033[0m"
+
+if [ "$1" == "bootstrap" ]; then
+  sass css/bootstrap/bootstrap.scss css/bootstrap.css --style compressed
+elif [ "$1" == "style" ]; then
+  sass css/style.scss style.css --style compressed
+else  # catches "--help", "-h", and "help" too
+  echo -e "Usage: ./compile $BLUE<target>$NORMAL"
+  echo
+  echo -e "$BOLD"bootstrap"$NORMAL"
+  echo -e "  $BLUE"bootstrap"$NORMAL\tCompiles the Bootstrap CSS from the SCSS."
+  echo
+  echo -e "$BOLD"style"$NORMAL"
+  echo -e "  $BLUE"style"$NORMAL\t\tCompiles the custom CSS from the SCSS."
+  if [[ $1 == *"help"* ]] || [ "$1" == "" ]; then
+    exit 0
+  else
+    exit 2
+  fi
+fi

@@ -1,33 +1,33 @@
 $bootstrap-sass-asset-helper: false;
 
-$font-primary: 'Karla', Arial, sans-serif;
-$font-secondary: 'Playfair Display', Georgia, serif;
+$font-primary:              'Karla', Arial, sans-serif;
+$font-secondary:            'Playfair Display', Georgia, serif;
 // Overrides
-$grid-gutter-width: 40px; 
-$border-radius-base:  4px;
-$padding-base-vertical: 14px;
+$grid-gutter-width:         40px; 
+$border-radius-base:        4px;
+$padding-base-vertical:     14px;
 
-$brand-primary: #CA82F8;
-$brand-secondary: #FFE9E3;
+$brand-primary:             #CA82F8;
+$brand-secondary:           #FFE9E3;
 
-$brand-success:         #5cb85c;
-$brand-info:            #5bc0de;
-$brand-warning:         #f0ad4e;
-$brand-danger:          #d9534f;
+$brand-success:             #5cb85c;
+$brand-info:                #5bc0de;
+$brand-warning:             #f0ad4e;
+$brand-danger:              #d9534f;
 
-$gray-base:              #000;
-$gray-darker:            lighten($gray-base, 13.5%);
-$gray-dark:              lighten($gray-base, 20%);
-$gray:                   lighten($gray-base, 33.5%);
-$gray-light:             lighten($gray-base, 46.7%);
-$gray-lighter:           lighten($gray-base, 93.5%);
+$gray-base:                 #000;
+$gray-darker:               lighten($gray-base, 13.5%);
+$gray-dark:                 lighten($gray-base, 20%);
+$gray:                      lighten($gray-base, 33.5%);
+$gray-light:                lighten($gray-base, 46.7%);
+$gray-lighter:              lighten($gray-base, 93.5%);
 
-$brand-white: #fff;
-$brand-black: #000;
-$brand-lighter: #727272;
-$brand-selection-color: #b7c2c2;
-$brand-body-color: #fcfcfc;
-$brand-body-bg: #f9f7f7;
+$brand-white:               #fff;
+$brand-black:               #000;
+$brand-lighter:             #727272;
+$brand-selection-color:     #b7c2c2;
+$brand-body-color:          #fcfcfc;
+$brand-body-bg:             #f9f7f7;
 
 
 $input-border-focus: $brand-primary !default;
