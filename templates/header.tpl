@@ -70,10 +70,18 @@
                 <div class="sratna-table-cell js-fullheight">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="search" placeholder="Search...">
-                                <button type="submit" id="search-submit" class="btn btn-primary"><i class="icon-search3"></i></button>
-                            </div>
+                            <form>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="search" placeholder="Search...">
+                                    <button type="submit" id="search-submit" class="btn btn-primary"><i class="icon-search3"></i></button>
+                                    <script>
+                                        $("#search-submit").click(function(event) {
+                                            event.preventDefault();
+                                            window.location.replace("{'https://'|cat:$smarty.server.HTTP_HOST|cat:'/search?input='}" + encodeURIComponent($("#search").val()));
+                                        } );
+                                    </script>
+                                </div>
+                            </form>
                         </div>
                     </div>
                     <div class="row">

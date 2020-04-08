@@ -71,11 +71,5 @@
     <script src={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/js/modernizr-2.6.2.min.js'}></script>
     <script src={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/js/main.js'} async></script>
     <script src="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.js"></script>
-    <script>
-        $("#search-submit").click(function(event) {
-            event.preventDefault();
-            window.location.replace("{'https://'|cat:$smarty.server.HTTP_HOST|cat:'/search?input='}" + encodeURIComponent($("#search").val()));
-        } );
-    </script>
 </body>
 </html>

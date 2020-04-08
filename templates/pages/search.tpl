@@ -89,7 +89,12 @@ var resultNodes = searchResults.map(function createResultNode(result) {
     var resultNode = $("<div class=\"container\"></div>").append(titleNode).append(descriptionNode).append($("<hr>"));
     return resultNode;
 } );
-$("#search-results").append(...resultNodes);
+if (resultNodes.length>0) {
+    $("#search-results").append(...resultNodes);
+} else {
+    $("#search-results").append($("<p></p>").text("No results found."));
+}
+
 </script>
 
 {include file='footer.tpl'}
