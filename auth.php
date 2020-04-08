@@ -52,6 +52,7 @@ case 'login':
         $log_data['requested_username'] = $requestUsername;
         $log_data['result'] = $message;
         $log_data['recaptcha_response'] = $requestRecaptchaResponse;
+        $log_data['recaptcha_score'] = $resp->getScore();
         error_log('LOGIN '.json_encode($log_data, JSON_PRETTY_PRINT));
         
         return $output;

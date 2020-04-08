@@ -2,7 +2,7 @@
 
 session_start();
 
-if (!isset($_SESSION['user'])) {
+if (!(isset($_SESSION['user']) && $_SESSION['user']=="admin")) {
     header('HTTP/1.0 403 Forbidden');
 }
 

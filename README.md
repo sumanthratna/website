@@ -2,6 +2,8 @@
 
 ## Preparing the MySQL Database
 
+Note: there must be at least one user with the username `"admin"` in order for the admin panel to work.
+
 ```sql
 -- Create the table:
 CREATE TABLE users(id INT NOT NULL AUTO_INCREMENT, username VARCHAR(255) NOT NULL, password VARCHAR(255) NOT NULL, PRIMARY KEY(id))
