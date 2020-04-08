@@ -38,9 +38,9 @@ case 'login':
 
             if (!empty($result)) {
                 $_SESSION['user'] = $requestUsername;
-                $message = "Authentication successful";
+                $message = "Authentication successful.";
             } else {
-                $message = "Invalid credentials";
+                $message = "Invalid credentials.";
             }
         }
         $output = json_encode(array("message" => $message));

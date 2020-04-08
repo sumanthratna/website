@@ -2,6 +2,10 @@
 
 session_start();
 
+if (!isset($_SESSION['user'])) {
+    header('HTTP/1.0 403 Forbidden');
+}
+
 if ($_SERVER['REQUEST_METHOD']=="POST" && isset($_POST['recaptcha_response'])) {
     $config = parse_ini_file('../private/keys.ini');
 
