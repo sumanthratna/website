@@ -111,12 +111,12 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <!--<div class="sratna-navbar-brand">-->
+                            <div class="animate-box sratna-navbar-brand">
                                 <a class="img-fluid sratna-logo" href={'https://'|cat:$smarty.server.HTTP_HOST}>
-                                    {html_image file='https://'|cat:$smarty.server.HTTP_HOST|cat:'/favicon.ico' class="animate-box img-fluid" alt="Sumanth Ratna's logo" height="48px" width="48px" loading="lazy"}
+                                    {html_image file='https://'|cat:$smarty.server.HTTP_HOST|cat:'/favicon.ico' class="img-fluid" alt="Sumanth Ratna's logo" height="32px" width="32px" loading="lazy"}
                                     <!--<span>S_</span><span>_R</span>-->
                                 </a>
-                            <!--</div>-->
+                            </div>
                             <a href="#" class="js-sratna-nav-toggle sratna-nav-toggle"><i></i></a>
                         </div>
                     </div>
