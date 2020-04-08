@@ -108,15 +108,51 @@ $router->get('/ibet', function () use ($smarty) {
 $router->get('/ibet.pdf', function () use ($smarty) {
     header("Location: https://sumanthratna.ml/assets/ibet.pdf", true, 301);
 });
+$router->mount('/api', function () use ($router) {
+
+    // will result in '/api/contact'
+    $router->post('/contact', function () {
+        include_once('contact.php');
+        require __DIR__ . '/vendor/autoload.php';
+        $config = parse_ini_file('../private/keys.ini');
+        $recaptcha = new \ReCaptcha\ReCaptcha($config['recaptcha_secret']);
+        $recaptchaResp = $recaptcha->setExpectedHostname($_SERVER['SERVER_NAME'])
+                          ->setExpectedAction('contact')
+                          ->verify(
+                                $_POST['recaptcha_response'], 
+                                filter_input(INPUT_SERVER, 'REMOTE_ADDR', FILTER_VALIDATE_IP)
+                            );
+        $message = contact(
+            $recaptchaResp, 
+            $_POST['secret'], 
+            $_POST['name'], 
+            filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL), 
+            $_POST['message']
+        );
+        print(json_encode(array("message" => $message)));
+    });
+
+});
 $router->set404(function () use ($smarty) {
     header('HTTP/1.1 404 Not Found');
     $smarty->display("pages/404.tpl");
 });
 $router->run(function () {
-    $hit = array(
-        "URL" => (isset($_SERVER["HTTPS"]) ? 'https' : 'http').'://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'],
-        "IP" => filter_input(INPUT_SERVER, 'REMOTE_ADDR', FILTER_VALIDATE_IP),
-        "referrer" => isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER']:''
-    );
-    error_log('HIT '.json_encode($hit, JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES));
+    function wasReferredFromThis($referer) {
+        return (
+            substr($referer, 0, 23)==="https://sumanthratna.ml" || 
+            substr($referer, 0, 22)==="http://sumanthratna.ml"
+        );
+    }
+    $referer = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER']:'';
+    if (!(substr($_SERVER['REQUEST_URI'], 0, 4) === "/api" && wasReferredFromThis($referer))) {
+        $requestURL = (isset($_SERVER["HTTPS"]) ? 'https' : 'http').'://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+        $hit = array(
+            "URL" => $requestURL,
+            "IP" => filter_input(INPUT_SERVER, 'REMOTE_ADDR', FILTER_VALIDATE_IP),
+            "referrer" => $referer
+        );
+        error_log('HIT '.json_encode($hit, JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES));
+    }
+    
 });

@@ -35,7 +35,7 @@
 					</div>
                     <div class="col-md-7 col-md-push-1 animate-box">
                         <p id="output-message">&#8203;</p>
-			            <form id="contact-form" action="contact.php" method="post">
+			            <form id="contact-form" action="/api/contact" method="post">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
