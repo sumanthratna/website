@@ -227,7 +227,7 @@
                         <link href="https://cdnjs.cloudflare.com/ajax/libs/jsoneditor/8.6.4/jsoneditor.min.css" rel="stylesheet" type="text/css">
                         <script src="https://cdnjs.cloudflare.com/ajax/libs/jsoneditor/8.6.4/jsoneditor.min.js"></script>
                         <hr id='savestatus'/>
-                        <div id="jsoneditor"></div>
+                        <div id="jsoneditor" style="width: 100%;"></div>
                         <script>
                             const modes = ['tree', 'view', 'form', 'code', 'text', 'preview'];
                             function onChange() {

@@ -5,7 +5,7 @@
         "image": "https://sumanthratna.ml/images/blog/curl-box.png",
         "date": "June 20, 2019",
         "comments": [],
-        "contents": "<code>curl -L https://api.box.com/2.0/files/[FILE_ID]/content -H \"Authorization: Bearer [DEVELOPER_TOKEN]\" -o [FILE_NAME]</code>First get the file ID from the URL in the browser. Then get the developer token by <a href=\"https://app.box.com/developers/console\">creating a new Box app</a> (click the configuration tab). You can choose the file name to output to. View an example <a href=\"https://asciinema.org/a/V1NJDw4M8RJvVVVioTIw5qa4j\">here</a>."
+        "contents": "<kbd>curl -L https://api.box.com/2.0/files/[FILE_ID]/content -H \"Authorization: Bearer [DEVELOPER_TOKEN]\" -o [FILE_NAME]</kbd> First get the file ID from the URL in the browser. Then get the developer token by <a href=\"https://app.box.com/developers/console\">creating a new Box app</a> (click the configuration tab). You can choose the file name to output to. View an example <a href=\"https://asciinema.org/a/V1NJDw4M8RJvVVVioTIw5qa4j\">here</a>."
     },
     "what-is-this": {
         "title": "this",

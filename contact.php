@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD']=="POST" and isset($_POST['recaptcha_response'])) 
 
             $log_data = array();
             $log_data['sender'] = $_POST['name'];
-            $log_data['sender_email'] = $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL|FILTER_SANITIZE_EMAIL);
+            $log_data['sender_email'] = $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
             $log_data['message'] = $_POST['message'];
             $log_data['recaptcha_score'] = $resp->getScore();
             error_log('CONTACT '.json_encode($log_data, JSON_PRETTY_PRINT));

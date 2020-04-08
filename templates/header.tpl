@@ -33,10 +33,10 @@
         <link rel="stylesheet" href={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/css/owl.carousel.min.css'} media="print" onload="this.media='all'">
         <link rel="stylesheet" href={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/css/owl.theme.default.min.css'} media="print" onload="this.media='all'">
 
-        <link rel="stylesheet" href={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/css/magnific-popup.css'}>
+        <link rel="stylesheet" href={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/css/magnific-popup.min.css'}>
         <link rel="stylesheet" href={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/style.css'}>
 
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" media="print" onload="this.media='all'">
+        <link href={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/css/normalize.min.css'} media="print" onload="this.media='all'">
 
         <style>
             html, body {
