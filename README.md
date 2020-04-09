@@ -23,3 +23,18 @@ DELETE FROM users WHERE username="admin"
 -- Remove the table:
 DROP TABLE users
 ```
+
+## Configuring Nginx
+
+On Director, this should be the only change made:
+```nginx
+server {
+    ...
+    location / {
+        ...
+        try_files $uri $uri/ /index.php?$args;
+    }
+    ...
+}
+```
+This allows routing from [`index.php`](./index.php). 
