@@ -160,13 +160,21 @@ $router->run(function () {
             strncmp($referer, "http://sumanthratna.ml", 22)===0
         );
     }
+    function isBot($userAgent) {
+        // https://stackoverflow.com/a/15047834/7127932
+        return (
+            isset($userAgent)
+            && preg_match('/bot|crawl|slurp|spider|mediapartners/i', $userAgent)
+        );
+    }
     $referer = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER']:'';
     if (!(substr($_SERVER['REQUEST_URI'], 0, 4) === "/api" && wasReferredFromThis($referer))) {
         $requestURL = (isset($_SERVER["HTTPS"]) ? 'https' : 'http').'://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
         $hit = array(
             "URL" => $requestURL,
             "IP" => filter_input(INPUT_SERVER, 'REMOTE_ADDR', FILTER_VALIDATE_IP),
-            "referrer" => $referer
+            "referrer" => $referer,
+            "is_bot" => isBot($_SERVER['HTTP_USER_AGENT'])
         );
         error_log('HIT '.json_encode($hit, JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES));
     }
