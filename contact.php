@@ -1,6 +1,6 @@
 <?php
 
-function contact($requestSecret, $requestName, $requestEmail, $requestMessage) {
+function sendEmail($requestSecret, $requestName, $requestEmail, $requestMessage) {
     $config = parse_ini_file('../private/keys.ini');
 
     $message = '';
