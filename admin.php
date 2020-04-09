@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD']=="POST" && isset($_POST['recaptcha_response'])) {
                 error_log('ADMIN EDIT '.json_encode(json_decode($_POST['edit'], true)));
             }
 
-            require_once dirname(__FILE__).'/setup.php';
+            require_once dirname(__FILE__).'/custom_smarty.php';
             $smarty = new CustomSmarty(filter_input(INPUT_SERVER, 'DOCUMENT_ROOT'));
             $smarty->clearAllCache();
         } else {

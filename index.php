@@ -11,7 +11,7 @@ require __DIR__ . '/vendor/autoload.php';
 // Create Router instance
 $router = new \Bramus\Router\Router();
 
-require_once dirname(__FILE__).'/setup.php';
+require_once dirname(__FILE__).'/custom_smarty.php';
 if(!isset($_SERVER["DOCUMENT_ROOT"])) {
    $_SERVER["DOCUMENT_ROOT"] = dirname(__FILE__);
 }
