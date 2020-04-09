@@ -132,14 +132,20 @@ $router->mount('/api', function () use ($router) {
             $_POST['recaptcha_response'], 
             filter_input(INPUT_SERVER, 'REMOTE_ADDR', FILTER_VALIDATE_IP)
         );
-        $message = contact(
-            $recaptchaResp, 
+        $log_data = array();
+        $log_data['sender'] = $requestName = $_POST['name'];
+        $log_data['sender_email'] = $requestEmail = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+        $log_data['message'] = $requestMessage = $_POST['message'];
+        $log_data['recaptcha_score'] = $recaptchaResp->getScore();
+        $message = $recaptchaResp->isSuccess() ? contact(
             $_POST['secret'], 
-            $_POST['name'], 
-            filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL), 
-            $_POST['message']
-        );
+            $requestName, 
+            $requestEmail, 
+            $requestMessage
+        ):('ReCAPTCHA failed.'.$recaptchaResp->getErrorCodes());
+        $log_data['output_message'] = $message;
         print(json_encode(array("message" => $message)));
+        error_log('CONTACT '.json_encode($log_data, JSON_PRETTY_PRINT));
     });
 
 });
