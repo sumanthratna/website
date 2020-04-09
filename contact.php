@@ -43,6 +43,7 @@ function contact($recaptchaResp, $requestSecret, $requestName, $requestEmail, $r
     $log_data['sender_email'] = $requestEmail;
     $log_data['message'] = $requestMessage;
     $log_data['recaptcha_score'] = $recaptchaResp->getScore();
+    $log_data['output_message'] = $message;
     error_log('CONTACT '.json_encode($log_data, JSON_PRETTY_PRINT));
     return $message;
 }

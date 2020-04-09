@@ -109,19 +109,29 @@ $router->get('/ibet.pdf', function () use ($smarty) {
     header("Location: https://sumanthratna.ml/assets/ibet.pdf", true, 301);
 });
 $router->mount('/api', function () use ($router) {
-
-    // will result in '/api/contact'
-    $router->post('/contact', function () {
+    
+    function getRecaptchaResult($server_name, $recaptcha_response, $requestIP) {
         include_once('contact.php');
         require __DIR__ . '/vendor/autoload.php';
         $config = parse_ini_file('../private/keys.ini');
         $recaptcha = new \ReCaptcha\ReCaptcha($config['recaptcha_secret']);
-        $recaptchaResp = $recaptcha->setExpectedHostname($_SERVER['SERVER_NAME'])
-                          ->setExpectedAction('contact')
-                          ->verify(
-                                $_POST['recaptcha_response'], 
-                                filter_input(INPUT_SERVER, 'REMOTE_ADDR', FILTER_VALIDATE_IP)
+        $recaptchaResp = $recaptcha
+                            ->setExpectedHostname($server_name)
+                            ->setExpectedAction('contact')
+                            ->verify(
+                                $recaptcha_response, 
+                                $requestIP
                             );
+        return $recaptchaResp;
+    }
+
+    // will result in '/api/contact'
+    $router->post('/contact', function () {
+        $recaptchaResp = getRecaptchaResult(
+            $_SERVER['SERVER_NAME'], 
+            $_POST['recaptcha_response'], 
+            filter_input(INPUT_SERVER, 'REMOTE_ADDR', FILTER_VALIDATE_IP)
+        );
         $message = contact(
             $recaptchaResp, 
             $_POST['secret'], 
@@ -140,8 +150,8 @@ $router->set404(function () use ($smarty) {
 $router->run(function () {
     function wasReferredFromThis($referer) {
         return (
-            substr($referer, 0, 23)==="https://sumanthratna.ml" || 
-            substr($referer, 0, 22)==="http://sumanthratna.ml"
+            strncmp($referer, "https://sumanthratna.ml", 23)===0 || 
+            strncmp($referer, "http://sumanthratna.ml", 22)===0
         );
     }
     $referer = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER']:'';
