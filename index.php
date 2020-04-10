@@ -44,6 +44,14 @@ $router->mount('/blog', function () use ($smarty, $router, $posts) {
     $router->get('/', function () use ($smarty) {
         $smarty->display("pages/blog/index.tpl");
     });
+    
+    
+    // will result in '/blog/playground'
+    $router->get('/playground', function () use ($smarty) {
+        // $smarty->display("pages/blog/playground.tpl");
+        header("Location: https://".$_SERVER['SERVER_NAME']."/blog");
+        
+    });
 
     // will result in '/blog/id'
     $router->get('/([a-z0-9-]+)', function ($id) use ($smarty, $posts) {

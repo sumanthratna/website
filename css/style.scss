@@ -162,7 +162,7 @@ ul,ol{
 	display: block;
 	margin-bottom: 1.5em;
 }
-span{
+span {
 	font-size: 18px;
 	color: rgba($brand-lighter,.8);
 }
@@ -1580,4 +1580,48 @@ input[type="text"] {
     font: inherit !important;
     font-family: "dejavu sans mono", "droid sans mono", consolas, monaco, "lucida console", "courier new", courier, monospace, sans-serif !important;
     font-size: 12px !important;
+}
+
+body {
+    .gist {
+        .gist-file {
+          margin-bottom: 0;
+          border: 1px dashed #adb5bd;
+          border-radius: 0;
+          font-size: 12px;
+        }
+        .gist-data {
+          border-bottom: none;
+          border-radius: 0;
+          background-color: #f1f3f5;
+        }
+        .blob-wrapper {
+          border-radius: 0;
+        }
+        .highlight {
+          background-color: transparent;
+          td {
+              padding: 5px 15px !important;
+              line-height: 1;
+              font-size: inherit;
+          }
+        }
+        tr:first-child td {
+          padding-top: 15px !important;
+        }
+        tr:last-child td {
+          padding-bottom: 15px !important;
+        }
+        .blob-num {
+          color: #ced4da;
+          background-color: #495057;
+          pointer-events: none;
+        }
+        .gist-meta {
+          display: none;
+        }
+        .blob-code-inner span {
+            font-family: 'Droid Sans Mono', monospace;
+        }
+    }
 }

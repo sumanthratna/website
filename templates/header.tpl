@@ -22,6 +22,8 @@
 
         <link rel="shortcut icon" href={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/favicon.ico'}>
         <link href="https://fonts.googleapis.com/css?family=Karla:400,700%7CPlayfair+Display:400,400i,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Droid+Sans+Mono%7COpen+Sans" rel="stylesheet" media="print" onload="this.media='all'">
+        
 
         <link rel="stylesheet" href={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/css/animate.css'} media="print" onload="this.media='all'">
 

@@ -43,7 +43,7 @@
                 function refreshJSONeditor() {
                     const editor = findJSONEditor('#jsoneditor');
                     
-                    editor.set({$posts|@json_encode});
+                    editor.set({nocache}{$posts|@json_encode}{/nocache});
                 }
                 const editor = findJSONEditor('#jsoneditor');
                 $('#edit').on('show.bs.collapse', function() {
@@ -180,10 +180,11 @@
                     <div class="card-body">
                         <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
                         <ul id="sortable" class="list-group">
-                            {foreach from=$posts key=id item=post}
-                                {assign var=post_title value=$post.title}
-                                <li class="list-group-item" id={"sortable-"|cat:$id}>{$post_title}</li>
-                            {/foreach}
+                            {nocache}
+                                {foreach from=$posts key=id item=post}
+                                    <li class="list-group-item" id={"sortable-"|cat:$id}>{$post.title}</li>
+                                {/foreach}
+                            {/nocache}
                         </ul>
                         <script>
                             // Simple list
