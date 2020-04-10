@@ -7,12 +7,12 @@ if (!(isset($_SESSION['user']) && $_SESSION['user']=="admin")) {
 }
 
 if ($_SERVER['REQUEST_METHOD']=="POST" && isset($_POST['recaptcha_response'])) {
-    $config = parse_ini_file('../private/keys.ini');
+    $config = parse_ini_file('../private/keys.ini', true);
 
     $message = '';
 
     require __DIR__ . '/vendor/autoload.php';
-    $recaptcha = new \ReCaptcha\ReCaptcha($config['recaptcha_secret']);
+    $recaptcha = new \ReCaptcha\ReCaptcha($config['recaptcha']['secret']);
     $resp = $recaptcha->setExpectedHostname($_SERVER['SERVER_NAME'])
                       ->setExpectedAction('admin')
                       ->verify(
@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD']=="POST" && isset($_POST['recaptcha_response'])) {
             $message = 'INVALID SECRET';
         }
     }
-    $output = json_encode(array("message" => $message));
-    echo htmlspecialchars($output);
+    $output = array("message" => $message);
+    print(json_encode($output));
     return $output;
 }

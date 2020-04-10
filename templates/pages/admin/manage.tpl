@@ -75,17 +75,15 @@
                                         <label for="id">ID: </label><input id="id" type="text" class="form-control" placeholder="hello-world" style="background-color:#fafafa;">
                                         <script>
                                             $("#title").on('input', function() {
-                                                if ($("#title")) {
+                                                if ($("#title").val()==="") {
+                                                    $("#id").attr("placeholder", "hello-world");
+                                                } else {
                                                     $("#id").attr("placeholder", $("#title").val().toLowerCase().replace(new RegExp("\\s+",'g'),"-").replace(new RegExp("[^0-9a-z\-]",'g'),"")).val("").focus().blur();
                                                     $("#title").focus();
                                                 }
-                                                if ($("#title").val()==="") {
-                                                    $("#id").attr("placeholder", "hello-world");
-                                                }
                                             });
                                             $('#id').on('input', function() {
-                                              if ($("#id").val()==="") {
-                                                var c = this.selectionStart,
+                                                  var c = this.selectionStart,
                                                     r = /[^a-z0-9\-]/gi,
                                                     v = $(this).val();
                                                 if(r.test(v)) {
@@ -93,8 +91,7 @@
                                                   c--;
                                                 }
                                                 this.setSelectionRange(c, c);
-                                              }
-                                            });
+                                            } );
                                         </script>
                                     </div>
                                 </div>
@@ -128,9 +125,10 @@
                                 $("#id").prop( "disabled", true );
                                 $("#date").prop( "disabled", true );
                                 $("#excerpt").prop( "disabled", true );
+                                $("#submit-create").prop( "disabled", true );
                                 
                                 var $manageUrl = '{('https://'|cat:$smarty.server.HTTP_HOST|cat:'/admin.php')|escape:'javascript'}';
-                                var $secret = '{$secret|escape:'javascript'}';
+                                var $secret = "{$secret|escape:'javascript'}";
                                 
                                 var $id = $('#id').val();
                                 var $title = $('#title').val();
@@ -146,14 +144,15 @@
                                     
                                     /* Alerts the results */
                                     posting.done(function( data ) {
-                                        var outputMessage = jQuery.parseJSON(data).message;
+                                        var outputMessage = JSON.parse(data).message;
                                             $("#output-message").fadeOut(function() {
                                             $(this).html(outputMessage).fadeIn();
                                         } );
-                                      if (outputMessage.startsWith('Successfully created post')) {
+                                      if (outputMessage.startsWith('Successfully created post ')) {
                                             $("#title").val('');
                                             $("#id").val('');
-                                            $("#date").val({$smarty.now|date_format:"Y-m-d"});
+                                            $("#id").attr("placeholder", "hello-world");
+                                            $("#date").val("{$smarty.now|date_format:'Y-m-d'}");
                                             $("#excerpt").val('');
                                       }
                                         $("#title").prop( "disabled", false );

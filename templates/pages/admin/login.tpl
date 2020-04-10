@@ -66,7 +66,7 @@ $("#login-form").submit(function(event) {
             $("#output-message").fadeOut(function() {
                 $(this).text(outputMessage).fadeIn();
             });
-          if (outputMessage == 'Invalid credentials') {
+          if (outputMessage == 'Invalid credentials.') {
                 $("#submit").prop( "disabled", false );
                 $("#username").prop( "disabled", false );
                 $("#password").prop( "disabled", false );

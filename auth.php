@@ -7,7 +7,7 @@ case 'login':
         die();
     }
     if ($_SERVER["REQUEST_METHOD"]=="POST" && isset($_POST['recaptcha_response'])) {
-        $config = parse_ini_file('../private/keys.ini');
+        $config = parse_ini_file('../private/keys.ini', true);
 
         $message = '';
         
@@ -17,7 +17,7 @@ case 'login':
         $requestRecaptchaResponse = $_POST['recaptcha_response'];
 
         require __DIR__ . '/vendor/autoload.php';
-        $recaptcha = new \ReCaptcha\ReCaptcha($config['recaptcha_secret']);
+        $recaptcha = new \ReCaptcha\ReCaptcha($config['recaptcha']['secret']);
         $resp = $recaptcha->setExpectedHostname($_SERVER['SERVER_NAME'])
                           ->setExpectedAction('login')
                           ->verify($requestRecaptchaResponse, filter_input(INPUT_SERVER, 'REMOTE_ADDR', FILTER_VALIDATE_IP));
@@ -25,11 +25,11 @@ case 'login':
         if (!$resp->isSuccess()) {
             $message = 'ReCAPTCHA failed.'.$resp->getErrorCodes();
         } else {
-            $dbname = $config['dbname'];
-            $host = $config['dbhost'];
-            $port = $config['dbport'];
-            $username = $config['dbusername'];
-            $password = $config['dbpassword'];
+            $dbname = $config['database']['name'];
+            $host = $config['database']['host'];
+            $port = $config['database']['port'];
+            $username = $config['database']['username'];
+            $password = $config['database']['password'];
 
             $pdo = new PDO('mysql:dbname='.$dbname.';host='.$host.';port='.$port.';charset=utf8', $username, $password);
             $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);

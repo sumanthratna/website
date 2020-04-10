@@ -31,9 +31,9 @@ foreach ($posts as $id => $post) {
 }
 $smarty->assign('lunr_posts', $lunr_posts);
 
-$config = parse_ini_file('../private/keys.ini');
+$config = parse_ini_file('../private/keys.ini', true);
 $smarty->assign('secret', $config['secret']);
-$smarty->assign('recaptcha_site_key', $config['recaptcha_site_key']);
+$smarty->assign('recaptcha_site_key', $config['recaptcha']['site_key']);
 
 $router->get('/', function () use ($smarty) {
     $smarty->display("pages/home.tpl");
@@ -122,8 +122,8 @@ $router->mount('/api', function () use ($router) {
     function getRecaptchaResult($server_name, $recaptcha_response, $requestIP) {
         include_once('contact.php');
         require __DIR__ . '/vendor/autoload.php';
-        $config = parse_ini_file('../private/keys.ini');
-        $recaptcha = new \ReCaptcha\ReCaptcha($config['recaptcha_secret']);
+        $config = parse_ini_file('../private/keys.ini', true);
+        $recaptcha = new \ReCaptcha\ReCaptcha($config['recaptcha']['secret']);
         $recaptchaResp = $recaptcha
                             ->setExpectedHostname($server_name)
                             ->setExpectedAction('contact')
