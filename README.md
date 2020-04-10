@@ -4,19 +4,19 @@
 
     .
     ├── private
-    │   ├── keys.ini
-    │   ├── php.error.log
-    │   └── smarty
-    │       ├── cache
-    │       │   └── ...
-    │       ├── configs
-    │       │   └── <EMPTY>
-    │       └── templates_c
-    │           └── ...
+    │   ├── keys.ini
+    │   ├── php.error.log
+    │   └── smarty
+    │       ├── cache
+    │       │   └── ...
+    │       ├── configs
+    │       │   └── <EMPTY>
+    │       └── templates_c
+    │           └── ...
     └── public
         ├── admin.php
         ├── assets
-        │   └── ...
+        │   └── ...
         ├── auth.php
         ├── clear
         ├── compile
@@ -24,73 +24,73 @@
         ├── composer.lock
         ├── contact.php
         ├── css
-        │   ├── animate.css
-        │   ├── bootstrap
-        │   │   ├── ...
-        │   │   ├── mixins
-        │   │   │   └── ...
-        │   │   ├── utilities
-        │   │   │   └── ...
-        │   │   └── vendor
-        │   │       └── ...
-        │   ├── bootstrap.css
-        │   ├── bootstrap.css.map
-        │   ├── icomoon.css
-        │   ├── icomoon.eot
-        │   ├── icomoon.svg
-        │   ├── icomoon.ttf
-        │   ├── icomoon.woff
-        │   ├── magnific-popup.min.css
-        │   ├── normalize.min.css
-        │   ├── owl.carousel.min.css
-        │   ├── owl.theme.default.min.css
-        │   └── style.scss
+        │   ├── animate.css
+        │   ├── bootstrap
+        │   │   ├── ...
+        │   │   ├── mixins
+        │   │   │   └── ...
+        │   │   ├── utilities
+        │   │   │   └── ...
+        │   │   └── vendor
+        │   │       └── ...
+        │   ├── bootstrap.css
+        │   ├── bootstrap.css.map
+        │   ├── icomoon.css
+        │   ├── icomoon.eot
+        │   ├── icomoon.svg
+        │   ├── icomoon.ttf
+        │   ├── icomoon.woff
+        │   ├── magnific-popup.min.css
+        │   ├── normalize.min.css
+        │   ├── owl.carousel.min.css
+        │   ├── owl.theme.default.min.css
+        │   └── style.scss
         ├── custom_smarty.php
         ├── favicon.ico
         ├── images
-        │   ├── ...
-        │   ├── blog
-        │   │   └── ...
-        │   ├── favicon.studio
-        │   ├── gh-social-preview.png
-        │   ├── gh-social-preview.studio
-        │   ├── ogp.png
-        │   └── ogp.studio
+        │   ├── ...
+        │   ├── blog
+        │   │   └── ...
+        │   ├── favicon.studio
+        │   ├── gh-social-preview.png
+        │   ├── gh-social-preview.studio
+        │   ├── ogp.png
+        │   └── ogp.studio
         ├── index.json
         ├── index.php
         ├── js
-        │   ├── bootstrap.min.js
-        │   ├── jquery.easing.1.3.js
-        │   ├── jquery.magnific-popup.min.js
-        │   ├── jquery.min.js
-        │   ├── jquery.waypoints.min.js
-        │   ├── main.js
-        │   ├── modernizr-2.6.2.min.js
-        │   ├── owl.carousel.min.js
-        │   ├── phone.js
-        │   └── respond.min.js
+        │   ├── bootstrap.min.js
+        │   ├── jquery.easing.1.3.js
+        │   ├── jquery.magnific-popup.min.js
+        │   ├── jquery.min.js
+        │   ├── jquery.waypoints.min.js
+        │   ├── main.js
+        │   ├── modernizr-2.6.2.min.js
+        │   ├── owl.carousel.min.js
+        │   ├── phone.js
+        │   └── respond.min.js
         ├── keybase.txt
         ├── README.md
         ├── robots.txt
         ├── style.css
         ├── style.css.map
         ├── templates
-        │   ├── footer.tpl
-        │   ├── header.tpl
-        │   ├── pages
-        │   │   ├── 404.tpl
-        │   │   ├── about.tpl
-        │   │   ├── admin
-        │   │   │   ├── login.tpl
-        │   │   │   └── manage.tpl
-        │   │   ├── blog
-        │   │   │   ├── index.tpl
-        │   │   │   ├── playground.tpl
-        │   │   │   └── post.tpl
-        │   │   ├── contact.tpl
-        │   │   ├── home.tpl
-        │   │   └── search.tpl
-        │   └── socials.tpl
+        │   ├── footer.tpl
+        │   ├── header.tpl
+        │   ├── pages
+        │   │   ├── 404.tpl
+        │   │   ├── about.tpl
+        │   │   ├── admin
+        │   │   │   ├── login.tpl
+        │   │   │   └── manage.tpl
+        │   │   ├── blog
+        │   │   │   ├── index.tpl
+        │   │   │   ├── playground.tpl
+        │   │   │   └── post.tpl
+        │   │   ├── contact.tpl
+        │   │   ├── home.tpl
+        │   │   └── search.tpl
+        │   └── socials.tpl
         └── vendor
             └── ...
 
