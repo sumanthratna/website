@@ -14,87 +14,9 @@
     │       └── templates_c
     │           └── ...
     └── public
-        ├── admin.php
-        ├── assets
-        │   └── ...
-        ├── auth.php
-        ├── clear
-        ├── compile
-        ├── composer.json
-        ├── composer.lock
-        ├── contact.php
-        ├── css
-        │   ├── animate.css
-        │   ├── bootstrap
-        │   │   ├── ...
-        │   │   ├── mixins
-        │   │   │   └── ...
-        │   │   ├── utilities
-        │   │   │   └── ...
-        │   │   └── vendor
-        │   │       └── ...
-        │   ├── bootstrap.css
-        │   ├── bootstrap.css.map
-        │   ├── icomoon.css
-        │   ├── icomoon.eot
-        │   ├── icomoon.svg
-        │   ├── icomoon.ttf
-        │   ├── icomoon.woff
-        │   ├── magnific-popup.min.css
-        │   ├── normalize.min.css
-        │   ├── owl.carousel.min.css
-        │   ├── owl.theme.default.min.css
-        │   └── style.scss
-        ├── custom_smarty.php
-        ├── favicon.ico
-        ├── images
-        │   ├── ...
-        │   ├── blog
-        │   │   └── ...
-        │   ├── favicon.studio
-        │   ├── gh-social-preview.png
-        │   ├── gh-social-preview.studio
-        │   ├── ogp.png
-        │   └── ogp.studio
-        ├── index.json
-        ├── index.php
-        ├── js
-        │   ├── bootstrap.min.js
-        │   ├── jquery.easing.1.3.js
-        │   ├── jquery.magnific-popup.min.js
-        │   ├── jquery.min.js
-        │   ├── jquery.waypoints.min.js
-        │   ├── main.js
-        │   ├── modernizr-2.6.2.min.js
-        │   ├── owl.carousel.min.js
-        │   ├── phone.js
-        │   └── respond.min.js
-        ├── keybase.txt
-        ├── README.md
-        ├── robots.txt
-        ├── style.css
-        ├── style.css.map
-        ├── templates
-        │   ├── footer.tpl
-        │   ├── header.tpl
-        │   ├── pages
-        │   │   ├── 404.tpl
-        │   │   ├── about.tpl
-        │   │   ├── admin
-        │   │   │   ├── login.tpl
-        │   │   │   └── manage.tpl
-        │   │   ├── blog
-        │   │   │   ├── index.tpl
-        │   │   │   ├── playground.tpl
-        │   │   │   └── post.tpl
-        │   │   ├── contact.tpl
-        │   │   ├── home.tpl
-        │   │   └── search.tpl
-        │   └── socials.tpl
-        └── vendor
-            └── ...
+        └── <THIS REPOSITORY>
 
-Note: the `public` directory contains the contents of this repo. Here's a script to set everything up (run this in an empty folder):
+Note: the `public` is this repository itself—it doesn't exactly contain this repository. Here's a script to set everything up (run this in an empty folder):
 
 ```sh
 mkdir private
