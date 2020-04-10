@@ -26,6 +26,25 @@ cd public
 composer install
 ```
 
+## Creating `keys.ini`
+Here's what `keys.ini` should look like:
+```ini
+neverbounce_key=<NEVERBOUNCE API KEY>***REMOVED***
+sendgrid_key=<SENDGRID API KEY>***REMOVED***
+secret=<SITE SECRET>
+
+[recaptcha]
+secret=<RECAPTCHA SECRET>
+site_key=<RECAPTCHA SITE KEY>
+
+[database]
+name='site_2022sratna'
+host='mysql1.csl.tjhsst.edu'
+port='3306'
+username=<DATABASE USERNAME>
+password=<DATABASE PASSWORD>
+```
+
 ## Preparing the MySQL Database
 
 Note: there must be at least one user with the username `"admin"` in order for the admin panel to work.
