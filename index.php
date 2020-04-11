@@ -12,7 +12,7 @@ use DeviceDetector\DeviceDetector;
 // Create Router instance
 $router = new \Bramus\Router\Router();
 
-require_once dirname(__FILE__).'/custom_smarty.php';
+require_once __DIR__.'/custom_smarty.php';
 if (!isset($_SERVER["DOCUMENT_ROOT"])) {
     $_SERVER["DOCUMENT_ROOT"] = dirname(__FILE__);
 }
@@ -56,14 +56,13 @@ $router->mount('/blog', function () use ($smarty, $router, $posts) {
     $router->get('/([a-z0-9-]+)', function ($id) use ($smarty, $posts) {
         if (isset($posts[$id])) {
             $post = $posts[$id];
-            // error_log(print_r($posts, TRUE));
             $smarty->assign('post_id', $id);
             $smarty->assign('post', $post);
             $smarty->display("pages/blog/post.tpl");
-        } else {
-            // trigger 404
-            print_r('404');
+            return;
         }
+        // trigger 404
+        print_r('404');
     });
 });
 $router->get('/about', function () use ($smarty) {
@@ -79,18 +78,18 @@ $router->mount('/admin', function () use ($smarty, $router) {
     $router->get('/', function () use ($smarty) {
         if (isset($_SESSION['user'])) {
             header("Location: https://".$_SERVER['SERVER_NAME']."/admin/manage");
-        } else {
-            header("Location: https://".$_SERVER['SERVER_NAME']."/admin/login");
+            return;
         }
+        header("Location: https://".$_SERVER['SERVER_NAME']."/admin/login");
     });
 
     // will result in '/admin/manage'
     $router->get('/manage', function () use ($smarty) {
         if (isset($_SESSION['user'])) {
             $smarty->display("pages/admin/manage.tpl");
-        } else {
-            header("Location: https://".$_SERVER['SERVER_NAME']."/admin/login");
+            return;
         }
+        header("Location: https://".$_SERVER['SERVER_NAME']."/admin/login");
     });
 
     // will result in '/admin/logout'
@@ -102,9 +101,9 @@ $router->mount('/admin', function () use ($smarty, $router) {
     $router->get('/login', function () use ($smarty) {
         if (isset($_SESSION['user'])) {
             header("Location: https://".$_SERVER['SERVER_NAME']."/admin/manage");
-        } else {
-            $smarty->display("pages/admin/login.tpl");
+            return;
         }
+        $smarty->display("pages/admin/login.tpl");
     });
 });
 $router->get('/search', function () use ($smarty) {
@@ -119,7 +118,8 @@ $router->get('/ibet.pdf', function () use ($smarty) {
 $router->mount('/api', function () use ($router) {
     function getRecaptchaResult($server_name, $recaptcha_response, $requestIP)
     {
-        include_once('contact.php');
+        include_once 'contact.php';
+        // TODO: test without autoloading Composer again:
         require __DIR__ . '/vendor/autoload.php';
         $config = parse_ini_file('../private/keys.ini', true);
         $recaptcha = new \ReCaptcha\ReCaptcha($config['recaptcha']['secret']);

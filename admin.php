@@ -69,6 +69,6 @@ if ($_SERVER['REQUEST_METHOD']=="POST" && isset($_POST['recaptcha_response'])) {
         }
     }
     $output = array("message" => $message);
-    print(json_encode($output));
+    print_r(json_encode($output));
     return $output;
 }

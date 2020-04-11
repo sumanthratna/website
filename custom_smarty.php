@@ -8,13 +8,12 @@ class CustomSmarty extends Smarty
 
         // Class Constructor.
         // These automatically get set with each new instance.
-
         parent::__construct();
 
-        $this->setTemplateDir($document_root.'/templates/');
-        $this->setCompileDir($document_root.'/../private/smarty/templates_c/');
-        $this->setConfigDir($document_root.'/../private/smarty/configs/');
-        $this->setCacheDir($document_root.'/../private/smarty/cache/');
+        $this->setTemplateDir($document_root . '/templates/');
+        $this->setCompileDir($document_root . '/../private/smarty/templates_c/');
+        $this->setConfigDir($document_root . '/../private/smarty/configs/');
+        $this->setCacheDir($document_root . '/../private/smarty/cache/');
 
         $this->caching = Smarty::CACHING_LIFETIME_CURRENT;
     }

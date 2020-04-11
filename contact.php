@@ -4,8 +4,6 @@ function sendEmail($requestSecret, $requestName, $requestEmail, $requestMessage)
 {
     $config = parse_ini_file('../private/keys.ini', true);
 
-    $message = '';
-
     if ($requestSecret == $config['secret']) {
         $neverbounce_key = $config['neverbounce_key'];
         $sendgrid_key = $config['sendgrid_key'];
@@ -21,19 +19,16 @@ function sendEmail($requestSecret, $requestName, $requestEmail, $requestMessage)
                 $email->addContent("text/html", nl2br($requestMessage).'<br><br><br><br>-------------------<br>'.'- '.trim($requestName));
                 $sendgrid = new \SendGrid($sendgrid_key);
                 try {
-                    $response = $sendgrid->send($email);
-                    $message = 'Success! Thanks for your message!';
+                    $sendgrid->send($email);
+                    return 'Success! Thanks for your message!';
                 } catch (Exception $e) {
-                    $message = 'Error sending message (but a valid sender email was detected):<br><br>'.$e->getMessage();
+                    return 'Error sending message (but a valid sender email was detected):<br><br>'.$e->getMessage();
                 }
-            } else {
-                $message = 'Invalid email address.';
             }
+            return 'Invalid email address.';
         } catch (\NeverBounce\Errors\HttpClientException $e) {
-            $message = $e->getMessage();
+            return $e->getMessage();
         }
-    } else {
-        $message = 'INVALID SECRET';
     }
-    return $message;
+    return 'INVALID SECRET';
 }
