@@ -27,7 +27,9 @@ composer install
 ```
 
 ## Creating `keys.ini`
+
 Here's what `keys.ini` should look like:
+
 ```ini
 neverbounce_key=<NEVERBOUNCE API KEY>
 sendgrid_key=<SENDGRID API KEY>
