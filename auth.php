@@ -10,10 +10,10 @@ case 'login':
         $config = parse_ini_file('../private/keys.ini', true);
 
         $message = '';
-        
+
         $requestUsername = $_POST['username'];
         $requestPassword = $_POST['password'];
-        
+
         $requestRecaptchaResponse = $_POST['recaptcha_response'];
 
         require __DIR__ . '/vendor/autoload.php';
@@ -47,14 +47,14 @@ case 'login':
         }
         $output = json_encode(array("message" => $message));
         print($output);
-        
+
         $log_data = array();
         $log_data['requested_username'] = $requestUsername;
         $log_data['result'] = $message;
         $log_data['recaptcha_response'] = $requestRecaptchaResponse;
         $log_data['recaptcha_score'] = $resp->getScore();
         error_log('LOGIN '.json_encode($log_data, JSON_PRETTY_PRINT));
-        
+
         return $output;
     }
     return;

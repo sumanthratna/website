@@ -13,8 +13,8 @@ use DeviceDetector\DeviceDetector;
 $router = new \Bramus\Router\Router();
 
 require_once dirname(__FILE__).'/custom_smarty.php';
-if(!isset($_SERVER["DOCUMENT_ROOT"])) {
-   $_SERVER["DOCUMENT_ROOT"] = dirname(__FILE__);
+if (!isset($_SERVER["DOCUMENT_ROOT"])) {
+    $_SERVER["DOCUMENT_ROOT"] = dirname(__FILE__);
 }
 $smarty = new CustomSmarty(filter_input(INPUT_SERVER, 'DOCUMENT_ROOT'));
 $smarty->loadFilter('output', 'trimwhitespace');
@@ -44,13 +44,12 @@ $router->mount('/blog', function () use ($smarty, $router, $posts) {
     $router->get('/', function () use ($smarty) {
         $smarty->display("pages/blog/index.tpl");
     });
-    
-    
+
+
     // will result in '/blog/playground'
     $router->get('/playground', function () use ($smarty) {
         // $smarty->display("pages/blog/playground.tpl");
         header("Location: https://".$_SERVER['SERVER_NAME']."/blog");
-        
     });
 
     // will result in '/blog/id'
@@ -118,8 +117,8 @@ $router->get('/ibet.pdf', function () use ($smarty) {
     header("Location: https://sumanthratna.ml/assets/ibet.pdf", true, 301);
 });
 $router->mount('/api', function () use ($router) {
-    
-    function getRecaptchaResult($server_name, $recaptcha_response, $requestIP) {
+    function getRecaptchaResult($server_name, $recaptcha_response, $requestIP)
+    {
         include_once('contact.php');
         require __DIR__ . '/vendor/autoload.php';
         $config = parse_ini_file('../private/keys.ini', true);
@@ -128,7 +127,7 @@ $router->mount('/api', function () use ($router) {
                             ->setExpectedHostname($server_name)
                             ->setExpectedAction('contact')
                             ->verify(
-                                $recaptcha_response, 
+                                $recaptcha_response,
                                 $requestIP
                             );
         return $recaptchaResp;
@@ -137,8 +136,8 @@ $router->mount('/api', function () use ($router) {
     // will result in '/api/contact'
     $router->post('/contact', function () {
         $recaptchaResp = getRecaptchaResult(
-            $_SERVER['SERVER_NAME'], 
-            $_POST['recaptcha_response'], 
+            $_SERVER['SERVER_NAME'],
+            $_POST['recaptcha_response'],
             filter_input(INPUT_SERVER, 'REMOTE_ADDR', FILTER_VALIDATE_IP)
         );
         $log_data = array(
@@ -149,32 +148,32 @@ $router->mount('/api', function () use ($router) {
             "output_message" => null
         );
         $message = $recaptchaResp->isSuccess() ? sendEmail(
-            $_POST['secret'], 
-            $requestName, 
-            $requestEmail, 
+            $_POST['secret'],
+            $requestName,
+            $requestEmail,
             $requestMessage
         ):('ReCAPTCHA failed.'.$recaptchaResp->getErrorCodes());
         $log_data['output_message'] = $message;
         print(json_encode(array("message" => $message)));
         error_log('CONTACT '.json_encode($log_data, JSON_PRETTY_PRINT));
     });
-
 });
 $router->set404(function () use ($smarty) {
     header('HTTP/1.1 404 Not Found');
     $smarty->display("pages/404.tpl");
 });
 $router->run(function () {
-    function wasReferredFromThis($referer) {
+    function wasReferredFromThis($referer)
+    {
         return (
-            strncmp($referer, "https://sumanthratna.ml", 23)===0 || 
+            strncmp($referer, "https://sumanthratna.ml", 23)===0 ||
             strncmp($referer, "http://sumanthratna.ml", 22)===0
         );
     }
     $referer = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER']:'';
     if (!(substr($_SERVER['REQUEST_URI'], 0, 4) === "/api" && wasReferredFromThis($referer))) {
         $requestURL = (isset($_SERVER["HTTPS"]) ? 'https' : 'http').'://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-        
+
         $dd = new DeviceDetector(filter_input(INPUT_SERVER, 'HTTP_USER_AGENT'));
         $dd->parse();
 
@@ -190,5 +189,4 @@ $router->run(function () {
         );
         error_log('HIT '.json_encode($hit, JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES));
     }
-    
 });
