@@ -21,7 +21,7 @@ Note: the `public` is this repository itself—it doesn't exactly contain this r
 
 ```sh
 mkdir private
-touch keys.ini
+touch private/keys.ini
 git clone git@github.com:sumanthratna/website.git public
 cd public
 composer install

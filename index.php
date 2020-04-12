@@ -152,7 +152,7 @@ $router->mount('/api', function () use ($router) {
             $requestName,
             $requestEmail,
             $requestMessage
-        ):('ReCAPTCHA failed.'.$recaptchaResp->error);
+        ):('ReCAPTCHA failed. '.$recaptchaResp->error);
         $log_data['output_message'] = $message;
         print(json_encode(array("message" => $message)));
         error_log('CONTACT '.json_encode($log_data, JSON_PRETTY_PRINT));
