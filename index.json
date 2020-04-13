@@ -29,6 +29,6 @@
         "image": "https://sumanthratna.ml/images/blog/grade-view.png",
         "date": "April 17, 2019",
         "comments": [],
-        "contents": "If you have questions about the app, please <a href={'https://'|cat:$smarty.server.SERVER_NAME|cat:'/contact'}>contact me</a>. If you'd like, you can open an issue or pull request on the <a href=\"https://github.com/sumanthratna/grade-view.git\">GitHub repository</a>. <a href=\"https://apps.apple.com/us/app/gradeview/id1459817290\">iOS</a>, <a href=\"https://gradeview.en.aptoide.com/\">Android</a>"
+        "contents": "If you have questions about the app, please <a href={'https://'|cat:$smarty.server.SERVER_NAME|cat:'/contact'}>contact me</a>. If you'd like, you can open an issue or pull request on the <a href=\"https://github.com/sumanthratna/grade-view.git\">GitHub repository</a>. <a href=\"https://gradeview.en.aptoide.com/\">Android</a>"
     }
 }
