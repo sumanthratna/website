@@ -63,15 +63,17 @@
                                 <div class="services animate-box">
                                     <h3>1 - General Computer Science</h3>
                                     <ul>
-                                        <li>Machine Learning
+                                        <li>
+                                            Machine Learning
                                             <ul>
-                                              <li>TensorFlow</li>
-                                              <li>PyTorch</li>
+                                                <li>TensorFlow</li>
+                                                <li>PyTorch</li>
                                             </ul>
                                         </li>
-                                        <li>Mobile App Development
+                                        <li>
+                                            Mobile App Development
                                             <ul>
-                                              <li>Flutter</li>
+                                                <li>Flutter</li>
                                             </ul>
                                         </li>
                                     </ul>
@@ -92,7 +94,9 @@
                                     <h3>3 - Computational Biology</h3>
                                     <ul>
                                         <li>PyMol</li>
-                                        <li>Image Analysis
+                                        <li>cadnano</li>
+                                        <li>
+                                            Image Analysis
                                             <ul>
                                                 <li>Classification</li>
                                                 <li>Semantic Segmentation</li>
@@ -104,7 +108,7 @@
                             </div>
                         </div>
                     </div>
-                    <!--<div class="one-forth services-img" style="background-image: url(images/services-img-1.jpg);"></div>-->
+                    {*<div class="one-forth services-img" style="background-image: url(images/services-img-1.jpg);"></div>*}
                 </div>
             </div>
         </div>
@@ -131,30 +135,30 @@
         <div class="row animate-box">
             <div class="owl-carousel1">
                 {foreach from=$posts key=id item=post}
-                    {assign var=post_url value={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/blog/'|cat:$id}}
-                    {assign var=img_url value=$post.image}
-                    {assign var=post_date value=$post.date}
-                    {assign var=post_title value=$post.title}
-                    {assign var=post_excerpt value=$post.excerpt}
-                    <div class="item">
-                        <div class="col-md-12">
-                            <div class="article">
-                                <a href={$post_url} class="blog-img">
-                                    {*{html_image file=$img_url class="img-fluid" alt="" height="360" loading="lazy"}*}
-                                    <img src={$img_url} class="img-fluid" alt="" width="360" loading="lazy">
-                                    <div class="overlay"></div>
-                                    <div class="link">
-                                        <span class="read">Read More</h2>
-                                    </div>
-                                </a>
-                                <div class="desc">
-                                    <span class="meta">{$post_date}</span>
-                                    <h2><a href={$post_url}>{$post_title}</a></h2>
-                                    <p>{$post_excerpt}</p>
+                {assign var=post_url value={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/blog/'|cat:$id}}
+                {assign var=img_url value=$post.image}
+                {assign var=post_date value=$post.date}
+                {assign var=post_title value=$post.title}
+                {assign var=post_excerpt value=$post.excerpt}
+                <div class="item">
+                    <div class="col-md-12">
+                        <div class="article">
+                            <a href={$post_url} class="blog-img">
+                                {*{html_image file=$img_url class="img-fluid" alt="" height="360" loading="lazy"}*}
+                                <img src={$img_url} class="img-fluid" alt="" width="360" loading="lazy">
+                                <div class="overlay"></div>
+                                <div class="link">
+                                    <span class="read">Read More</h2>
                                 </div>
+                            </a>
+                            <div class="desc">
+                                <span class="meta">{$post_date}</span>
+                                <h2><a href={$post_url}>{$post_title}</a></h2>
+                                <p>{$post_excerpt}</p>
                             </div>
                         </div>
                     </div>
+                </div>
                 {/foreach}
             </div>
         </div>

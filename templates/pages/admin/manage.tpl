@@ -4,9 +4,7 @@
     <input type="hidden" name="recaptcha-response" id="recaptcha-response">
     <div class="container">
         <p style="text-align: center;"><a href={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/admin/logout'} type="submit" class="btn btn-primary">Logout of Admin Panel</a></p>
-        
         <p style="text-align: center;" id="output-message">&#8203;</p>
-
         <div id="accordion">
             <script>
                 /**
@@ -63,7 +61,7 @@
                 </div>
                 <div id="create" class="collapse" aria-labelledby="createHeading" data-parent="#accordion">
                     <div class="card-body">
-			            <form id="create-form" action="admin.php" method="post">
+                        <form id="create-form" action="admin.php" method="post">
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
@@ -114,7 +112,7 @@
                         </form>
                         <script>
                             $("#create-form").submit(function(event) {
-
+                            
                                 /* stop form from submitting normally */
                                 event.preventDefault();
                                 

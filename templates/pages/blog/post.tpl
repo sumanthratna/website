@@ -5,10 +5,10 @@
             <div class="col-md-10 col-md-offset-1">
                 <div class="blog-entry animate-box col-pb-sm">
                     <a href="#" class="blog-img">
-                        {nocache}
-                            {*{html_image file=$post.image class="img-fluid" alt="" loading="lazy"}*}
-                            <img src={$post.image} class="img-fluid" alt="" loading="lazy">
-                        {/nocache}
+                    {nocache}
+                        {*{html_image file=$post.image class="img-fluid" alt="" loading="lazy"}*}
+                        <img src={$post.image} class="img-fluid" alt="" loading="lazy">
+                    {/nocache}
                     </a>
                     <div class="desc">
                         <h3><a href="#">{nocache}{$post.title}{/nocache}</a></h3>

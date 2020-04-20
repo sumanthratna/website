@@ -5,8 +5,8 @@
             <div class="col-md-10 col-md-offset-1">
                 <div class="blog-entry animate-box col-pb-sm">
                     <a href="#" class="blog-img">
-                        {*{html_image file=$post.image class="img-fluid" alt="" loading="lazy"}*}
-                        <img src="https://sumanthratna.ml/images/blog/what-is-this.jpg" class="img-fluid" alt="" loading="lazy">
+                    {*{html_image file=$post.image class="img-fluid" alt="" loading="lazy"}*}
+                    <img src="https://sumanthratna.ml/images/blog/what-is-this.jpg" class="img-fluid" alt="" loading="lazy">
                     </a>
                     <div class="desc">
                         <h3><a href="#">My Blog Playground</a></h3>
