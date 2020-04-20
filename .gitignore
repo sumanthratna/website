@@ -4,6 +4,10 @@ sumanthratna.*.txt
 style.css
 style.css.map
 
+# generated from css/bootstrap/bootstrap.scss
+css/bootstrap.css
+css/bootstrap.css.map
+
 .*
 ~*
 
