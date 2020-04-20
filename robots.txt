@@ -14,3 +14,6 @@ Disallow: /composer.lock
 Disallow: /compile
 Disallow: /clear
 Disallow: /LICENSE
+Disallow: /.gitignore
+Disallow: /.gitattributes
+
