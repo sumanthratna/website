@@ -260,16 +260,16 @@
         },
         {
             "name": "sendgrid/php-http-client",
-            "version": "3.10.5",
+            "version": "3.10.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sendgrid/php-http-client.git",
-                "reference": "931a5a426fa3c3e31ecd8ad15597b2b183dad5db"
+                "reference": "1c97ab5475b0aa98032ea3f89d7f12453469fc08"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sendgrid/php-http-client/zipball/931a5a426fa3c3e31ecd8ad15597b2b183dad5db",
-                "reference": "931a5a426fa3c3e31ecd8ad15597b2b183dad5db",
+                "url": "https://api.github.com/repos/sendgrid/php-http-client/zipball/1c97ab5475b0aa98032ea3f89d7f12453469fc08",
+                "reference": "1c97ab5475b0aa98032ea3f89d7f12453469fc08",
                 "shasum": ""
             },
             "require": {
@@ -292,7 +292,7 @@
             "authors": [
                 {
                     "name": "Matt Bernier",
-                    "email": "dx@sendgrid.com"
+                    "email": "mbernier@twilio.com"
                 },
                 {
                     "name": "Elmer Thomas",
@@ -308,20 +308,20 @@
                 "rest",
                 "sendgrid"
             ],
-            "time": "2020-03-18 19:45:45"
+            "time": "2020-04-29 19:42:26"
         },
         {
             "name": "sendgrid/sendgrid",
-            "version": "7.4.6",
+            "version": "7.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sendgrid/sendgrid-php.git",
-                "reference": "f3d17a2607f062447ed8356e4cb3ee7b5d3c15c8"
+                "reference": "efdd358557f7b51c339dbca049e46e8855cdb9ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sendgrid/sendgrid-php/zipball/f3d17a2607f062447ed8356e4cb3ee7b5d3c15c8",
-                "reference": "f3d17a2607f062447ed8356e4cb3ee7b5d3c15c8",
+                "url": "https://api.github.com/repos/sendgrid/sendgrid-php/zipball/efdd358557f7b51c339dbca049e46e8855cdb9ca",
+                "reference": "efdd358557f7b51c339dbca049e46e8855cdb9ca",
                 "shasum": ""
             },
             "require": {
@@ -348,7 +348,9 @@
                     "SendGrid\\Stats\\": "lib/stats/"
                 },
                 "files": [
-                    "lib/SendGrid.php"
+                    "lib/BaseInterface.php",
+                    "lib/SendGrid.php",
+                    "lib/TwilioEmail.php"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -364,7 +366,7 @@
                 "sendgrid",
                 "twilio sendgrid"
             ],
-            "time": "2020-04-01 20:01:38"
+            "time": "2020-04-29 20:22:56"
         },
         {
             "name": "smarty/smarty",
