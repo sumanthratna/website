@@ -24,7 +24,7 @@
                         <h3>My Address</h3>
                         <ul class="contact-info">
                             {*<li><span><i class="icon-map5"></i></span>7214 Bull Run Post Office Rd, Centreville, VA 20121</li>*}
-                            <li><span><i class="icon-phone4"></i></span>+1(571)241-0094</li>
+                            {*<li><span><i class="icon-phone4"></i></span>+1(571)241-0094</li>*}
                             <li><span><i class="icon-envelope2"></i></span>{mailto address='sratna@'|cat:$smarty.server.HTTP_HOST}</li>
                             <li><span><i class="icon-globe3"></i></span><a href={'https://'|cat:$smarty.server.HTTP_HOST}>{$smarty.server.HTTP_HOST}</a></li>
                         </ul>
