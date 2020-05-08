@@ -25,8 +25,7 @@ touch private/keys.ini
 git clone git@github.com:sumanthratna/website.git public
 cd public
 composer install
-./compile bootstrap
-./compile style
+./compile all
 ```
 
 ## Creating `keys.ini`

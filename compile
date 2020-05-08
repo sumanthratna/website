@@ -8,6 +8,9 @@ if [ "$1" == "bootstrap" ]; then
   sass css/bootstrap/bootstrap.scss css/bootstrap.css --style compressed
 elif [ "$1" == "style" ]; then
   sass css/style.scss style.css --style compressed
+elif [ "$1" == "all" ]; then
+  ./compile bootstrap
+  ./compile style
 else  # catches "--help", "-h", and "help" too
   echo -e "Usage: ./compile $BLUE<target>$NORMAL"
   echo
@@ -16,6 +19,10 @@ else  # catches "--help", "-h", and "help" too
   echo
   echo -e "$BOLD"style"$NORMAL"
   echo -e "  $BLUE"style"$NORMAL\t\tCompiles the custom CSS from the SCSS."
+  echo
+  echo -e "$BOLD"all"$NORMAL"
+  echo -e "  $BLUE"all"$NORMAL\t\tCompiles the Bootstrap SCSS and custom SCSS."
+
   if [[ $1 == *"help"* ]] || [ "$1" == "" ]; then
     exit 0
   else
