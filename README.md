@@ -1,4 +1,5 @@
 # @sumanthratna's Website
+[![Code Quality Score](https://www.code-inspector.com/project/7968/score/svg)](https://frontend.code-inspector.com/public/project/7968/website/dashboard)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/af03513b3ff944a0b1bba6ed91303724)](https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=sumanthratna/website&amp;utm_campaign=Badge_Grade)
 
 ## Setting up the files
