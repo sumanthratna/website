@@ -1,15 +1,12 @@
 <?php
 session_start();
-switch ($_GET['action'])
-{
+switch ($_GET['action']) {
     case 'login':
-        if (isset($_SESSION['user']))
-        {
+        if (isset($_SESSION['user'])) {
             header("Location: https://" . $_SERVER['SERVER_NAME'] . "/admin/manage");
             die();
         }
-        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['recaptcha_response']))
-        {
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['recaptcha_response'])) {
             $config = parse_ini_file('../private/keys.ini', true);
 
             $message = '';
@@ -24,12 +21,9 @@ switch ($_GET['action'])
             $resp = $recaptcha->setExpectedHostname($_SERVER['SERVER_NAME'])->setExpectedAction('login')
                 ->verify($requestRecaptchaResponse, filter_input(INPUT_SERVER, 'REMOTE_ADDR', FILTER_VALIDATE_IP));
 
-            if (!$resp->isSuccess())
-            {
+            if (!$resp->isSuccess()) {
                 $message = 'ReCAPTCHA failed.' . $resp->getErrorCodes();
-            }
-            else
-            {
+            } else {
                 $dbname = $config['database']['name'];
                 $host = $config['database']['host'];
                 $port = $config['database']['port'];
@@ -43,13 +37,10 @@ switch ($_GET['action'])
                 $stmt->execute(['username' => $requestUsername, 'password' => $requestPassword]);
                 $result = $stmt->fetchAll(PDO::FETCH_CLASS);
 
-                if (!empty($result))
-                {
+                if (!empty($result)) {
                     $_SESSION['user'] = $requestUsername;
                     $message = "Authentication successful.";
-                }
-                else
-                {
+                } else {
                     $message = "Invalid credentials.";
                 }
             }
@@ -71,8 +62,7 @@ switch ($_GET['action'])
         return;
 
     case 'logout':
-        if (session_destroy())
-        {
+        if (session_destroy()) {
             header("Location: https://" . $_SERVER['SERVER_NAME'] . "/admin/login");
         }
         return;
