@@ -1,10 +1,9 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "hash": "8b0e806ad807a68fc9139955cf4fef3e",
     "content-hash": "db21564f3707a33b2acf8c6ed28e8c51",
     "packages": [
         {
@@ -52,7 +51,7 @@
                 "router",
                 "routing"
             ],
-            "time": "2019-02-27 10:21:04"
+            "time": "2019-02-27T10:21:04+00:00"
         },
         {
             "name": "google/recaptcha",
@@ -99,7 +98,7 @@
                 "recaptcha",
                 "spam"
             ],
-            "time": "2020-03-31 17:50:54"
+            "time": "2020-03-31T17:50:54+00:00"
         },
         {
             "name": "mustangostang/spyc",
@@ -149,7 +148,7 @@
                 "yaml",
                 "yml"
             ],
-            "time": "2019-09-10 13:16:29"
+            "time": "2019-09-10T13:16:29+00:00"
         },
         {
             "name": "neverbounce/neverbounce-php",
@@ -201,7 +200,7 @@
                 "validation",
                 "verification"
             ],
-            "time": "2019-06-03 17:44:49"
+            "time": "2019-06-03T17:44:49+00:00"
         },
         {
             "name": "piwik/device-detector",
@@ -256,7 +255,7 @@
                 "parser",
                 "useragent"
             ],
-            "time": "2020-04-29 12:12:31"
+            "time": "2020-04-29T12:12:31+00:00"
         },
         {
             "name": "sendgrid/php-http-client",
@@ -308,20 +307,20 @@
                 "rest",
                 "sendgrid"
             ],
-            "time": "2020-04-29 19:42:26"
+            "time": "2020-04-29T19:42:26+00:00"
         },
         {
             "name": "sendgrid/sendgrid",
-            "version": "7.5.0",
+            "version": "7.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sendgrid/sendgrid-php.git",
-                "reference": "efdd358557f7b51c339dbca049e46e8855cdb9ca"
+                "reference": "b53f8a0caf89d95051c692d161c2c9c952bf328f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sendgrid/sendgrid-php/zipball/efdd358557f7b51c339dbca049e46e8855cdb9ca",
-                "reference": "efdd358557f7b51c339dbca049e46e8855cdb9ca",
+                "url": "https://api.github.com/repos/sendgrid/sendgrid-php/zipball/b53f8a0caf89d95051c692d161c2c9c952bf328f",
+                "reference": "b53f8a0caf89d95051c692d161c2c9c952bf328f",
                 "shasum": ""
             },
             "require": {
@@ -366,7 +365,7 @@
                 "sendgrid",
                 "twilio sendgrid"
             ],
-            "time": "2020-04-29 20:22:56"
+            "time": "2020-05-13T20:22:54+00:00"
         },
         {
             "name": "smarty/smarty",
@@ -423,7 +422,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2020-04-14 14:44:26"
+            "time": "2020-04-14T14:44:26+00:00"
         }
     ],
     "packages-dev": [],
