@@ -137,7 +137,7 @@ $router->mount('/api', function () use ($router) {
     $router->post('/contact', function () {
         $recaptchaResp = getRecaptchaResult(
             $_SERVER['SERVER_NAME'],
-            $_POST['recaptcha_response'],
+            isset($_POST['recaptcha_response']) ? $_POST['recaptcha_response']:'',
             filter_input(INPUT_SERVER, 'REMOTE_ADDR', FILTER_VALIDATE_IP)
         );
         $log_data = array(
@@ -152,7 +152,7 @@ $router->mount('/api', function () use ($router) {
             $requestName,
             $requestEmail,
             $requestMessage
-        ):('ReCAPTCHA failed. '.print_r($recaptchaResp->getErrorCodes(), true));
+        ):('ReCAPTCHA failed. '.json_encode($recaptchaResp->getErrorCodes()));
         $log_data['output_message'] = $message;
         print(json_encode(array("message" => $message)));
         error_log('CONTACT '.json_encode($log_data, JSON_PRETTY_PRINT));
