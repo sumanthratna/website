@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-BLUE="\033[36m"
-BOLD="\033[1m"
-NORMAL="\033[0m"
+BLUE=$(printf '\033[36m')
+BOLD=$(printf '\033[1m')
+NORMAL=$(printf '\033[m')
 
 if [ "$1" == "templates_c" ]; then
   rm -f ../private/smarty/templates_c/*
@@ -12,16 +12,16 @@ elif [ "$1" == "all" ]; then
   ./clear templates_c
   ./clear cache
 else  # catches "--help", "-h", and "help" too
-  echo -e "Usage: ./clear $BLUE<target>$NORMAL"
+  echo -e "Usage: ./clear ${BLUE}<target>${NORMAL}"
   echo
-  echo -e "$BOLD"templates_c"$NORMAL"
-  echo -e "  $BLUE"templates_c"$NORMAL\tClear Smarty's compiled templates."
+  echo -e "${BOLD}templates_c${NORMAL}"
+  echo -e "  ${BLUE}templates_c${NORMAL}\tClear Smarty's compiled templates."
   echo
-  echo -e "$BOLD"cache"$NORMAL"
-  echo -e "  $BLUE"cache"$NORMAL\t\tClear Smarty's cache."
+  echo -e "${BOLD}cache${NORMAL}"
+  echo -e "  ${BLUE}cache${NORMAL}\t\tClear Smarty's cache."
   echo
-  echo -e "$BOLD"all"$NORMAL"
-  echo -e "  $BLUE"all"$NORMAL\t\tClear Smarty's compiled templates and cache."
+  echo -e "${BOLD}all${NORMAL}"
+  echo -e "  ${BLUE}all${NORMAL}\t\tClear Smarty's compiled templates and cache."
   
   if [[ $1 == *"help"* ]] || [ "$1" == "" ]; then
     exit 0
