@@ -312,16 +312,16 @@
         },
         {
             "name": "sendgrid/sendgrid",
-            "version": "7.5.1",
+            "version": "7.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sendgrid/sendgrid-php.git",
-                "reference": "b53f8a0caf89d95051c692d161c2c9c952bf328f"
+                "reference": "8016aeacc1e32c4af2a2933c390977be14fdb11c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sendgrid/sendgrid-php/zipball/b53f8a0caf89d95051c692d161c2c9c952bf328f",
-                "reference": "b53f8a0caf89d95051c692d161c2c9c952bf328f",
+                "url": "https://api.github.com/repos/sendgrid/sendgrid-php/zipball/8016aeacc1e32c4af2a2933c390977be14fdb11c",
+                "reference": "8016aeacc1e32c4af2a2933c390977be14fdb11c",
                 "shasum": ""
             },
             "require": {
@@ -347,8 +347,8 @@
                     "SendGrid\\Contacts\\": "lib/contacts/",
                     "SendGrid\\Stats\\": "lib/stats/"
                 },
-                "files": [
-                    "lib/BaseInterface.php",
+                "classmap": [
+                    "lib/BaseSendGridClientInterface.php",
                     "lib/SendGrid.php",
                     "lib/TwilioEmail.php"
                 ]
@@ -366,7 +366,7 @@
                 "sendgrid",
                 "twilio sendgrid"
             ],
-            "time": "2020-05-13 20:22:54"
+            "time": "2020-05-27 22:02:04"
         },
         {
             "name": "smarty/smarty",
