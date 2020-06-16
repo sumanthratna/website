@@ -29,7 +29,7 @@
                         <div class="rotate">
                             <h2 class="heading">About</h2>
                         </div>
-                        <p>I'm a sophomore at the Thomas Jefferson High School for Science and Technology. I'm interested in machine learning research and computational biology.</p>
+                        <p>I'm a rising junior at the Thomas Jefferson High School for Science and Technology. I'm interested in machine learning research and computational biology.</p>
                         {include file='socials.tpl'}
                         <p><a href={'https://'|cat:$smarty.server.HTTP_HOST|cat:'/contact'} class="btn btn-primary btn-outline">Contact Me!</a></p>
                     </div>
@@ -38,13 +38,13 @@
         </div>
         {*<div class="row">
             <div class="col-md-4 animate-box">
-            	<p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
+                <p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
             </div>
             <div class="col-md-4 animate-box">
-            	<p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
+                <p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
             </div>
             <div class="col-md-4 animate-box">
-            	<p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
+                <p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
             </div>
         </div>*}
     </div>
