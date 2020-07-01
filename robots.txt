@@ -1,13 +1,11 @@
 User-agent: *
 Disallow: /blog/playground
-Disallow: /search
 Disallow: /templates
 Disallow: /vendor
 Disallow: /contact.php
 Disallow: /auth.php
 Disallow: /admin.php
 Disallow: /api
-Disallow: /admin
 Disallow: /custom_smarty.php
 Disallow: /composer.json
 Disallow: /composer.lock
