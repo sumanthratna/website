@@ -15,6 +15,8 @@ class CustomSmarty extends Smarty
         $this->setConfigDir($document_root . '/../private/smarty/configs/');
         $this->setCacheDir($document_root . '/../private/smarty/cache/');
 
-        $this->caching = Smarty::CACHING_LIFETIME_CURRENT;
+        // https://www.smarty.net/docs/en/caching.tpl
+        $this->setCaching(Smarty::CACHING_LIFETIME_CURRENT);
+        $this->setCompileCheck(false);
     }
 }
