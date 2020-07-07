@@ -18,5 +18,6 @@ class CustomSmarty extends Smarty
         // https://www.smarty.net/docs/en/caching.tpl
         $this->setCaching(Smarty::CACHING_LIFETIME_CURRENT);
         $this->setCompileCheck(false);
+        $this->setMergeCompiledIncludes(true);
     }
 }
