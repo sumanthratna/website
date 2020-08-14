@@ -10,10 +10,14 @@ elif [ "$1" == "style" ]; then
   sass css/style.scss style.css --style compressed
 elif [ "$1" == "magnific-popup" ]; then
   sass css/magnific-popup/main.scss css/magnific-popup.min.css --style compressed
+elif [ "$1" == "owl-carousel2" ]; then
+  sass css/owl-carousel2/owl.carousel.scss css/owl.carousel.min.css --style compressed
+  sass css/owl-carousel2/owl.theme.default.scss css/owl.theme.default.min.css --style compressed
 elif [ "$1" == "all" ]; then
   ./compile bootstrap
   ./compile style
   ./compile magnific-popup
+  ./compile owl-carousel2
 else  # catches "--help", "-h", and "help" too
   echo -e "Usage: ./compile ${BLUE}<target>${NORMAL}"
   echo

@@ -12,6 +12,12 @@ css/bootstrap.css.map
 css/magnific-popup.min.css
 css/magnific-popup.min.css.map
 
+# generated from css/owl-carousel2/owl.carousel.scss and css/owl-carousel2/owl.theme.default.scss
+css/owl.carousel.min.css
+css/owl.carousel.min.css.map
+css/owl.theme.default.min.css
+css/owl.theme.default.min.css.map
+
 .*
 ~*
 
