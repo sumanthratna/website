@@ -24,11 +24,11 @@ switch ($_GET['action']) {
             if (!$resp->isSuccess()) {
                 $message = 'ReCAPTCHA failed.' . $resp->getErrorCodes();
             } else {
-                $dbname = $config['database']['name'];
-                $host = $config['database']['host'];
-                $port = $config['database']['port'];
-                $username = $config['database']['username'];
-                $password = $config['database']['password'];
+                $dbname = getenv("DIRECTOR_DATABASE_NAME");
+                $host = getenv("DIRECTOR_DATABASE_HOST");
+                $port = getenv("DIRECTOR_DATABASE_PORT");
+                $username = getenv("DIRECTOR_DATABASE_USERNAME");
+                $password = getenv("DIRECTOR_DATABASE_PASSWORD");
 
                 $pdo = new PDO('mysql:dbname=' . $dbname . ';host=' . $host . ';port=' . $port . ';charset=utf8', $username, $password);
                 $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
