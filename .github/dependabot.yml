@@ -6,17 +6,3 @@ updates:
     interval: daily
     time: "10:00"
   open-pull-requests-limit: 10
-  ignore:
-  - dependency-name: friendsofphp/php-cs-fixer
-    versions:
-    - 2.18.2
-    - 2.18.3
-    - 2.18.4
-    - 2.18.5
-  - dependency-name: piwik/device-detector
-    versions:
-    - 4.1.0
-    - 4.2.1
-  - dependency-name: smarty/smarty
-    versions:
-    - 3.1.38
