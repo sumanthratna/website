@@ -1,10 +1,9 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "hash": "ccef7ad092b43bf4b79e34ae9c9f6bee",
     "content-hash": "ede2823f45bd17b38c8dc6ca2da2ffcd",
     "packages": [
         {
@@ -52,7 +51,7 @@
                 "router",
                 "routing"
             ],
-            "time": "2019-02-27 10:21:04"
+            "time": "2019-02-27T10:21:04+00:00"
         },
         {
             "name": "google/recaptcha",
@@ -99,7 +98,7 @@
                 "recaptcha",
                 "spam"
             ],
-            "time": "2020-03-31 17:50:54"
+            "time": "2020-03-31T17:50:54+00:00"
         },
         {
             "name": "mustangostang/spyc",
@@ -149,7 +148,7 @@
                 "yaml",
                 "yml"
             ],
-            "time": "2019-09-10 13:16:29"
+            "time": "2019-09-10T13:16:29+00:00"
         },
         {
             "name": "neverbounce/neverbounce-php",
@@ -201,7 +200,7 @@
                 "validation",
                 "verification"
             ],
-            "time": "2019-06-03 17:44:49"
+            "time": "2019-06-03T17:44:49+00:00"
         },
         {
             "name": "piwik/device-detector",
@@ -256,20 +255,20 @@
                 "parser",
                 "useragent"
             ],
-            "time": "2020-06-16 12:10:46"
+            "time": "2020-06-16T12:10:46+00:00"
         },
         {
             "name": "sendgrid/php-http-client",
-            "version": "3.11.0",
+            "version": "3.14.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sendgrid/php-http-client.git",
-                "reference": "3a565058ba2999166cc987be8cec04ece31999fa"
+                "reference": "25377871773a49b508129eb07c9c387020fb97f1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sendgrid/php-http-client/zipball/3a565058ba2999166cc987be8cec04ece31999fa",
-                "reference": "3a565058ba2999166cc987be8cec04ece31999fa",
+                "url": "https://api.github.com/repos/sendgrid/php-http-client/zipball/25377871773a49b508129eb07c9c387020fb97f1",
+                "reference": "25377871773a49b508129eb07c9c387020fb97f1",
                 "shasum": ""
             },
             "require": {
@@ -283,6 +282,9 @@
                 "phpunit/phpunit": "^5.7 || ^6.5",
                 "sebastian/version": "^1.0.6",
                 "squizlabs/php_codesniffer": "~2.0"
+            },
+            "suggest": {
+                "composer/ca-bundle": "Including this library will ensure that a valid CA bundle is available for secure connections"
             },
             "type": "library",
             "autoload": {
@@ -313,20 +315,24 @@
                 "rest",
                 "sendgrid"
             ],
-            "time": "2020-07-22 19:30:38"
+            "support": {
+                "issues": "https://github.com/sendgrid/php-http-client/issues",
+                "source": "https://github.com/sendgrid/php-http-client/tree/3.14.2"
+            },
+            "time": "2022-01-26T20:07:48+00:00"
         },
         {
             "name": "sendgrid/sendgrid",
-            "version": "7.8.1",
+            "version": "7.11.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sendgrid/sendgrid-php.git",
-                "reference": "5a6c5c7cefb2f19e53e10ac2cd674015d803474f"
+                "reference": "6fd1c0c0f30cb9d0e6bc27fe85d54e137b6911d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sendgrid/sendgrid-php/zipball/5a6c5c7cefb2f19e53e10ac2cd674015d803474f",
-                "reference": "5a6c5c7cefb2f19e53e10ac2cd674015d803474f",
+                "url": "https://api.github.com/repos/sendgrid/sendgrid-php/zipball/6fd1c0c0f30cb9d0e6bc27fe85d54e137b6911d2",
+                "reference": "6fd1c0c0f30cb9d0e6bc27fe85d54e137b6911d2",
                 "shasum": ""
             },
             "require": {
@@ -374,7 +380,11 @@
                 "sendgrid",
                 "twilio sendgrid"
             ],
-            "time": "2020-08-05 19:45:17"
+            "support": {
+                "issues": "https://github.com/sendgrid/sendgrid-php/issues",
+                "source": "https://github.com/sendgrid/sendgrid-php/tree/7.11.3"
+            },
+            "time": "2022-01-26T20:09:40+00:00"
         },
         {
             "name": "smarty/smarty",
@@ -431,20 +441,20 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2020-04-14 14:44:26"
+            "time": "2020-04-14T14:44:26+00:00"
         },
         {
             "name": "starkbank/ecdsa",
-            "version": "0.0.4",
+            "version": "0.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/starkbank/ecdsa-php.git",
-                "reference": "9369d35ed9019321adb4eb9fd3be21357d527c74"
+                "reference": "484bedac47bac4012dc73df91da221f0a66845cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/starkbank/ecdsa-php/zipball/9369d35ed9019321adb4eb9fd3be21357d527c74",
-                "reference": "9369d35ed9019321adb4eb9fd3be21357d527c74",
+                "url": "https://api.github.com/repos/starkbank/ecdsa-php/zipball/484bedac47bac4012dc73df91da221f0a66845cb",
+                "reference": "484bedac47bac4012dc73df91da221f0a66845cb",
                 "shasum": ""
             },
             "require": {
@@ -470,7 +480,11 @@
             ],
             "description": "fast openSSL-compatible implementation of the Elliptic Curve Digital Signature Algorithm (ECDSA)",
             "homepage": "https://github.com/starkbank/ecdsa-php",
-            "time": "2020-05-15 15:46:20"
+            "support": {
+                "issues": "https://github.com/starkbank/ecdsa-php/issues",
+                "source": "https://github.com/starkbank/ecdsa-php/tree/v0.0.5"
+            },
+            "time": "2021-06-06T22:24:49+00:00"
         }
     ],
     "packages-dev": [
@@ -533,7 +547,7 @@
                 "validation",
                 "versioning"
             ],
-            "time": "2020-01-13 12:06:48"
+            "time": "2020-01-13T12:06:48+00:00"
         },
         {
             "name": "composer/xdebug-handler",
@@ -577,7 +591,7 @@
                 "Xdebug",
                 "performance"
             ],
-            "time": "2020-06-04 11:16:35"
+            "time": "2020-06-04T11:16:35+00:00"
         },
         {
             "name": "doctrine/annotations",
@@ -645,7 +659,7 @@
                 "docblock",
                 "parser"
             ],
-            "time": "2017-02-24 16:22:25"
+            "time": "2017-02-24T16:22:25+00:00"
         },
         {
             "name": "doctrine/lexer",
@@ -705,7 +719,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2019-06-08 11:03:04"
+            "time": "2019-06-08T11:03:04+00:00"
         },
         {
             "name": "friendsofphp/php-cs-fixer",
@@ -796,7 +810,7 @@
                 }
             ],
             "description": "A tool to automatically fix PHP code style",
-            "time": "2020-06-27 23:57:46"
+            "time": "2020-06-27T23:57:46+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -841,7 +855,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2018-07-02 15:55:56"
+            "time": "2018-07-02T15:55:56+00:00"
         },
         {
             "name": "php-cs-fixer/diff",
@@ -892,7 +906,7 @@
             "keywords": [
                 "diff"
             ],
-            "time": "2018-02-15 16:58:55"
+            "time": "2018-02-15T16:58:55+00:00"
         },
         {
             "name": "psr/log",
@@ -939,7 +953,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2020-03-23 09:12:05"
+            "time": "2020-03-23T09:12:05+00:00"
         },
         {
             "name": "symfony/console",
@@ -1011,7 +1025,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2020-07-06 08:57:31"
+            "time": "2020-07-06T08:57:31+00:00"
         },
         {
             "name": "symfony/debug",
@@ -1067,7 +1081,7 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-            "time": "2020-07-16 09:41:49"
+            "time": "2020-07-16T09:41:49+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -1130,7 +1144,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2020-05-05 15:06:23"
+            "time": "2020-05-05T15:06:23+00:00"
         },
         {
             "name": "symfony/filesystem",
@@ -1180,7 +1194,7 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2020-05-30 17:48:24"
+            "time": "2020-05-30T17:48:24+00:00"
         },
         {
             "name": "symfony/finder",
@@ -1229,7 +1243,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2020-02-14 07:34:21"
+            "time": "2020-02-14T07:34:21+00:00"
         },
         {
             "name": "symfony/options-resolver",
@@ -1283,7 +1297,7 @@
                 "configuration",
                 "options"
             ],
-            "time": "2020-07-08 17:07:26"
+            "time": "2020-07-08T17:07:26+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -1345,7 +1359,7 @@
                 "polyfill",
                 "portable"
             ],
-            "time": "2020-07-14 12:35:20"
+            "time": "2020-07-14T12:35:20+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -1408,7 +1422,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2020-07-14 12:35:20"
+            "time": "2020-07-14T12:35:20+00:00"
         },
         {
             "name": "symfony/polyfill-php70",
@@ -1471,7 +1485,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2020-07-14 12:35:20"
+            "time": "2020-07-14T12:35:20+00:00"
         },
         {
             "name": "symfony/polyfill-php72",
@@ -1530,7 +1544,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2020-07-14 12:35:20"
+            "time": "2020-07-14T12:35:20+00:00"
         },
         {
             "name": "symfony/process",
@@ -1579,7 +1593,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2020-07-16 09:41:49"
+            "time": "2020-07-16T09:41:49+00:00"
         },
         {
             "name": "symfony/stopwatch",
@@ -1628,7 +1642,7 @@
             ],
             "description": "Symfony Stopwatch Component",
             "homepage": "https://symfony.com",
-            "time": "2020-03-15 09:38:08"
+            "time": "2020-03-15T09:38:08+00:00"
         }
     ],
     "aliases": [],
@@ -1637,5 +1651,6 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "2.2.0"
 }
