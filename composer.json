@@ -1,6 +1,6 @@
 {
   "require": {
-    "sendgrid/sendgrid": "~7",
+    "sendgrid/sendgrid": "~8",
     "neverbounce/neverbounce-php": "~4.1.0",
     "smarty/smarty": "^3.1",
     "bramus/router": "^1.4",
