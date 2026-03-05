@@ -17,7 +17,7 @@ const { title, description, pubDate, updatedDate } = Astro.props;
     <BaseHead title={`${title} — ${SITE_TITLE}`} description={description} />
     <style>
       main {
-        max-width: 720px;
+        max-width: var(--content-width);
         margin: 0 auto;
         padding: 2rem var(--space-page);
       }

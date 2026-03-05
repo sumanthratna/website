@@ -18,7 +18,7 @@
     "@fontsource-variable/geist-mono": "^5.2.7",
     "@fontsource-variable/newsreader": "^5.2.10",
     "astro": "^5.17.1",
-    "katex": "^0.16.33",
+    "katex": "^0.16.34",
     "rehype-katex": "^7.0.1",
     "remark-math": "^6.0.0",
     "sharp": "^0.34.3",

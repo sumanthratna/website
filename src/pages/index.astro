@@ -1,5 +1,6 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 ---
 
@@ -8,38 +9,16 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     <style>
-      body {
-        margin: 0;
-      }
-      .blog-link {
-        position: absolute;
-        top: 1.5rem;
-        right: var(--space-page);
-        font-family: var(--font-body);
-        font-size: 0.875rem;
-        color: var(--color-text-muted);
-        text-decoration: none;
-        min-width: 44px;
-        min-height: 44px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .blog-link:hover {
-        color: var(--color-text);
-      }
       main {
-        min-height: 100dvh;
         display: flex;
         align-items: flex-start;
         justify-content: center;
         padding: 0 var(--space-page);
-        /* Golden ratio: top of content at ~38% from top */
-        padding-top: 34vh;
+        padding-top: 24vh;
       }
       @supports (height: 1dvh) {
         main {
-          padding-top: 34dvh;
+          padding-top: 24dvh;
         }
       }
       .content {
@@ -66,7 +45,6 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
       }
       .links a {
         color: var(--color-text);
-        text-decoration: none;
       }
       .links a:hover {
         color: var(--color-accent);
@@ -79,8 +57,8 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
     </style>
   </head>
   <body>
-    <a href="/blog" class="blog-link">Blog</a>
-    <main>
+    <Header />
+    <main id="main-content">
       <div class="content">
         <h1>Sumanth Ratna</h1>
         <p class="tagline">I work on AI and machine learning for healthcare.</p>
