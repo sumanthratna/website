@@ -2,6 +2,15 @@
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+
+const SOCIAL_LINKS = [
+  { label: "GitHub", href: "https://github.com/sumanthratna/" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/sumanthratna/" },
+  {
+    label: "Google Scholar",
+    href: "https://scholar.google.com/citations?user=XW5zExUAAAAJ",
+  },
+];
 ---
 
 <!doctype html>
@@ -40,19 +49,85 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
         margin: 0 0 1.5rem;
       }
       .links {
+        display: inline-flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 0.2rem 0.9rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
         font-size: 0.9375rem;
-        color: var(--color-text-muted);
+      }
+      .links li {
+        opacity: 0;
+        transform: translateY(0.45rem);
+        animation: social-link-enter 440ms cubic-bezier(0.2, 0.9, 0.2, 1) both;
+        animation-delay: calc(var(--stagger) * 85ms);
       }
       .links a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+        min-height: 44px;
+        padding: 0 0.1rem;
         color: var(--color-text);
+        text-decoration: none;
+        touch-action: manipulation;
       }
-      .links a:hover {
+      .link-label {
+        text-decoration-line: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.16em;
+        text-decoration-color: color-mix(
+          in srgb,
+          currentColor 45%,
+          transparent
+        );
+        transition: text-decoration-color 140ms ease;
+      }
+      .links a:hover,
+      .links a:focus-visible {
         color: var(--color-accent);
       }
-      .sep {
-        margin: 0 0.5em;
-        color: var(--color-text-muted);
-        user-select: none;
+      .links a:hover .link-label,
+      .links a:focus-visible .link-label {
+        text-decoration-color: currentColor;
+      }
+      .external-indicator {
+        display: inline-block;
+        font-size: 0.75em;
+        color: color-mix(in srgb, currentColor 65%, var(--color-text-muted));
+        transform: translateY(-0.08em);
+        transition:
+          transform 140ms ease,
+          color 140ms ease;
+      }
+      .links a:hover .external-indicator,
+      .links a:focus-visible .external-indicator {
+        color: currentColor;
+        transform: translate(0.08em, -0.14em);
+      }
+      @keyframes social-link-enter {
+        from {
+          opacity: 0;
+          transform: translateY(0.45rem);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .links li {
+          opacity: 1;
+          transform: none;
+          animation: none;
+        }
+        .external-indicator {
+          transform: none;
+          transition: none;
+        }
       }
     </style>
   </head>
@@ -62,15 +137,21 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
       <div class="content">
         <h1>Sumanth Ratna</h1>
         <p class="tagline">I work on AI and machine learning for healthcare.</p>
-        <div class="links">
-          <a href="https://github.com/sumanthratna/">GitHub</a>
-          <span class="sep">&middot;</span>
-          <a href="https://www.linkedin.com/in/sumanthratna/">LinkedIn</a>
-          <span class="sep">&middot;</span>
-          <a href="https://scholar.google.com/citations?user=XW5zExUAAAAJ"
-            >Google Scholar</a
-          >
-        </div>
+        <ul class="links" aria-label="Social links">
+          {
+            SOCIAL_LINKS.map((link, index) => (
+              <li style={`--stagger: ${index};`}>
+                <a href={link.href} target="_blank" rel="noopener noreferrer">
+                  <span class="link-label">{link.label}</span>
+                  <span class="external-indicator" aria-hidden="true">
+                    &#8599;
+                  </span>
+                  <span class="sr-only">(opens in new tab)</span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
       </div>
     </main>
   </body>
