@@ -13,6 +13,13 @@ import { SITE_TITLE } from "../consts";
     />
     <meta name="robots" content="noindex" />
     <style>
+      /* ---------------------------------------------------------
+       * ANIMATION STORYBOARD
+       *
+       * 0ms   eyebrow appears
+       * 120ms title appears
+       * 240ms message appears
+       * --------------------------------------------------------- */
       main {
         display: flex;
         align-items: flex-start;
@@ -35,6 +42,11 @@ import { SITE_TITLE } from "../consts";
         color: var(--color-text-muted);
         letter-spacing: 0.12em;
         text-transform: uppercase;
+        opacity: 0;
+        transform: translateY(var(--motion-distance-sm));
+        animation: not-found-enter var(--motion-base) var(--ease-emphasized)
+          both;
+        animation-delay: 0ms;
       }
       h1 {
         font-family: var(--font-heading);
@@ -43,12 +55,41 @@ import { SITE_TITLE } from "../consts";
         margin: 0 0 0.5rem;
         line-height: 1.1;
         color: var(--color-text);
+        opacity: 0;
+        transform: translateY(var(--motion-distance-sm));
+        animation: not-found-enter var(--motion-base) var(--ease-emphasized)
+          both;
+        animation-delay: 120ms;
       }
       .message {
         font-size: 1.0625rem;
         line-height: 1.6;
         color: var(--color-text-muted);
         margin: 0;
+        opacity: 0;
+        transform: translateY(var(--motion-distance-sm));
+        animation: not-found-enter var(--motion-base) var(--ease-emphasized)
+          both;
+        animation-delay: 240ms;
+      }
+      @keyframes not-found-enter {
+        from {
+          opacity: 0;
+          transform: translateY(var(--motion-distance-sm));
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .eyebrow,
+        h1,
+        .message {
+          opacity: 1;
+          transform: none;
+          animation: none;
+        }
       }
     </style>
   </head>
@@ -57,7 +98,7 @@ import { SITE_TITLE } from "../consts";
     <main id="main-content">
       <section class="content" aria-labelledby="not-found-title">
         <p class="eyebrow">404</p>
-        <h1 id="not-found-title">Page not found</h1>
+        <h1 id="not-found-title">Page Not Found</h1>
         <p class="message">
           The page may have moved or the URL may be incorrect. Use the
           navigation above to continue browsing.
