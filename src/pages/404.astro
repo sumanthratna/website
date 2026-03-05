@@ -1,0 +1,68 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import { SITE_TITLE } from "../consts";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead
+      title={`404 — ${SITE_TITLE}`}
+      description="The page you are looking for could not be found."
+    />
+    <meta name="robots" content="noindex" />
+    <style>
+      main {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 0 var(--space-page);
+        padding-top: 22vh;
+      }
+      @supports (height: 1dvh) {
+        main {
+          padding-top: 22dvh;
+        }
+      }
+      .content {
+        max-width: 560px;
+        text-align: center;
+      }
+      .eyebrow {
+        margin: 0 0 0.75rem;
+        font-size: 0.75rem;
+        color: var(--color-text-muted);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      h1 {
+        font-family: var(--font-heading);
+        font-size: clamp(2rem, 5vw, 2.75rem);
+        font-weight: 500;
+        margin: 0 0 0.5rem;
+        line-height: 1.1;
+        color: var(--color-text);
+      }
+      .message {
+        font-size: 1.0625rem;
+        line-height: 1.6;
+        color: var(--color-text-muted);
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <Header />
+    <main id="main-content">
+      <section class="content" aria-labelledby="not-found-title">
+        <p class="eyebrow">404</p>
+        <h1 id="not-found-title">Page not found</h1>
+        <p class="message">
+          The page may have moved or the URL may be incorrect. Use the
+          navigation above to continue browsing.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
