@@ -1,62 +1,96 @@
-# Astro Starter Kit: Blog
+# Sumanth Ratna Website
 
-```sh
-pnpm create astro@latest -- --template blog
+Personal website and blog built with [Astro](https://astro.build/).
+
+## Tech Stack
+
+- Astro 5 with TypeScript (strict config)
+- Astro content collections for blog posts
+- MD and MDX content support
+- Math rendering with `remark-math` + `rehype-katex`
+- RSS feed generation with `@astrojs/rss`
+- Sitemap generation with `@astrojs/sitemap`
+
+## Prerequisites
+
+- Node.js 20+
+- pnpm 10+
+
+## Local Development
+
+```bash
+pnpm install
+pnpm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Astro will start a local dev server (typically at `http://localhost:4321`).
 
-Features:
+## Available Scripts
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
+- `pnpm run dev` - start the local development server
+- `pnpm run build` - create a production build in `dist/`
+- `pnpm run preview` - preview the production build locally
+- `pnpm run format` - format the codebase with Prettier
+- `pnpm astro` - run Astro CLI commands directly
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
+## Project Structure
 
 ```text
-├── public/
-├── src/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
+.
+|- src/
+|  |- components/      # shared UI components
+|  |- layouts/         # page layouts (for blog posts)
+|  |- pages/           # route-based pages
+|  |- styles/          # global styles and theme tokens
+|  |- content.config.ts
+|- public/             # static assets
+|- astro.config.mjs    # Astro + markdown integration config
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Blog posts are loaded from `src/content/blog/**/*.{md,mdx}`.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Writing Blog Posts
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+Create a new file in `src/content/blog/`, for example:
 
-Any static assets, like images, can be placed in the `public/` directory.
+- `src/content/blog/my-first-post.mdx`
+- `src/content/blog/research/notes.md`
 
-## 🧞 Commands
+Each post must include this frontmatter shape:
 
-All commands are run from the root of the project, from a terminal:
+```md
+---
+title: "Post title"
+description: "Short description"
+pubDate: 2026-03-04
+updatedDate: 2026-03-05 # optional
+---
+```
 
-| Command                | Action                                           |
-| :--------------------- | :----------------------------------------------- |
-| `pnpm install`         | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+### Math in Posts
 
-## 👀 Want to learn more?
+- Inline math: `$E = mc^2$`
+- Block math:
 
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+```tex
+$$
+\int_0^1 x^2 dx = \frac{1}{3}
+$$
+```
 
-## Credit
+## Site Metadata
 
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+- Update site title/description in `src/consts.ts`
+- Update canonical site URL in `astro.config.mjs` (`site`)
+
+## Production Build
+
+```bash
+pnpm build
+pnpm preview
+```
+
+The production output is generated in `dist/`, including:
+
+- `sitemap-index.xml`
+- `rss.xml`
