@@ -117,29 +117,27 @@ const posts = (await getCollection("blog")).sort(
     <Header />
     <main id="main-content">
       <h1 class="sr-only">Blog</h1>
-      {
-        posts.length === 0 ? (
-          <p class="empty">No posts yet.</p>
-        ) : (
-          <ul>
-            {posts.map((post, index) => (
-              <li style={`--stagger: ${Math.min(index, 9)};`}>
-                <a href={`/blog/${post.id}/`}>
-                  <h2 class="title">{post.data.title}</h2>
-                  <div class="meta">
-                    <span class="date">
-                      <FormattedDate date={post.data.pubDate} />
-                    </span>
-                  </div>
-                  {post.data.description && (
-                    <p class="description">{post.data.description}</p>
-                  )}
-                </a>
-              </li>
-            ))}
-          </ul>
-        )
-      }
+      {posts.length === 0 ? (
+        <p class="empty">No posts yet.</p>
+      ) : (
+        <ul>
+          {posts.map((post, index) => (
+            <li style={`--stagger: ${Math.min(index, 9)};`}>
+              <a href={`/blog/${post.id}/`}>
+                <h2 class="title">{post.data.title}</h2>
+                <div class="meta">
+                  <span class="date">
+                    <FormattedDate date={post.data.pubDate} />
+                  </span>
+                </div>
+                {post.data.description && (
+                  <p class="description">{post.data.description}</p>
+                )}
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
     </main>
     <Footer />
   </body>
